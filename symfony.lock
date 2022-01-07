@@ -1,6 +1,21 @@
 {
+    "doctrine/annotations": {
+        "version": "1.13",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "a2759dd6123694c8d901d0ec80006e044c2e6457"
+        },
+        "files": [
+            "config/routes/annotations.yaml"
+        ]
+    },
     "doctrine/inflector": {
         "version": "2.0.4"
+    },
+    "doctrine/lexer": {
+        "version": "1.2.1"
     },
     "friendsofsymfony/rest-bundle": {
         "version": "3.2",

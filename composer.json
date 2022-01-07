@@ -7,6 +7,7 @@
         "php": ">=8.0.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "doctrine/annotations": "^1.13",
         "friendsofsymfony/rest-bundle": "^3.2",
         "symfony/console": "6.0.*",
         "symfony/dotenv": "6.0.*",
