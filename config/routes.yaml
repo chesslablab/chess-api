@@ -1,4 +1,4 @@
-api_start:
-    path:       /api/start
-    controller: App\Controller\StartController::index
+api_play:
+    path:       /api/play
+    controller: App\Controller\PlayController::index
     methods:    POST

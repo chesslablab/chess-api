@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class StartController extends AbstractController
+class PlayController extends AbstractController
 {
     public function index(Request $request): Response
     {
