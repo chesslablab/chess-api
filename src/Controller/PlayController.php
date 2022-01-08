@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Chess\Player;
+use Chess\FEN\BoardToString;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,14 +19,13 @@ class PlayController extends AbstractController
 
         $board = $player->play()->getBoard();
 
-        $status = (object) [
-            'castling' => $board->getCastling(),
+        $response = [
+            'fen' => (new BoardToString($board))->create(),
             'isCheck' => $board->isCheck(),
             'isMate' => $board->isMate(),
             'movetext' => $board->getMovetext(),
-            'turn' => $board->getTurn(),
         ];
 
-        return $this->json($status);
+        return $this->json($response);
     }
 }
