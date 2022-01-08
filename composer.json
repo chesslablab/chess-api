@@ -7,6 +7,7 @@
         "php": ">=8.0.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "chesslablab/php-chess": "^1.1",
         "doctrine/annotations": "^1.13",
         "friendsofsymfony/rest-bundle": "^3.2",
         "symfony/console": "6.0.*",
