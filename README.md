@@ -1,3 +1,3 @@
 ## Chess API
 
-A REST API.
+A chess REST API.
