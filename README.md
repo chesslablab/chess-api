@@ -1,2 +1,3 @@
-# chess-api
-Chess REST API.
+## Chess API
+
+A REST API.
