@@ -4,10 +4,13 @@ namespace App\Controller;
 
 use Chess\Player;
 use Chess\FEN\BoardToString;
+use Chess\Exception\MovetextException;
+use Chess\Exception\UnknownNotationException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class PlayController extends AbstractController
 {
@@ -15,9 +18,13 @@ class PlayController extends AbstractController
     {
         $params = json_decode($request->getContent(), true);
 
-        $player = new Player($params['movetext']);
-
-        $board = $player->play()->getBoard();
+        try {
+            $board = (new Player($params['movetext']))->play()->getBoard();
+        } catch (MovetextException $e) {
+            throw new BadRequestHttpException($e->getMessage());
+        } catch (UnknownNotationException $e) {
+            throw new BadRequestHttpException($e->getMessage());
+        }
 
         $response = [
             'fen' => (new BoardToString($board))->create(),
