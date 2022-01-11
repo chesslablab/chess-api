@@ -1,4 +1,4 @@
 api_play:
     path:       /api/play
-    controller: App\Controller\PlayController::index
+    controller: ChessApi\Controller\PlayController::index
     methods:    POST
