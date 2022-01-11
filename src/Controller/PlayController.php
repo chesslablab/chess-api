@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace ChessApi\Controller;
 
 use Chess\Player;
 use Chess\FEN\BoardToString;
