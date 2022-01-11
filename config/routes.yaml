@@ -2,3 +2,8 @@ api_play:
     path:       /api/play
     controller: ChessApi\Controller\PlayController::index
     methods:    POST
+
+api_grandmaster:
+    path:       /api/grandmaster
+    controller: ChessApi\Controller\GrandmasterController::index
+    methods:    POST
