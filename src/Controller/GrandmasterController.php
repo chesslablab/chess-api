@@ -6,16 +6,11 @@ use ChessApi\Pdo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class GrandmasterController extends AbstractController
 {
     public function index(Request $request): Response
     {
-        $params = json_decode($request->getContent(), true);
-
-        //  TODO
-
         $conf = [
             'driver' => $_ENV['DB_DRIVER'],
             'host' => $_ENV['DB_HOST'],
@@ -24,12 +19,28 @@ class GrandmasterController extends AbstractController
             'password' => $_ENV['DB_PASSWORD'],
         ];
 
-        Pdo::getInstance($conf);
+        $params = json_decode($request->getContent(), true);
 
-        $response = [
-            'foo' => 'bar',
-        ];
+        $sql = "SELECT * FROM games WHERE movetext LIKE '{$params['movetext']}%'";
 
-        return $this->json($response);
+        $all = Pdo::getInstance($conf)
+            ->query($sql)
+            ->fetchAll(\PDO::FETCH_ASSOC);
+
+        if ($all) {
+            shuffle($all);
+            $moves = array_filter(
+                explode(' ', str_replace($params['movetext'], '', $all[0]['movetext']))
+            );
+            $current = explode('.', current($moves));
+            return $this->json([
+                'pgn' => isset($current[1]) ? $current[1] : $current[0],
+            ]);
+        }
+
+        $response = new Response();
+        $response->setStatusCode(Response::HTTP_NO_CONTENT);
+
+        return $response;
     }
 }
