@@ -15,6 +15,9 @@ class DocsController extends AbstractController
     {
         $json = file_get_contents(self::DOCS_FOLDER . '/swagger.json');
 
-        print_r($json);
+        $response = new Response();
+        $response->setContent($json);
+
+        return $response;
     }
 }
