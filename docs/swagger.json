@@ -17,8 +17,7 @@ paths:
     post:
       tags:
       - "Chess API"
-      summary: "Given a PGN movetext, returns the PGN move that would follow according to a grandmaster."
-      description: "If a particular move isn't found in the database, it means it hasn't been played before as per the current information available, which may suggest it's not a good one to make, or more simply, a new line of multiple possible variants out there is being played."
+      summary: "Given a movetext, returns the PGN move that would follow according to a grandmaster."
       consumes:
       - "application/json"
       produces:
@@ -35,9 +34,41 @@ paths:
           description: "OK"
         "204":
           description: "No Content"
+  /opening:
+    post:
+      tags:
+      - "Chess API"
+      summary: "Given a set of parameters, returns chess opening data."
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Parameters"
+        required: true
+        schema:
+          $ref: "#/definitions/OpeningRequest"
+      responses:
+        "200":
+          description: "OK"
+        "204":
+          description: "No Content"
+        "400":
+          description: "Bad Request"
 definitions:
   GrandmasterRequest:
     type: object
     properties:
+      movetext:
+        type: string
+  OpeningRequest:
+    type: object
+    properties:
+      eco:
+        type: string
+      name:
+        type: string
       movetext:
         type: string
