@@ -1,0 +1,43 @@
+swagger: "2.0"
+info:
+  description: "Chess REST API."
+  version: "1.0.0"
+  title: "Chess REST API"
+  contact:
+    email: "info@programarivm.com"
+host: "pchess.net"
+basePath: "/api"
+tags:
+- name: "Chess API"
+schemes:
+- "https"
+- "http"
+paths:
+  /grandmaster:
+    post:
+      tags:
+      - "Chess API"
+      summary: "Given a PGN movetext, returns the PGN move that would follow according to a grandmaster."
+      description: "If a particular move isn't found in the database, it means it hasn't been played before as per the current information available, which may suggest it's not a good one to make, or more simply, a new line of multiple possible variants out there is being played."
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "PGN movetext"
+        required: true
+        schema:
+          $ref: "#/definitions/GrandmasterRequest"
+      responses:
+        "200":
+          description: "OK"
+        "204":
+          description: "No Content"
+definitions:
+  GrandmasterRequest:
+    type: object
+    properties:
+      movetext:
+        type: string
