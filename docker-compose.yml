@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  php_fpm:
+      build: .
+      container_name: chess_api_php_fpm
+      networks:
+          - chess_api
+      restart: always
+      volumes:
+          - ./:/usr/share/nginx/chess-api
+          - ./docker/php/8.0/cli/php.ini:/usr/local/etc/php/php.ini
+      working_dir: /usr/share/nginx/chess-api
+  nginx:
+      image: nginx:1.20
+      container_name: chess_api_nginx
+      networks:
+          - chess_api
+      ports:
+          - "443:443"
+      restart: always
+      volumes:
+          - ./:/usr/share/nginx/chess-api
+          - ./docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+          - ./docker/nginx/ssl/certificate.crt:/etc/nginx/ssl/certificate.crt
+          - ./docker/nginx/ssl/private.key:/etc/nginx/ssl/private.key
+      working_dir: /usr/share/nginx/chess-api
+networks:
+  chess_api:
+    driver: bridge
