@@ -18,3 +18,7 @@ docker exec -itu 1000:1000 chess_api_php_fpm composer install
 # build the docker containers
 cd $APP_PATH
 docker-compose up -d
+
+# update the .env file with the container's ip
+IP_ADDRESS="$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' chess_data_mysql)"
+sed -i "s/DB_HOST=.*/DB_HOST=${IP_ADDRESS}/g" .env
