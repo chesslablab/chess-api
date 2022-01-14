@@ -6,5 +6,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     zip
 
+RUN docker-php-ext-install mysqli pdo_mysql
+
 RUN curl --silent --show-error https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer
