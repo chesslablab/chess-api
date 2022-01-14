@@ -4,8 +4,6 @@ services:
   php_fpm:
       build: .
       container_name: chess_api_php_fpm
-      networks:
-          - chess_api
       restart: always
       volumes:
           - ./:/usr/share/nginx/chess-api
@@ -14,8 +12,6 @@ services:
   nginx:
       image: nginx:1.20
       container_name: chess_api_nginx
-      networks:
-          - chess_api
       ports:
           - "443:443"
       restart: always
@@ -26,5 +22,6 @@ services:
           - ./docker/nginx/ssl/private.key:/etc/nginx/ssl/private.key
       working_dir: /usr/share/nginx/chess-api
 networks:
-  chess_api:
-    driver: bridge
+  default:
+    external: true
+    name: chess-data_default
