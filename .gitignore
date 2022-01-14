@@ -19,7 +19,7 @@
 .env
 .env.test
 
-### dev ssl cert
+### ssl certs
 /docker/nginx/ssl/*.pem
 /docker/nginx/ssl/*.csr
 /docker/nginx/ssl/*.crt

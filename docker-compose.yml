@@ -22,8 +22,8 @@ services:
       volumes:
           - ./:/usr/share/nginx/chess-api
           - ./docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
-          - ./docker/nginx/ssl/pchess.local.crt:/etc/nginx/ssl/pchess.local.crt
-          - ./docker/nginx/ssl/pchess.local.key:/etc/nginx/ssl/pchess.local.key
+          - ./docker/nginx/ssl/certificate.crt:/etc/nginx/ssl/certificate.crt
+          - ./docker/nginx/ssl/private.key:/etc/nginx/ssl/private.key
       working_dir: /usr/share/nginx/chess-api
 networks:
   chess_api:
