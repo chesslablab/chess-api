@@ -50,6 +50,16 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/OpeningRequest'
+            examples:
+              eco:
+                value:
+                  eco: B94
+              name:
+                value:
+                  name: Sicilian
+              movetext:
+                value:
+                  movetext: 1.Nf3 d5 2.g3
         required: true
       responses:
         200:
