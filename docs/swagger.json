@@ -1,23 +1,22 @@
 {
-  "swagger": "2.0",
+  "openapi": "3.0.1",
   "info": {
-    "description": "Chess REST API.",
-    "version": "1.0.0",
     "title": "Chess REST API",
+    "description": "Chess REST API.",
     "contact": {
       "email": "info@programarivm.com"
-    }
+    },
+    "version": "1.0.0"
   },
-  "host": "pchess.net",
-  "basePath": "/api",
+  "servers": [
+    {
+      "url": "https://pchess.net/api"
+    }
+  ],
   "tags": [
     {
       "name": "Chess API"
     }
-  ],
-  "schemes": [
-    "https",
-    "http"
   ],
   "paths": {
     "/grandmaster": {
@@ -25,32 +24,65 @@
         "tags": [
           "Chess API"
         ],
-        "summary": "Given a movetext, returns the PGN move that would follow according to a grandmaster.",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "PGN movetext",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/GrandmasterRequest"
+        "summary": "Returns the PGN move that would follow the given movetext according to a grandmaster.",
+        "requestBody": {
+          "description": "PGN movetext",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrandmasterRequest"
+              },
+              "examples": {
+                "movetext, 200 OK": {
+                  "value": {
+                    "movetext": "1.e4 c6 2.Nc3"
+                  }
+                },
+                "movetext, 204 No Content": {
+                  "value": {
+                    "movetext": "1.e5"
+                  }
+                }
+              }
             }
-          }
-        ],
+          },
+          "required": true
+        },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrandmasterResponse"
+                },
+                "examples": {
+                  "movetext, 200 OK": {
+                    "value": {
+                      "pgn": "d4"
+                    }
+                  }
+                }
+              }
+            }
           },
           "204": {
-            "description": "No Content"
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrandmasterResponse"
+                },
+                "examples": {
+                  "movetext, 204 No Content": {
+                    "value": null
+                  }
+                }
+              }
+            }
           }
-        }
+        },
+        "x-codegen-request-body-name": "body"
       }
     },
     "/opening": {
@@ -58,35 +90,126 @@
         "tags": [
           "Chess API"
         ],
-        "summary": "Given a set of parameters, returns chess opening data.",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Parameters",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/OpeningRequest"
+        "summary": "Returns chess opening data given a set of parameters.",
+        "requestBody": {
+          "description": "Parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OpeningRequest"
+              },
+              "examples": {
+                "eco, 200 OK": {
+                  "value": {
+                    "eco": "B94"
+                  }
+                },
+                "name, 200 OK": {
+                  "value": {
+                    "name": "Sicilian"
+                  }
+                },
+                "movetext, 200 OK": {
+                  "value": {
+                    "movetext": "1.Nf3 d5 2.g3"
+                  }
+                }
+              }
             }
-          }
-        ],
+          },
+          "required": true
+        },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OpeningResponse"
+                },
+                "examples": {
+                  "eco, 200 OK": {
+                    "value": [
+                      {
+                        "eco": "B94",
+                        "name": "Sicilian Defense: Najdorf Variation",
+                        "movetext": "1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Bg5"
+                      },
+                      {
+                        "eco": "B94",
+                        "name": "Sicilian Defense: Najdorf Variation, Ivkov Variation",
+                        "movetext": "1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Bg5 Nbd7 7.Bc4 Qa5 8.Qd2 e6 9.O-O-O b5 10.Bb3 Bb7 11.Rhe1 Nc5 12.e5"
+                      }
+                    ]
+                  },
+                  "movetext, 200 OK": {
+                    "value": [
+                      {
+                        "eco": "A07",
+                        "name": "King's Indian Attack",
+                        "movetext": "1.Nf3 d5 2.g3"
+                      },
+                      {
+                        "eco": "A07",
+                        "name": "King's Indian Attack: Double Fianchetto",
+                        "movetext": "1.Nf3 d5 2.g3 g6"
+                      },
+                      {
+                        "eco": "A07",
+                        "name": "King's Indian Attack: Keres Variation",
+                        "movetext": "1.Nf3 d5 2.g3 Bg4"
+                      },
+                      {
+                        "eco": "A07",
+                        "name": "King's Indian Attack: Keres Variation",
+                        "movetext": "1.Nf3 d5 2.g3 Bg4 3.Bg2 Nd7"
+                      },
+                      {
+                        "eco": "A07",
+                        "name": "King's Indian Attack: Omega-Delta Gambit",
+                        "movetext": "1.Nf3 d5 2.g3 e5"
+                      },
+                      {
+                        "eco": "A07",
+                        "name": "King's Indian Attack: Pachman System",
+                        "movetext": "1.Nf3 d5 2.g3 g6 3.Bg2 Bg7 4.O-O e5 5.d3 Ne7"
+                      },
+                      {
+                        "eco": "A07",
+                        "name": "King's Indian Attack: Sicilian Variation",
+                        "movetext": "1.Nf3 d5 2.g3 c5"
+                      },
+                      {
+                        "eco": "A08",
+                        "name": "King's Indian Attack: French Variation",
+                        "movetext": "1.Nf3 d5 2.g3 c5 3.Bg2 Nc6"
+                      },
+                      {
+                        "eco": "A08",
+                        "name": "King's Indian Attack: Sicilian Variation",
+                        "movetext": "1.Nf3 d5 2.g3 c5 3.Bg2"
+                      },
+                      {
+                        "eco": "A08",
+                        "name": "Zukertort Opening: Grünfeld Reversed",
+                        "movetext": "1.Nf3 d5 2.g3 c5 3.Bg2 Nc6 4.d4 e6 5.O-O"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
           },
           "204": {
-            "description": "No Content"
+            "description": "No Content",
+            "content": {}
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad Request",
+            "content": {}
           }
-        }
+        },
+        "x-codegen-request-body-name": "body"
       }
     },
     "/play": {
@@ -94,66 +217,125 @@
         "tags": [
           "Chess API"
         ],
-        "summary": "Allows to play a game.",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Parameters",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/PlayRequest"
+        "summary": "Validates the given movetext allowing to play a game.",
+        "requestBody": {
+          "description": "Parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlayRequest"
+              },
+              "examples": {
+                "movetext, 200 OK": {
+                  "value": {
+                    "movetext": "1.e4"
+                  }
+                },
+                "movetext, 400 Bad Request": {
+                  "value": {
+                    "movetext": "1.e4 e4"
+                  }
+                }
+              }
             }
-          }
-        ],
+          },
+          "required": true
+        },
         "responses": {
           "200": {
-            "description": "OK"
-          },
-          "204": {
-            "description": "No Content"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayResponse"
+                },
+                "examples": {
+                  "movetext, 200 OK": {
+                    "value": {
+                      "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3",
+                      "isCheck": false,
+                      "isMate": false,
+                      "movetext": "1.e4"
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayResponse"
+                },
+                "examples": {
+                  "movetext, 400 Bad Request": {
+                    "value": {
+                      "message": "This move is not allowed: e4"
+                    }
+                  }
+                }
+              }
+            }
           }
-        }
+        },
+        "x-codegen-request-body-name": "body"
       }
     }
   },
-  "definitions": {
-    "GrandmasterRequest": {
-      "type": "object",
-      "properties": {
-        "movetext": {
-          "type": "string"
+  "components": {
+    "schemas": {
+      "GrandmasterRequest": {
+        "type": "object",
+        "properties": {
+          "movetext": {
+            "type": "string"
+          }
         }
-      }
-    },
-    "OpeningRequest": {
-      "type": "object",
-      "properties": {
-        "eco": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "movetext": {
-          "type": "string"
+      },
+      "GrandmasterResponse": {
+        "type": "object",
+        "properties": {
+          "movetext": {
+            "type": "string"
+          }
         }
-      }
-    },
-    "PlayRequest": {
-      "type": "object",
-      "properties": {
-        "movetext": {
-          "type": "string"
+      },
+      "OpeningRequest": {
+        "type": "object",
+        "properties": {
+          "eco": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "movetext": {
+            "type": "string"
+          }
+        }
+      },
+      "OpeningResponse": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "PlayRequest": {
+        "type": "object",
+        "properties": {
+          "movetext": {
+            "type": "string"
+          }
+        }
+      },
+      "PlayResponse": {
+        "type": "object",
+        "properties": {
+          "movetext": {
+            "type": "string"
+          }
         }
       }
     }
