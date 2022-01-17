@@ -24,10 +24,10 @@ paths:
             schema:
               $ref: '#/components/schemas/GrandmasterRequest'
             examples:
-              200 OK:
+              movetext, 200 OK:
                 value:
                   movetext: "1.e4 c6 2.Nc3"
-              204 No Content:
+              movetext, 204 No Content:
                 value:
                   movetext: "1.e5"
         required: true
@@ -39,7 +39,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GrandmasterResponse'
               examples:
-                200 OK:
+                movetext, 200 OK:
                   value:
                     pgn: "d4"
         204:
@@ -49,7 +49,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GrandmasterResponse'
               examples:
-                204 No Content:
+                movetext, 204 No Content:
                   value: null
       x-codegen-request-body-name: body
   /opening:
@@ -64,13 +64,13 @@ paths:
             schema:
               $ref: '#/components/schemas/OpeningRequest'
             examples:
-              eco:
+              eco, 200 OK:
                 value:
                   eco: B94
-              name:
+              name, 200 OK:
                 value:
                   name: Sicilian
-              movetext:
+              movetext, 200 OK:
                 value:
                   movetext: 1.Nf3 d5 2.g3
         required: true
@@ -82,7 +82,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OpeningResponse'
               examples:
-                eco:
+                eco, 200 OK:
                   value: [
                     {
                       "eco": "B94",
@@ -95,7 +95,7 @@ paths:
                       "movetext": "1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Bg5 Nbd7 7.Bc4 Qa5 8.Qd2 e6 9.O-O-O b5 10.Bb3 Bb7 11.Rhe1 Nc5 12.e5"
                     }
                   ]
-                movetext:
+                movetext, 200 OK:
                   value: [
                     {
                       "eco": "A07",
