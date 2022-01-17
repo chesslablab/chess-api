@@ -23,6 +23,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/GrandmasterRequest'
+            example:
+              movetext: "1.e4 c6 2.Nc3"
         required: true
       responses:
         200:
