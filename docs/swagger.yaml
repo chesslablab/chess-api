@@ -7,7 +7,6 @@ info:
   version: 1.0.0
 servers:
 - url: https://pchess.net/api
-- url: http://pchess.net/api
 tags:
 - name: Chess API
 paths:
