@@ -29,7 +29,12 @@ paths:
       responses:
         200:
           description: OK
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrandmasterResponse'
+              example:
+                pgn: "d4"
         204:
           description: No Content
           content: {}
@@ -83,6 +88,11 @@ paths:
 components:
   schemas:
     GrandmasterRequest:
+      type: object
+      properties:
+        movetext:
+          type: string
+    GrandmasterResponse:
       type: object
       properties:
         movetext:
