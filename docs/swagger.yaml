@@ -23,8 +23,13 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/GrandmasterRequest'
-            example:
-              movetext: 1.e4 c6 2.Nc3
+            examples:
+              200 OK:
+                value:
+                  movetext: "1.e4 c6 2.Nc3"
+              204 No Content:
+                value:
+                  movetext: "1.e5"
         required: true
       responses:
         200:
@@ -33,11 +38,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GrandmasterResponse'
-              example:
-                pgn: "d4"
+              examples:
+                200 OK:
+                  value:
+                    pgn: "d4"
         204:
           description: No Content
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrandmasterResponse'
+              examples:
+                204 No Content:
+                  value: null
       x-codegen-request-body-name: body
   /opening:
     post:
