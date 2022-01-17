@@ -14,7 +14,7 @@ paths:
     post:
       tags:
       - Chess API
-      summary: Given a movetext, returns the PGN move that would follow according
+      summary: Returns the PGN move that would follow the given movetext according
         to a grandmaster.
       requestBody:
         description: PGN movetext
@@ -55,7 +55,7 @@ paths:
     post:
       tags:
       - Chess API
-      summary: Given a set of parameters, returns chess opening data.
+      summary: Returns chess opening data given a set of parameters.
       requestBody:
         description: Parameters
         content:
@@ -158,7 +158,7 @@ paths:
     post:
       tags:
       - Chess API
-      summary: Allows to play a game.
+      summary: Validates the given movetext allowing to play a game.
       requestBody:
         description: Parameters
         content:
