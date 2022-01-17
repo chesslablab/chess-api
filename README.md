@@ -2,6 +2,10 @@
 
 A chess REST API.
 
+### Documentation
+
+Read the latest docs [here](https://app.swaggerhub.com/apis-docs/chesslablab/chess-rest_api/1.0.0).
+
 ### Setup
 
 Clone the `chesslablab/chess-api` repo into your projects folder as it is described in the following example:
