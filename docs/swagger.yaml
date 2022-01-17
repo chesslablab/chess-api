@@ -1,102 +1,101 @@
-swagger: "2.0"
+openapi: 3.0.1
 info:
-  description: "Chess REST API."
-  version: "1.0.0"
-  title: "Chess REST API"
+  title: Chess REST API
+  description: Chess REST API.
   contact:
-    email: "info@programarivm.com"
-host: "pchess.net"
-basePath: "/api"
+    email: info@programarivm.com
+  version: 1.0.0
+servers:
+- url: https://pchess.net/api
+- url: http://pchess.net/api
 tags:
-- name: "Chess API"
-schemes:
-- "https"
-- "http"
+- name: Chess API
 paths:
   /grandmaster:
     post:
       tags:
-      - "Chess API"
-      summary: "Given a movetext, returns the PGN move that would follow according to a grandmaster."
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "PGN movetext"
+      - Chess API
+      summary: Given a movetext, returns the PGN move that would follow according
+        to a grandmaster.
+      requestBody:
+        description: PGN movetext
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrandmasterRequest'
         required: true
-        schema:
-          $ref: "#/definitions/GrandmasterRequest"
       responses:
-        "200":
-          description: "OK"
-        "204":
-          description: "No Content"
+        200:
+          description: OK
+          content: {}
+        204:
+          description: No Content
+          content: {}
+      x-codegen-request-body-name: body
   /opening:
     post:
       tags:
-      - "Chess API"
-      summary: "Given a set of parameters, returns chess opening data."
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Parameters"
+      - Chess API
+      summary: Given a set of parameters, returns chess opening data.
+      requestBody:
+        description: Parameters
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpeningRequest'
         required: true
-        schema:
-          $ref: "#/definitions/OpeningRequest"
       responses:
-        "200":
-          description: "OK"
-        "204":
-          description: "No Content"
-        "400":
-          description: "Bad Request"
+        200:
+          description: OK
+          content: {}
+        204:
+          description: No Content
+          content: {}
+        400:
+          description: Bad Request
+          content: {}
+      x-codegen-request-body-name: body
   /play:
     post:
       tags:
-      - "Chess API"
-      summary: "Allows to play a game."
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Parameters"
+      - Chess API
+      summary: Allows to play a game.
+      requestBody:
+        description: Parameters
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlayRequest'
         required: true
-        schema:
-          $ref: "#/definitions/PlayRequest"
       responses:
-        "200":
-          description: "OK"
-        "204":
-          description: "No Content"
-        "400":
-          description: "Bad Request"
-definitions:
-  GrandmasterRequest:
-    type: object
-    properties:
-      movetext:
-        type: string
-  OpeningRequest:
-    type: object
-    properties:
-      eco:
-        type: string
-      name:
-        type: string
-      movetext:
-        type: string
-  PlayRequest:
-    type: object
-    properties:
-      movetext:
-        type: string
+        200:
+          description: OK
+          content: {}
+        204:
+          description: No Content
+          content: {}
+        400:
+          description: Bad Request
+          content: {}
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    GrandmasterRequest:
+      type: object
+      properties:
+        movetext:
+          type: string
+    OpeningRequest:
+      type: object
+      properties:
+        eco:
+          type: string
+        name:
+          type: string
+        movetext:
+          type: string
+    PlayRequest:
+      type: object
+      properties:
+        movetext:
+          type: string
