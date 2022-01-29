@@ -22,7 +22,7 @@ Create an `.env` file:
 
 If necessary, update the environment variables in your `.env` file.
 
-The Chess API goes hand in hand with [Chess Data](https://github.com/chesslablab/chess-data) which is a database, data science and machine learning repository. Thus, please [setup the Chess Data repo](https://github.com/chesslablab/chess-data#setup), create a database and seed it with sample data. You may want to configure a web server along with a MySQL server in order to get the Chess API up and running, or use Docker if you prefer. Described below are the steps to do this with Docker.
+The Chess API goes hand in hand with [Chess Data](https://github.com/chesslablab/chess-data) which is a database, data science and machine learning repository. Thus, please [setup the Chess Data repo](https://github.com/chesslablab/chess-data#setup), create a database and seed it with sample data. You may want to configure a web server along with a MySQL server, or use Docker if you prefer. Described below are the steps to run the API with Docker.
 
 ---
 
@@ -55,7 +55,9 @@ e70c00029afb   bridge               bridge    local
 ffe89efcb84e   none                 null      local
 ```
 
-> Please notice that if restarting your computer, the `DB_HOST` in your `.env` file may need to be updated with the new IP of the `chess_data_mysql` container. For further information, read the [`bash/prod/start.sh`](https://github.com/chesslablab/chess-data/blob/master/bash/prod/start.sh) script.
+Please notice that if restarting your computer, the `DB_HOST` in your `.env` file may need to be updated with the new IP of the `chess_data_mysql` container.
+
+For further information, read the [`bash/prod/start.sh`](https://github.com/chesslablab/chess-data/blob/master/bash/prod/start.sh) script.
 
 ```
 $ IP_ADDRESS="$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' chess_data_mysql)"
