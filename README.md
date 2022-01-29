@@ -136,16 +136,16 @@ And finally add this entry in your `/etc/hosts` file:
 ```
 172.19.0.4      pchess.net
 ```
-![Figure 1](/src/docs/figure-01.png)
+![Figure 1](/docs/figure-01.png)
 **Figure 1**. Example of `GET /api/docs` request
 
-![Figure 2](/src/docs/figure-02.png)
+![Figure 2](/docs/figure-02.png)
 **Figure 2**. Example of `POST /api/grandmaster` request
 
-![Figure 3](/src/docs/figure-03.png)
+![Figure 3](/docs/figure-03.png)
 **Figure 3**. Example of `POST /api/opening` request
 
-![Figure 4](/src/docs/figure-04.png)
+![Figure 4](/docs/figure-04.png)
 **Figure 4**. Example of `POST /api/play` request
 
 ### Contributions
