@@ -22,11 +22,11 @@ Create an `.env` file:
 
 If necessary, update the environment variables in your `.env` file.
 
-The Chess REST API goes hand in hand with [Chess Data](https://github.com/chesslablab/chess-data) which is a database, data science and machine learning repository. It is a precondition for the API to operate properly to first [setup the Chess Data repo](https://github.com/chesslablab/chess-data#setup), and then create and seed the chess database with data. Having said that, you may want to go your own adventure in terms of configuring a web server along with a MySQL server, or use Docker if you prefer.
+The Chess API goes hand in hand with [Chess Data](https://github.com/chesslablab/chess-data) which is a database, data science and machine learning repository. Thus, please [setup the Chess Data repo](https://github.com/chesslablab/chess-data#setup), create a database and seed it with sample data. You may want to configure a web server along with a MySQL server in order to get the Chess API up and running, or use Docker if you prefer. Described below are the steps to do this with Docker.
 
-Described below are the steps to get the Chess REST API up and running with Docker.
+---
 
-#### Start the Chess Data Containers
+### Start the Chess Data Containers
 
 `cd` your `~/projects/chess-data` and run:
 
@@ -62,7 +62,7 @@ $ IP_ADDRESS="$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddre
 $ sed -i "s/DB_HOST=.*/DB_HOST=${IP_ADDRESS}/g" .env
 ```
 
-#### Create and Seed the Chess Database With Data
+### Create and Seed the Chess Database With Data
 
 Let's now create the database and seed some tables with data.
 
@@ -73,7 +73,7 @@ $ docker exec -itu 1000:1000 chess_data_php_fpm php cli/seed/games.php data/play
 $ docker exec -itu 1000:1000 chess_data_php_fpm php cli/seed/games.php data/players/PolgarJ.pgn
 ```
 
-#### Start the Chess API Containers
+### Start the Chess API Containers
 
 First things first, make sure to create and install an SSL certificate in the `docker/nginx/ssl` folder as described next:
 
@@ -122,7 +122,7 @@ CONTAINER ID   IMAGE                COMMAND                  CREATED          ST
 7b839bce2d58   mysql:8.0            "docker-entrypoint.s…"   2 hours ago      Up 6 minutes    0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp   chess_data_mysql
 ```
 
-#### Test the API Endpoints
+### Test the API Endpoints
 
 Find out the IP of the `chess_api_nginx` container as it is described in the following example:
 
@@ -137,16 +137,16 @@ And finally add this entry in your `/etc/hosts` file:
 172.19.0.4      pchess.net
 ```
 ![Figure 1](/docs/figure-01.png)
-**Figure 1**. Example of `GET /api/docs` request
+**Figure 1**. Example of `GET /api/docs` request.
 
 ![Figure 2](/docs/figure-02.png)
-**Figure 2**. Example of `POST /api/grandmaster` request
+**Figure 2**. Example of `POST /api/grandmaster` request.
 
 ![Figure 3](/docs/figure-03.png)
-**Figure 3**. Example of `POST /api/opening` request
+**Figure 3**. Example of `POST /api/opening` request.
 
 ![Figure 4](/docs/figure-04.png)
-**Figure 4**. Example of `POST /api/play` request
+**Figure 4**. Example of `POST /api/play` request.
 
 ### Contributions
 
