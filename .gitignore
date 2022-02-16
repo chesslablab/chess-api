@@ -27,3 +27,4 @@
 
 ### storage
 /storage/tmp/*
+!/storage/tmp/.gitkeep
