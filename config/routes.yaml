@@ -18,7 +18,7 @@ api_play:
     controller: ChessApi\Controller\PlayController::index
     methods:    POST
 
-api_download_gif:
-    path:       /api/download_gif
-    controller: ChessApi\Controller\DownloadGifController::index
+api_download_mp4:
+    path:       /api/download_mp4
+    controller: ChessApi\Controller\DownloadMp4Controller::index
     methods:    POST

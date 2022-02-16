@@ -3,14 +3,14 @@
 namespace ChessApi\Controller;
 
 use Chess\Player;
-use Chess\Media\BoardToGif;
+use Chess\Media\BoardToMp4;
 use Chess\PGN\Validate;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class DownloadGifController extends AbstractController
+class DownloadMp4Controller extends AbstractController
 {
     const OUTPUT_FOLDER = __DIR__.'/../../storage/tmp';
 
@@ -20,7 +20,7 @@ class DownloadGifController extends AbstractController
         $movetext = Validate::movetext($params['movetext']);
         $board = (new Player($movetext))->play()->getBoard();
         if ($board->getHistory()) {
-            $filename = (new BoardToGif($board))->output(self::OUTPUT_FOLDER);
+            $filename = (new BoardToMp4($board))->output(self::OUTPUT_FOLDER);
             $response = new BinaryFileResponse(self::OUTPUT_FOLDER.'/'.$filename);
             return $response;
         }
