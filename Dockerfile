@@ -5,7 +5,8 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     unzip \
     zip \
-    libpng-dev
+    libpng-dev \
+    imagemagick
 
 RUN docker-php-ext-install mysqli pdo_mysql gd
 
