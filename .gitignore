@@ -24,3 +24,6 @@
 /docker/nginx/ssl/*.csr
 /docker/nginx/ssl/*.crt
 /docker/nginx/ssl/*.key
+
+### storage
+/storage/tmp/*
