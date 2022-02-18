@@ -22,3 +22,8 @@ api_download_mp4:
     path:       /api/download_mp4
     controller: ChessApi\Controller\DownloadMp4Controller::index
     methods:    POST
+
+api_download_image:
+    path:       /api/download_image
+    controller: ChessApi\Controller\DownloadImageController::index
+    methods:    POST
