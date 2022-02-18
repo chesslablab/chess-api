@@ -10,6 +10,45 @@ servers:
 tags:
 - name: Chess API
 paths:
+  /download_image:
+    post:
+      tags:
+      - Chess API
+      summary: Downloads a PNG image given a FEN string.
+      requestBody:
+        description: FEN string
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+            examples:
+              fen, 200 OK:
+                value:
+                  fen: "r1bq1rk1/pppnn1bp/3p2p1/3Ppp2/2P1P3/2N2P2/PP2B1PP/R1BQNRK1 w - f6"
+              fen, 400 Bad Request:
+                value:
+                  fen: "foo"
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            image/png:
+              schema:
+                $ref: '#/components/schemas/DownloadImageResponse'
+              examples:
+                fen, 200 OK:
+                  value: "Sent binary data."
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadImageResponse'
+              examples:
+                fen, 400 Bad Request:
+                  value: null
+      x-codegen-request-body-name: body
   /grandmaster:
     post:
       tags:
@@ -202,6 +241,14 @@ paths:
       x-codegen-request-body-name: body
 components:
   schemas:
+    DownloadImageRequest:
+      type: object
+      properties:
+        fen:
+          type: string
+    DownloadImageResponse:
+      type: string
+      format: binary
     GrandmasterRequest:
       type: object
       properties:
