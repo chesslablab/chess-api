@@ -17,15 +17,18 @@ class DownloadMp4Controller extends AbstractController
     public function index(Request $request): Response
     {
         $params = json_decode($request->getContent(), true);
-        $movetext = Validate::movetext($params['movetext']);
-        $board = (new Player($movetext))->play()->getBoard();
-        if ($board->getHistory()) {
-            $filename = (new BoardToMp4($board))->output(self::OUTPUT_FOLDER);
-            $response = new BinaryFileResponse(self::OUTPUT_FOLDER.'/'.$filename);
-            return $response;
+
+        if ($movetext = Validate::movetext($params['movetext'])) {
+            try {
+                $board = (new Player($movetext))->play()->getBoard();
+                $filename = (new BoardToMp4($board))->output(self::OUTPUT_FOLDER);
+                $response = new BinaryFileResponse(self::OUTPUT_FOLDER.'/'.$filename);
+            } catch (\Exception $e) {
+                $response = (new Response())->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
+            }
+        } else {
+            $response = (new Response())->setStatusCode(Response::HTTP_BAD_REQUEST);
         }
-        $response = new Response();
-        $response->setStatusCode(Response::HTTP_NO_CONTENT);
 
         return $response;
     }
