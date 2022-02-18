@@ -19,6 +19,134 @@
     }
   ],
   "paths": {
+    "/download_image": {
+      "post": {
+        "tags": [
+          "Chess API"
+        ],
+        "summary": "Downloads a PNG image given a FEN string.",
+        "requestBody": {
+          "description": "FEN string",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DownloadImageRequest"
+              },
+              "examples": {
+                "fen, 200 OK": {
+                  "value": {
+                    "fen": "r1bq1rk1/pppnn1bp/3p2p1/3Ppp2/2P1P3/2N2P2/PP2B1PP/R1BQNRK1 w - f6"
+                  }
+                },
+                "fen, 400 Bad Request": {
+                  "value": {
+                    "fen": "foo"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadImageResponse"
+                },
+                "examples": {
+                  "fen, 200 OK": {
+                    "value": "Sent binary data."
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadImageResponse"
+                },
+                "examples": {
+                  "fen, 400 Bad Request": {
+                    "value": null
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/download_mp4": {
+      "post": {
+        "tags": [
+          "Chess API"
+        ],
+        "summary": "Downloads an MP4 video given a PGN movetext.",
+        "requestBody": {
+          "description": "PGN movetext",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DownloadMp4Request"
+              },
+              "examples": {
+                "movetext, 200 OK": {
+                  "value": {
+                    "movetext": "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7 9.Ne1 Nd7 10.f3 f5"
+                  }
+                },
+                "movetext, 400 Bad Request": {
+                  "value": {
+                    "movetext": "foo"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "video/mp4": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadMp4Response"
+                },
+                "examples": {
+                  "movetext, 200 OK": {
+                    "value": "Sent binary data."
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadMp4Response"
+                },
+                "examples": {
+                  "movetext, 400 Bad Request": {
+                    "value": null
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
     "/grandmaster": {
       "post": {
         "tags": [
@@ -286,6 +414,30 @@
   },
   "components": {
     "schemas": {
+      "DownloadImageRequest": {
+        "type": "object",
+        "properties": {
+          "fen": {
+            "type": "string"
+          }
+        }
+      },
+      "DownloadImageResponse": {
+        "type": "string",
+        "format": "binary"
+      },
+      "DownloadMp4Request": {
+        "type": "object",
+        "properties": {
+          "movetext": {
+            "type": "string"
+          }
+        }
+      },
+      "DownloadMp4Response": {
+        "type": "string",
+        "format": "binary"
+      },
       "GrandmasterRequest": {
         "type": "object",
         "properties": {
