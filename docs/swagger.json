@@ -42,6 +42,16 @@
                   "value": {
                     "fen": "foo"
                   }
+                },
+                "movetext, 200 OK": {
+                  "value": {
+                    "movetext": "1.Nf3 d5 2.g3"
+                  }
+                },
+                "movetext, 400 Bad Request": {
+                  "value": {
+                    "movetext": "foo"
+                  }
                 }
               }
             }
@@ -55,11 +65,6 @@
               "image/png": {
                 "schema": {
                   "$ref": "#/components/schemas/DownloadImageResponse"
-                },
-                "examples": {
-                  "fen, 200 OK": {
-                    "value": "Sent binary data."
-                  }
                 }
               }
             }
@@ -73,6 +78,9 @@
                 },
                 "examples": {
                   "fen, 400 Bad Request": {
+                    "value": null
+                  },
+                  "movetext, 400 Bad Request": {
                     "value": null
                   }
                 }
@@ -119,11 +127,6 @@
               "video/mp4": {
                 "schema": {
                   "$ref": "#/components/schemas/DownloadMp4Response"
-                },
-                "examples": {
-                  "movetext, 200 OK": {
-                    "value": "Sent binary data."
-                  }
                 }
               }
             }

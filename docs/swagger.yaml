@@ -42,11 +42,6 @@ paths:
             image/png:
               schema:
                 $ref: '#/components/schemas/DownloadImageResponse'
-              examples:
-                fen, 200 OK:
-                  value: "Sent binary data."
-                movetext, 200 OK:
-                  value: "Sent binary data."
         400:
           description: Bad Request
           content:
@@ -85,9 +80,6 @@ paths:
             video/mp4:
               schema:
                 $ref: '#/components/schemas/DownloadMp4Response'
-              examples:
-                movetext, 200 OK:
-                  value: "Sent binary data."
         400:
           description: Bad Request
           content:
