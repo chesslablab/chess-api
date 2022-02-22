@@ -27,7 +27,13 @@ paths:
                   fen: "r1bq1rk1/pppnn1bp/3p2p1/3Ppp2/2P1P3/2N2P2/PP2B1PP/R1BQNRK1 w - f6"
               fen, 400 Bad Request:
                 value:
-                  fen: "foo"
+                  fen: foo
+              movetext, 200 OK:
+                value:
+                  movetext: 1.Nf3 d5 2.g3
+              movetext, 400 Bad Request:
+                value:
+                  movetext: foo
         required: true
       responses:
         200:
@@ -39,6 +45,8 @@ paths:
               examples:
                 fen, 200 OK:
                   value: "Sent binary data."
+                movetext, 200 OK:
+                  value: "Sent binary data."
         400:
           description: Bad Request
           content:
@@ -47,6 +55,8 @@ paths:
                 $ref: '#/components/schemas/DownloadImageResponse'
               examples:
                 fen, 400 Bad Request:
+                  value: null
+                movetext, 400 Bad Request:
                   value: null
       x-codegen-request-body-name: body
   /download_mp4:

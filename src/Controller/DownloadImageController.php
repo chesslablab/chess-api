@@ -2,12 +2,14 @@
 
 namespace ChessApi\Controller;
 
+use Chess\Player;
 use Chess\FEN\StringToBoard;
 use Chess\Media\BoardToPng;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class DownloadImageController extends AbstractController
 {
@@ -17,10 +19,25 @@ class DownloadImageController extends AbstractController
     {
         $params = json_decode($request->getContent(), true);
 
-        try {
-            $board = (new StringToBoard($params['fen']))->create();
-        } catch (\Exception $e) {
-            return (new Response())->setStatusCode(Response::HTTP_BAD_REQUEST);
+        $isFen = isset($params['fen']);
+        $isMovetext = isset($params['movetext']);
+
+        if (!($isFen xor $isMovetext)) {
+            throw new BadRequestHttpException('Only one of these params is required: fen or movetext.');
+        }
+
+        if ($isFen) {
+            try {
+                $board = (new StringToBoard($params['fen']))->create();
+            } catch (\Exception $e) {
+                return (new Response())->setStatusCode(Response::HTTP_BAD_REQUEST);
+            }
+        } elseif ($isMovetext) {
+            try {
+                $board = (new Player($params['movetext']))->play()->getBoard();
+            } catch (\Exception $e) {
+                return (new Response())->setStatusCode(Response::HTTP_BAD_REQUEST);
+            }
         }
 
         try {
