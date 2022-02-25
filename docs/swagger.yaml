@@ -53,7 +53,6 @@ paths:
                   value: null
                 movetext, 400 Bad Request:
                   value: null
-      x-codegen-request-body-name: body
   /download_mp4:
     post:
       tags:
@@ -89,7 +88,6 @@ paths:
               examples:
                 movetext, 400 Bad Request:
                   value: null
-      x-codegen-request-body-name: body
   /grandmaster:
     post:
       tags:
@@ -130,7 +128,6 @@ paths:
               examples:
                 movetext, 204 No Content:
                   value: null
-      x-codegen-request-body-name: body
   /opening:
     post:
       tags:
@@ -233,7 +230,6 @@ paths:
         400:
           description: Bad Request
           content: {}
-      x-codegen-request-body-name: body
   /play:
     post:
       tags:
@@ -279,7 +275,6 @@ paths:
                   value: {
                     "message": "This move is not allowed: e4"
                   }
-      x-codegen-request-body-name: body
   /tournament:
     post:
       tags:
