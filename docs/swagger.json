@@ -87,8 +87,7 @@
               }
             }
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
       }
     },
     "/download_mp4": {
@@ -146,8 +145,7 @@
               }
             }
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
       }
     },
     "/grandmaster": {
@@ -212,8 +210,7 @@
               }
             }
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
       }
     },
     "/opening": {
@@ -339,8 +336,7 @@
             "description": "Bad Request",
             "content": {}
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
       }
     },
     "/play": {
@@ -410,8 +406,42 @@
               }
             }
           }
-        },
-        "x-codegen-request-body-name": "body"
+        }
+      }
+    },
+    "/tournament": {
+      "post": {
+        "tags": [
+          "Chess API"
+        ],
+        "summary": "Returns a random game.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TournamentResponse"
+                },
+                "examples": {
+                  "200 OK": {
+                    "value": {
+                      "id": "18",
+                      "Event": "Wachtebeke Winter Open",
+                      "Site": "Wachtebeke",
+                      "Date": "2022.02.26",
+                      "White": "John Doe",
+                      "Black": "Alice Smith",
+                      "Result": "1/2-1/2",
+                      "ECO": "D55",
+                      "movetext": "1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 Be7 5.Bg5 h6 6.Bxf6 Bxf6 7.e3 O-O 8.Rc1 c6 9.Bd3 Nd7 10.O-O dxc4 11.Bxc4"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -488,6 +518,38 @@
       "PlayResponse": {
         "type": "object",
         "properties": {
+          "movetext": {
+            "type": "string"
+          }
+        }
+      },
+      "TournamentResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "Event": {
+            "type": "string"
+          },
+          "Site": {
+            "type": "string"
+          },
+          "Date": {
+            "type": "string"
+          },
+          "White": {
+            "type": "string"
+          },
+          "Black": {
+            "type": "string"
+          },
+          "Result": {
+            "type": "string"
+          },
+          "ECO": {
+            "type": "string"
+          },
           "movetext": {
             "type": "string"
           }
