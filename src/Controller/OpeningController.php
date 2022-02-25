@@ -38,10 +38,10 @@ class OpeningController extends AbstractController
             $sql = "SELECT eco, name, movetext FROM openings WHERE movetext LIKE '%{$params['movetext']}%'";
         }
 
-        $all = Pdo::getInstance($conf)
+        $arr = Pdo::getInstance($conf)
             ->query($sql)
             ->fetchAll(\PDO::FETCH_ASSOC);
 
-        return $this->json($all);
+        return $this->json($arr);
     }
 }

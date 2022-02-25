@@ -23,14 +23,14 @@ class GrandmasterController extends AbstractController
 
         $sql = "SELECT * FROM games WHERE movetext LIKE '{$params['movetext']}%'";
 
-        $all = Pdo::getInstance($conf)
+        $arr = Pdo::getInstance($conf)
             ->query($sql)
             ->fetchAll(\PDO::FETCH_ASSOC);
 
-        if ($all) {
-            shuffle($all);
+        if ($arr) {
+            shuffle($arr);
             $moves = array_filter(
-                explode(' ', str_replace($params['movetext'], '', $all[0]['movetext']))
+                explode(' ', str_replace($params['movetext'], '', $arr[0]['movetext']))
             );
             $current = explode('.', current($moves));
             return $this->json([

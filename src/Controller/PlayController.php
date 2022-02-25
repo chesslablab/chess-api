@@ -25,13 +25,13 @@ class PlayController extends AbstractController
             throw new BadRequestHttpException($e->getMessage());
         }
 
-        $response = [
+        $arr = [
             'fen' => (new BoardToString($board))->create(),
             'isCheck' => $board->isCheck(),
             'isMate' => $board->isMate(),
             'movetext' => $board->getMovetext(),
         ];
 
-        return $this->json($response);
+        return $this->json($arr);
     }
 }
