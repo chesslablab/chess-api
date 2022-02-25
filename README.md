@@ -71,6 +71,7 @@ Let's now create the database and seed some tables with data.
 ```
 $ docker exec -itu 1000:1000 chess_data_php_fpm php cli/db-create.php
 $ docker exec -itu 1000:1000 chess_data_php_fpm php cli/seed/openings.php
+$ docker exec -itu 1000:1000 chess_data_php_fpm php cli/seed/tournaments.php data/tournaments
 $ docker exec -itu 1000:1000 chess_data_php_fpm php cli/seed/games.php data/players/Carlsen.pgn
 $ docker exec -itu 1000:1000 chess_data_php_fpm php cli/seed/games.php data/players/PolgarJ.pgn
 ```
