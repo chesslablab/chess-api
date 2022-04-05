@@ -3,7 +3,7 @@
 namespace ChessApi\Controller;
 
 use Chess\Player;
-use Chess\FEN\StringToBoard;
+use Chess\FEN\StrToBoard;
 use Chess\Media\BoardToPng;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -28,7 +28,7 @@ class DownloadImageController extends AbstractController
 
         if ($isFen) {
             try {
-                $board = (new StringToBoard($params['fen']))->create();
+                $board = (new StrToBoard($params['fen']))->create();
             } catch (\Exception $e) {
                 return (new Response())->setStatusCode(Response::HTTP_BAD_REQUEST);
             }

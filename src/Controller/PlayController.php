@@ -3,7 +3,7 @@
 namespace ChessApi\Controller;
 
 use Chess\Player;
-use Chess\FEN\BoardToString;
+use Chess\FEN\BoardToStr;
 use Chess\Exception\MovetextException;
 use Chess\Exception\UnknownNotationException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +26,7 @@ class PlayController extends AbstractController
         }
 
         $arr = [
-            'fen' => (new BoardToString($board))->create(),
+            'fen' => (new BoardToStr($board))->create(),
             'isCheck' => $board->isCheck(),
             'isMate' => $board->isMate(),
             'movetext' => $board->getMovetext(),
