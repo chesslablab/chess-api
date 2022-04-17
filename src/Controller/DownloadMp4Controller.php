@@ -2,9 +2,9 @@
 
 namespace ChessApi\Controller;
 
+use Chess\Movetext;
 use Chess\Player;
 use Chess\Media\BoardToMp4;
-use Chess\PGN\Validate;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,7 +18,7 @@ class DownloadMp4Controller extends AbstractController
     {
         $params = json_decode($request->getContent(), true);
 
-        if ($movetext = Validate::movetext($params['movetext'])) {
+        if ($movetext = (new Movetext($params['movetext']))->validate()) {
             try {
                 $board = (new Player($movetext))->play()->getBoard();
                 $filename = (new BoardToMp4($board))->output(self::OUTPUT_FOLDER);
