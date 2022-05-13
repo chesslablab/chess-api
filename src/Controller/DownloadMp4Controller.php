@@ -22,6 +22,7 @@ class DownloadMp4Controller extends AbstractController
             try {
                 $board = (new Player($movetext))->play()->getBoard();
                 $filename = (new BoardToMp4($board))->output(self::OUTPUT_FOLDER);
+                $request->attributes->set('filename', $filename);
                 return  new BinaryFileResponse(self::OUTPUT_FOLDER.'/'.$filename);
             } catch (\Exception $e) {
                 return (new Response())->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);

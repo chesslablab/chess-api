@@ -26,3 +26,14 @@ services:
     ChessApi\EventListener\ExceptionListener:
         tags:
             - { name: kernel.event_listener, event: kernel.exception }
+
+    ChessApi\EventListener\DownloadImageListener:
+        arguments:
+            - '@router'
+        tags:
+            - { name: kernel.event_listener, event: kernel.terminate }
+    ChessApi\EventListener\DownloadMp4Listener:
+        arguments:
+            - '@router'
+        tags:
+            - { name: kernel.event_listener, event: kernel.terminate }

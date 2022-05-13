@@ -42,6 +42,7 @@ class DownloadImageController extends AbstractController
 
         try {
             $filename = (new BoardToPng($board))->output(self::OUTPUT_FOLDER);
+            $request->attributes->set('filename', $filename);
         } catch (\Exception $e) {
             return (new Response())->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
         }

@@ -57,12 +57,19 @@ ffe89efcb84e   none                 null      local
 
 Please notice that if restarting your computer, the `DB_HOST` in your `.env` file may need to be updated with the new IP of the `chess_data_mysql` container.
 
-For further information, read the [`bash/prod/start.sh`](https://github.com/chesslablab/chess-data/blob/master/bash/prod/start.sh) script.
+Described below is how to assign the new value to the `IP_ADDRESS` variable on the command line.
 
 ```
 $ IP_ADDRESS="$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' chess_data_mysql)"
+```
+
+And this is how to assign the IP to `DB_HOST`.
+
+```
 $ sed -i "s/DB_HOST=.*/DB_HOST=${IP_ADDRESS}/g" .env
 ```
+
+For further information, read the [`bash/prod/start.sh`](https://github.com/chesslablab/chess-data/blob/master/bash/prod/start.sh) script.
 
 ### Create and Seed the Chess Database With Data
 
@@ -123,6 +130,28 @@ CONTAINER ID   IMAGE                COMMAND                  CREATED          ST
 1ada37d4a794   nginx:1.20           "/docker-entrypoint.…"   32 seconds ago   Up 28 seconds   80/tcp, 0.0.0.0:443->443/tcp, :::443->443/tcp          chess_api_nginx
 1db2e7e758ec   chess-data_php_fpm   "docker-php-entrypoi…"   2 hours ago      Up 6 minutes    9000/tcp                                               chess_data_php_fpm
 7b839bce2d58   mysql:8.0            "docker-entrypoint.s…"   2 hours ago      Up 6 minutes    0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp   chess_data_mysql
+```
+
+### Setup Permissions
+
+Make sure the `var` directory exists:
+
+```
+$ mkdir var
+```
+
+And set up the following permissions:
+
+```
+$ sudo chown www-data:standard -R var
+$ sudo chmod 775 -R var
+```
+
+Finally, set up the following permissions for the `storage` directory:
+
+```
+$ sudo chown www-data:standard -R storage
+$ sudo chmod 775 -R storage
 ```
 
 ### Test the API Endpoints
