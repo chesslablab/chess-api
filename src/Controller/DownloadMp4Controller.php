@@ -12,13 +12,18 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DownloadMp4Controller extends AbstractController
 {
+    const MAX_MOVES = 300;
+
     const OUTPUT_FOLDER = __DIR__.'/../../storage/tmp';
 
     public function index(Request $request): Response
     {
         $params = json_decode($request->getContent(), true);
 
-        if ($movetext = (new Movetext($params['movetext']))->validate()) {
+        $n = count((new Movetext($params['movetext']))->getMovetext()->moves);
+        $movetext = (new Movetext($params['movetext']))->validate();
+
+        if ($movetext && $n <= self::MAX_MOVES) {
             try {
                 $board = (new Player($movetext))->play()->getBoard();
                 $filename = (new BoardToMp4($board))->output(self::OUTPUT_FOLDER);
