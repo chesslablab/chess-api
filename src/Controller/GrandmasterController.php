@@ -13,7 +13,9 @@ class GrandmasterController extends AbstractController
     {
         $params = json_decode($request->getContent(), true);
 
-        $sql = "SELECT * FROM players WHERE movetext LIKE :movetext";
+        $sql = "SELECT * FROM players
+            WHERE movetext LIKE :movetext
+            ORDER BY RAND() LIMIT 1";
 
         $values[] = [
             'param' => ':movetext',
