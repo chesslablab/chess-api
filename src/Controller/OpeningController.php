@@ -12,14 +12,6 @@ class OpeningController extends AbstractController
 {
     public function index(Request $request): Response
     {
-        $conf = [
-            'driver' => $_ENV['DB_DRIVER'],
-            'host' => $_ENV['DB_HOST'],
-            'database' => $_ENV['DB_DATABASE'],
-            'username' => $_ENV['DB_USERNAME'],
-            'password' => $_ENV['DB_PASSWORD'],
-        ];
-
         $params = json_decode($request->getContent(), true);
 
         $isEco = isset($params['eco']);
@@ -38,7 +30,7 @@ class OpeningController extends AbstractController
             $sql = "SELECT eco, name, movetext FROM openings WHERE movetext LIKE '%{$params['movetext']}%'";
         }
 
-        $arr = Pdo::getInstance($conf)
+        $arr = Pdo::getInstance($this->getParameter('pdo'))
             ->query($sql)
             ->fetchAll(\PDO::FETCH_ASSOC);
 
