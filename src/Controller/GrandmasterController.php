@@ -13,7 +13,7 @@ class GrandmasterController extends AbstractController
     {
         $params = json_decode($request->getContent(), true);
 
-        $sql = "SELECT * FROM games WHERE movetext LIKE '{$params['movetext']}%'";
+        $sql = "SELECT * FROM players WHERE movetext LIKE '{$params['movetext']}%'";
 
         $arr = Pdo::getInstance($this->getParameter('pdo'))
             ->query($sql)
@@ -21,12 +21,23 @@ class GrandmasterController extends AbstractController
 
         if ($arr) {
             shuffle($arr);
+            $game = $arr[0];
             $moves = array_filter(
-                explode(' ', str_replace($params['movetext'], '', $arr[0]['movetext']))
+                explode(' ', str_replace($params['movetext'], '', $game['movetext']))
             );
             $current = explode('.', current($moves));
             return $this->json([
-                'pgn' => isset($current[1]) ? $current[1] : $current[0],
+                'move' => isset($current[1]) ? $current[1] : $current[0],
+                'game' => [
+                    'Event' => $game['Event'],
+                    'Site' => $game['Site'],
+                    'Date' => $game['Date'],
+                    'White' => $game['White'],
+                    'Black' => $game['Black'],
+                    'Result' => $game['Result'],
+                    'ECO' => $game['ECO'],
+                    'movetext' => $game['movetext'],
+                ],
             ]);
         }
 
