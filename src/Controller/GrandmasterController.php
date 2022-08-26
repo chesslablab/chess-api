@@ -15,7 +15,7 @@ class GrandmasterController extends AbstractController
 
         $sql = "SELECT * FROM players
             WHERE movetext LIKE :movetext
-            ORDER BY RAND() LIMIT 1";
+            LIMIT 1000";
 
         $values[] = [
             'param' => ':movetext',
@@ -28,7 +28,8 @@ class GrandmasterController extends AbstractController
             ->fetchAll(\PDO::FETCH_ASSOC);
 
         if ($arr) {
-            return $this->json($arr);
+            shuffle($arr);
+            return $this->json([$arr[0]]);
         }
 
         $response = new Response();
