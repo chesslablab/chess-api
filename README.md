@@ -20,9 +20,9 @@ Create an `.env` file:
 
     $ cp .env.example .env
 
-If necessary, update the environment variables in your `.env` file.
+The Chess API goes hand in hand with [Chess Data](https://github.com/chesslablab/chess-data) which is a database, data science and machine learning repository.
 
-The Chess API goes hand in hand with [Chess Data](https://github.com/chesslablab/chess-data) which is a database, data science and machine learning repository. Thus, please [setup the Chess Data repo](https://github.com/chesslablab/chess-data#setup), create a database and seed it with sample data. You may want to configure a web server along with a MySQL server, or use Docker if you prefer. Described below are the steps to run the API with Docker.
+In order to setup the Chess API you may want to configure your own web server and database or if you prefer use Docker as described below.
 
 ---
 
