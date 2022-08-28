@@ -36,7 +36,7 @@ class SearchController extends AbstractController
                     'value' => '%'.$val.'%',
                     'type' => \PDO::PARAM_STR,
                 ];
-            } else if (in_array($key, self::SEARCH_AND)) {
+            } else if (in_array($key, self::SEARCH_AND) && $val) {
                 $sql .= "$key = :$key AND ";
                 $values[] = [
                     'param' => ":$key",
