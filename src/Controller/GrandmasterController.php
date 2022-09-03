@@ -15,7 +15,7 @@ class GrandmasterController extends AbstractController
 
         $sql = "SELECT * FROM players
             WHERE movetext LIKE :movetext
-            LIMIT 750";
+            LIMIT 500";
 
         $values[] = [
             'param' => ':movetext',
