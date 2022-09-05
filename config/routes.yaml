@@ -37,3 +37,8 @@ api_search:
     path:       /api/search
     controller: ChessApi\Controller\SearchController::index
     methods:    POST
+
+api_player_stats:
+    path:       /api/player_stats
+    controller: ChessApi\Controller\PlayerStatsController::index
+    methods:    POST
