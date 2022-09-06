@@ -10,11 +10,12 @@ use Symfony\Component\HttpFoundation\Response;
 class PlayerStatsController extends AbstractController
 {
     const SEARCH_LIKE = [
-        'White',
-        'Black',
+
     ];
 
     const SEARCH_AND = [
+        'White',
+        'Black',
         'Result',
     ];
 

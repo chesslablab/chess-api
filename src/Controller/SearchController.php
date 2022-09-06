@@ -12,11 +12,11 @@ class SearchController extends AbstractController
     const SEARCH_LIKE = [
         'Event',
         'Date',
-        'White',
-        'Black',
     ];
 
     const SEARCH_AND = [
+        'White',
+        'Black',
         'ECO',
         'Result',
     ];
