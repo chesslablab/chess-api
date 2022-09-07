@@ -10,11 +10,11 @@ use Symfony\Component\HttpFoundation\Response;
 class SearchController extends AbstractController
 {
     const SEARCH_LIKE = [
-        'Event',
         'Date',
     ];
 
     const SEARCH_AND = [
+        'Event',
         'White',
         'Black',
         'ECO',
