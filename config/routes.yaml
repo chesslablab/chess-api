@@ -42,3 +42,8 @@ api_player_stats:
     path:       /api/player_stats
     controller: ChessApi\Controller\PlayerStatsController::index
     methods:    POST
+
+api_event_stats:
+    path:       /api/event_stats
+    controller: ChessApi\Controller\EventStatsController::index
+    methods:    POST
