@@ -9,14 +9,10 @@ fi
 
 # cd the app's root directory
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-APP_PATH="$(dirname $(dirname $DIR))"
+APP_PATH="$(dirname $DIR)"
 cd $APP_PATH
 
-# install dependencies
 docker exec -itu 1000:1000 chess_api_php_fpm composer install
-
-# build the docker containers
-cd $APP_PATH
 docker-compose up -d
 
 # update the .env file with the container's ip
