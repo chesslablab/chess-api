@@ -2,10 +2,10 @@
 
 namespace ChessApi\Controller;
 
-use Chess\Player;
-use Chess\FEN\BoardToStr;
 use Chess\Exception\MovetextException;
 use Chess\Exception\UnknownNotationException;
+use Chess\Player\PgnPlayer;
+use Chess\Variant\Classical\FEN\BoardToStr;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +18,7 @@ class PlayController extends AbstractController
         $params = json_decode($request->getContent(), true);
 
         try {
-            $board = (new Player($params['movetext']))->play()->getBoard();
+            $board = (new PgnPlayer($params['movetext']))->play()->getBoard();
         } catch (MovetextException $e) {
             throw new BadRequestHttpException($e->getMessage());
         } catch (UnknownNotationException $e) {

@@ -2,9 +2,9 @@
 
 namespace ChessApi\Controller;
 
-use Chess\Player;
-use Chess\FEN\StrToBoard;
 use Chess\Media\BoardToPng;
+use Chess\Player\PgnPlayer;
+use Chess\Variant\Classical\FEN\StrToBoard;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,7 +34,7 @@ class DownloadImageController extends AbstractController
             }
         } elseif ($isMovetext) {
             try {
-                $board = (new Player($params['movetext']))->play()->getBoard();
+                $board = (new PgnPlayer($params['movetext']))->play()->getBoard();
             } catch (\Exception $e) {
                 return (new Response())->setStatusCode(Response::HTTP_BAD_REQUEST);
             }
