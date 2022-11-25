@@ -31,6 +31,6 @@ class DatabaseTest extends TestCase
         $result = self::$pdo->query($sql)->fetchAll();
         $expected = 402976;
 
-        $this->assertEquals($expected, count($result));
+        $this->assertCount($expected, $result);
     }
 }
