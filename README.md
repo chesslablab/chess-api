@@ -29,6 +29,13 @@ An SSL certificate needs to be created and setup for the web server. The next po
 
 The Chess API goes hand in hand with [Chess Data](https://github.com/chesslablab/chess-data) which is a database, data science and machine learning repository. Setup the database accordingly and [seed the tables with data](https://github.com/chesslablab/chess-data/tree/master/cli#seed-the-tables-with-data).
 
+Also there is an easy quick way to get the API up and running without an SSL certificate for when testing endpoints that don't require a database connection, e.g., `api/download_image` or `api/download_mp4`. In such cases you may want to use [PHP's built-in web server](https://www.php.net/manual/en/features.commandline.webserver.php) as described next.
+
+```
+$ cd public
+$ php -S localhost:8000
+```
+
 ### File Permissions Setup
 
 Make sure the `var` directory exists:
