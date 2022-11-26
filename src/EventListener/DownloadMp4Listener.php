@@ -24,7 +24,9 @@ class DownloadMp4Listener
         $currentRoute = $this->router->match($event->getRequest()->getPathInfo());
         if ('api_download_mp4' === $currentRoute['_route']) {
             $filename = $event->getRequest()->attributes->get('filename');
-            unlink(self::OUTPUT_FOLDER . '/'. $filename);
+            if (is_file(self::OUTPUT_FOLDER . '/'. $filename)) {
+                unlink(self::OUTPUT_FOLDER . '/'. $filename);
+            }
         }
     }
 }
