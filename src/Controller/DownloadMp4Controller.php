@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class DownloadMp4Controller extends AbstractController
 {
@@ -35,12 +36,12 @@ class DownloadMp4Controller extends AbstractController
         if (!isset($params['movetext'])) {
             throw new BadRequestHttpException();
         } else {
-            $movetext = new Movetext($params['movetext']);
-            if (!$movetext->validate()) {
+            $movetextObj = new Movetext($params['movetext']);
+            $movetext = $movetextObj->validate();
+            if (!$movetext) {
                 throw new BadRequestHttpException();
             }
-            $count = count($movetext->getMovetext()->moves);
-            if ($count > self::MAX_MOVES) {
+            if (self::MAX_MOVES < count($movetextObj->getMovetext()->moves)) {
                 throw new BadRequestHttpException();
             }
         }
