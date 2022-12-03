@@ -2,9 +2,10 @@
 
 namespace ChessApi\Controller;
 
+use Chess\Game;
 use Chess\Media\BoardToPng;
-use Chess\Player\PgnPlayer;
-use Chess\Variant\Classical\FEN\StrToBoard;
+use Chess\Variant\Capablanca80\FEN\StrToBoard as Capablanca80StrToBoard;
+use Chess\Variant\Classical\FEN\StrToBoard as ClassicalStrToBoard;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,28 +20,21 @@ class DownloadImageController extends AbstractController
     {
         $params = json_decode($request->getContent(), true);
 
-        $isFen = isset($params['fen']);
-        $isMovetext = isset($params['movetext']);
-
-        if (!($isFen xor $isMovetext)) {
-            throw new BadRequestHttpException('Only one of these params is required: fen or movetext.');
+        if (!isset($params['variant'])) {
+            throw new BadRequestHttpException();
         }
-
-        if ($isFen) {
-            try {
-                $board = (new StrToBoard($params['fen']))->create();
-            } catch (\Exception $e) {
-                return (new Response())->setStatusCode(Response::HTTP_BAD_REQUEST);
-            }
-        } elseif ($isMovetext) {
-            try {
-                $board = (new PgnPlayer($params['movetext']))->play()->getBoard();
-            } catch (\Exception $e) {
-                return (new Response())->setStatusCode(Response::HTTP_BAD_REQUEST);
-            }
+        if (!isset($params['fen'])) {
+            throw new BadRequestHttpException();
         }
 
         try {
+            if ($params['variant'] === Game::VARIANT_960) {
+                $board = (new ClassicalStrToBoard($params['fen']))->create();
+            } elseif ($params['variant'] === Game::VARIANT_CAPABLANCA_80) {
+                $board = (new Capablanca80StrToBoard($params['fen']))->create();
+            } elseif ($params['variant'] === Game::VARIANT_CLASSICAL) {
+                $board = (new ClassicalStrToBoard($params['fen']))->create();
+            }
             $filename = (new BoardToPng($board))->output(self::OUTPUT_FOLDER);
             $request->attributes->set('filename', $filename);
         } catch (\Exception $e) {
