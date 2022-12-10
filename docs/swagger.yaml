@@ -114,7 +114,7 @@ paths:
     post:
       tags:
       - Chess API
-      summary: Validates the given movetext allowing to play a game.
+      summary: Returns an object with data about the given movetext.
       requestBody:
         description: Parameters
         content:
@@ -122,10 +122,10 @@ paths:
             schema:
               $ref: '#/components/schemas/PlayRequest'
             examples:
-              movetext, 200 OK:
+              200 OK:
                 value:
-                  movetext: "1.e4"
-              movetext, 400 Bad Request:
+                  movetext: "1.e4 e5"
+              400 Bad Request:
                 value:
                   movetext: "1.e4 e4"
         required: true
@@ -137,12 +137,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/PlayResponse'
               examples:
-                movetext, 200 OK:
+                200 OK:
                   value: {
-                    "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3",
+                    "fen": "rnbqkbnr\/pppp1ppp\/8\/4p3\/4P3\/8\/PPPP1PPP\/RNBQKBNR w KQkq e6",
                     "isCheck": false,
                     "isMate": false,
-                    "movetext": "1.e4"
+                    "movetext": "1.e4 e5"
                   }
         400:
           description: Bad Request
@@ -151,10 +151,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/PlayResponse'
               examples:
-                movetext, 400 Bad Request:
-                  value: {
-                    "message": "This move is not allowed: e4"
-                  }
+                400 Bad Request:
+                  value: null
 components:
   schemas:
     DownloadImageRequest:
