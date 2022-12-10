@@ -190,5 +190,11 @@ components:
     PlayResponse:
       type: object
       properties:
+        fen:
+          type: string
+        isCheck:
+          type: boolean
+        isMate:
+          type: boolean
         movetext:
           type: string
