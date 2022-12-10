@@ -8,11 +8,6 @@ api_grandmaster:
     controller: ChessApi\Controller\GrandmasterController::index
     methods:    POST
 
-api_opening:
-    path:       /api/opening
-    controller: ChessApi\Controller\OpeningController::index
-    methods:    POST
-
 api_play:
     path:       /api/play
     controller: ChessApi\Controller\PlayController::index
@@ -26,11 +21,6 @@ api_download_mp4:
 api_download_image:
     path:       /api/download_image
     controller: ChessApi\Controller\DownloadImageController::index
-    methods:    POST
-
-api_tournament:
-    path:       /api/tournament
-    controller: ChessApi\Controller\TournamentController::index
     methods:    POST
 
 api_search:
