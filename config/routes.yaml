@@ -8,11 +8,6 @@ api_grandmaster:
     controller: ChessApi\Controller\GrandmasterController::index
     methods:    POST
 
-api_opening:
-    path:       /api/opening
-    controller: ChessApi\Controller\OpeningController::index
-    methods:    POST
-
 api_play:
     path:       /api/play
     controller: ChessApi\Controller\PlayController::index
