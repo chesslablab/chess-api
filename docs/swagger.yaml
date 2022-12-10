@@ -14,26 +14,17 @@ paths:
     post:
       tags:
       - Chess API
-      summary: Downloads a PNG image given a FEN string.
+      summary: Downloads an image given a FEN string and a chess variant.
       requestBody:
-        description: FEN string
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/DownloadImageRequest'
             examples:
-              fen, 200 OK:
+              200 OK:
                 value:
                   fen: "r1bq1rk1/pppnn1bp/3p2p1/3Ppp2/2P1P3/2N2P2/PP2B1PP/R1BQNRK1 w - f6"
-              fen, 400 Bad Request:
-                value:
-                  fen: foo
-              movetext, 200 OK:
-                value:
-                  movetext: 1.Nf3 d5 2.g3
-              movetext, 400 Bad Request:
-                value:
-                  movetext: foo
+                  variant: "classical"
         required: true
       responses:
         200:
@@ -42,35 +33,21 @@ paths:
             image/png:
               schema:
                 $ref: '#/components/schemas/DownloadImageResponse'
-        400:
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DownloadImageResponse'
-              examples:
-                fen, 400 Bad Request:
-                  value: null
-                movetext, 400 Bad Request:
-                  value: null
   /download_mp4:
     post:
       tags:
       - Chess API
-      summary: Downloads an MP4 video given a PGN movetext.
+      summary: Downloads a video given a PGN movetext and a chess variant.
       requestBody:
-        description: PGN movetext
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/DownloadMp4Request'
             examples:
-              movetext, 200 OK:
+              200 OK:
                 value:
-                  movetext: "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7 9.Ne1 Nd7 10.f3 f5"
-              movetext, 400 Bad Request:
-                value:
-                  movetext: "foo"
+                  movetext: "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6"
+                  variant: "classical"
         required: true
       responses:
         200:
@@ -79,21 +56,11 @@ paths:
             video/mp4:
               schema:
                 $ref: '#/components/schemas/DownloadMp4Response'
-        400:
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DownloadMp4Response'
-              examples:
-                movetext, 400 Bad Request:
-                  value: null
   /grandmaster:
     post:
       tags:
       - Chess API
-      summary: Returns the PGN move that would follow the given movetext according
-        to a grandmaster.
+      summary: Returns a chess game played by a random titled player given a movetext.
       requestBody:
         description: PGN movetext
         content:
@@ -101,12 +68,12 @@ paths:
             schema:
               $ref: '#/components/schemas/GrandmasterRequest'
             examples:
-              movetext, 200 OK:
+              200 OK:
                 value:
                   movetext: "1.e4 c6 2.Nc3"
-              movetext, 204 No Content:
+              204 No Content:
                 value:
-                  movetext: "1.e5"
+                  movetext: "1.a3 a6 2.a4"
         required: true
       responses:
         200:
@@ -116,9 +83,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/GrandmasterResponse'
               examples:
-                movetext, 200 OK:
+                200 OK:
                   value:
-                    pgn: "d4"
+                    [
+                      {
+                        "id": 157019,
+                        "Event": "38th Olympiad",
+                        "Site": "Dresden GER",
+                        "Date": "2008.11.22",
+                        "White": "Can,E",
+                        "Black": "Nielsen,PH",
+                        "Result": "1\/2-1\/2",
+                        "WhiteElo": "2464",
+                        "BlackElo": "2662",
+                        "ECO": "B11",
+                        "FEN": null,
+                        "movetext": "1.e4 c6 2.Nc3 d5 3.Nf3 Bg4 4.h3 Bxf3 5.Qxf3 e6 6.d4 dxe4 7.Nxe4 Qxd4 8.Bd3 Nd7 9.Be3 Qd5 10.O-O Ne5 11.Qg3 Nxd3 12.cxd3 Nf6 13.Bg5 Be7 14.Bxf6 Bxf6 15.Qc7 Qd7 16.Nd6+ Ke7 17.Nf5+ Ke8 18.Nd6+ Ke7 19.Nf5+ Ke8"
+                      }
+                    ]
         204:
           description: No Content
           content:
@@ -126,7 +108,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GrandmasterResponse'
               examples:
-                movetext, 204 No Content:
+                204 No Content:
                   value: null
   /opening:
     post:
@@ -307,6 +289,8 @@ components:
       properties:
         fen:
           type: string
+        variant:
+          type: string
     DownloadImageResponse:
       type: string
       format: binary
@@ -314,6 +298,8 @@ components:
       type: object
       properties:
         movetext:
+          type: string
+        variant:
           type: string
     DownloadMp4Response:
       type: string
