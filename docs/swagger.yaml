@@ -110,6 +110,61 @@ paths:
               examples:
                 204 No Content:
                   value: null
+  /play_lan:
+    post:
+      tags:
+      - Chess API
+      summary: Allows to play a chess game in LAN format.
+      requestBody:
+        description: Parameters
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlayRequest'
+            examples:
+              200 OK, 960:
+                value:
+                  movetext: "e2e4 e7e5"
+                  variant: "960"
+                  startPos: "RQKBBNNR"
+              200 OK, classical:
+                value:
+                  movetext: "e2e4 e7e5"
+                  variant: "classical"
+              200 OK, capablanca80:
+                value:
+                  movetext: "e2e4 e7e5"
+                  variant: "capablanca80"
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayResponse'
+              examples:
+                200 OK, 960:
+                  value: {
+                    "fen": "rqkbbnnr\/pppp1ppp\/8\/4p3\/4P3\/8\/PPPP1PPP\/RQKBBNNR w KQkq e6",
+                    "isCheck": false,
+                    "isMate": false,
+                    "movetext": "1.e4 e5"
+                  }
+                200 OK, classical:
+                  value: {
+                    "fen": "rnbqkbnr\/pppp1ppp\/8\/4p3\/4P3\/8\/PPPP1PPP\/RNBQKBNR w KQkq e6",
+                    "isCheck": false,
+                    "isMate": false,
+                    "movetext": "1.e4 e5"
+                  }
+                200 OK, capablanca80:
+                  value: {
+                    "fen": "rnabqkbcnr\/pppp1ppppp\/10\/4p5\/4P5\/10\/PPPP1PPPPP\/RNABQKBCNR w KQkq e6",
+                    "isCheck": false,
+                    "isMate": false,
+                    "movetext": "1.e4 e5"
+                  }
   /play_pgn:
     post:
       tags:
