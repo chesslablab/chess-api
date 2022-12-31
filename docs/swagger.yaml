@@ -110,11 +110,11 @@ paths:
               examples:
                 204 No Content:
                   value: null
-  /play:
+  /play_pgn:
     post:
       tags:
       - Chess API
-      summary: Returns an object with data about the given movetext.
+      summary: Allows to play a chess game in PGN format.
       requestBody:
         description: Parameters
         content:
@@ -122,9 +122,19 @@ paths:
             schema:
               $ref: '#/components/schemas/PlayRequest'
             examples:
-              200 OK:
+              200 OK, 960:
                 value:
                   movetext: "1.e4 e5"
+                  variant: "960"
+                  startPos: "RQKBBNNR"
+              200 OK, classical:
+                value:
+                  movetext: "1.e4 e5"
+                  variant: "classical"
+              200 OK, capablanca80:
+                value:
+                  movetext: "1.e4 e5"
+                  variant: "capablanca80"
               400 Bad Request:
                 value:
                   movetext: "1.e4 e4"
@@ -137,9 +147,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/PlayResponse'
               examples:
-                200 OK:
+                200 OK, 960:
+                  value: {
+                    "fen": "rqkbbnnr\/pppp1ppp\/8\/4p3\/4P3\/8\/PPPP1PPP\/RQKBBNNR w KQkq e6",
+                    "isCheck": false,
+                    "isMate": false,
+                    "movetext": "1.e4 e5"
+                  }
+                200 OK, classical:
                   value: {
                     "fen": "rnbqkbnr\/pppp1ppp\/8\/4p3\/4P3\/8\/PPPP1PPP\/RNBQKBNR w KQkq e6",
+                    "isCheck": false,
+                    "isMate": false,
+                    "movetext": "1.e4 e5"
+                  }
+                200 OK, capablanca80:
+                  value: {
+                    "fen": "rnabqkbcnr\/pppp1ppppp\/10\/4p5\/4P5\/10\/PPPP1PPPPP\/RNABQKBCNR w KQkq e6",
                     "isCheck": false,
                     "isMate": false,
                     "movetext": "1.e4 e5"
@@ -187,6 +211,10 @@ components:
       properties:
         movetext:
           type: string
+        variant:
+            type: string
+        startPos:
+            type: string
     PlayResponse:
       type: object
       properties:
