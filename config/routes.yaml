@@ -13,9 +13,9 @@ api_play_lan:
     controller: ChessApi\Controller\PlayLanController::index
     methods:    POST
 
-api_play:
-    path:       /api/play
-    controller: ChessApi\Controller\PlayController::index
+api_play_pgn:
+    path:       /api/play_pgn
+    controller: ChessApi\Controller\PlayPgnController::index
     methods:    POST
 
 api_download_mp4:

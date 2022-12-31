@@ -3,7 +3,7 @@
 namespace ChessApi\Controller;
 
 use Chess\Game;
-use Chess\Player\LanPlayer;
+use Chess\Player\PgnPlayer;
 use Chess\Variant\Capablanca80\Board as Capablanca80Board;
 use Chess\Variant\Chess960\Board as Chess960Board;
 use Chess\Variant\Classical\Board as ClassicalBoard;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-class PlayLanController extends AbstractController
+class PlayPgnController extends AbstractController
 {
     public function index(Request $request): Response
     {
@@ -50,7 +50,7 @@ class PlayLanController extends AbstractController
         }
 
         try {
-            $board = (new LanPlayer($params['movetext'], $board))->play()->getBoard();
+            $board = (new PgnPlayer($params['movetext'], $board))->play()->getBoard();
         } catch (\Exception $e) {
             throw new BadRequestHttpException();
         }
