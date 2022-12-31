@@ -135,9 +135,6 @@ paths:
                 value:
                   movetext: "1.e4 e5"
                   variant: "capablanca80"
-              400 Bad Request:
-                value:
-                  movetext: "1.e4 e4"
         required: true
       responses:
         200:
@@ -168,15 +165,6 @@ paths:
                     "isMate": false,
                     "movetext": "1.e4 e5"
                   }
-        400:
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PlayResponse'
-              examples:
-                400 Bad Request:
-                  value: null
 components:
   schemas:
     DownloadImageRequest:
