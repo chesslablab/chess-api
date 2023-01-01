@@ -110,7 +110,7 @@ paths:
               examples:
                 204 No Content:
                   value: null
-  /play_lan:
+  /play/lan:
     post:
       tags:
       - Chess API
@@ -165,7 +165,7 @@ paths:
                     "isMate": false,
                     "movetext": "1.e4 e5"
                   }
-  /play_pgn:
+  /play/pgn:
     post:
       tags:
       - Chess API

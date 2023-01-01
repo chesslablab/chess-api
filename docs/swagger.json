@@ -173,7 +173,7 @@
         }
       }
     },
-    "/play_lan": {
+    "/play/lan": {
       "post": {
         "tags": [
           "Chess API"
@@ -251,7 +251,7 @@
         }
       }
     },
-    "/play_pgn": {
+    "/play/pgn": {
       "post": {
         "tags": [
           "Chess API"
