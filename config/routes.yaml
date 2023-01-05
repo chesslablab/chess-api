@@ -8,6 +8,11 @@ api_grandmaster:
     controller: ChessApi\Controller\GrandmasterController::index
     methods:    POST
 
+api_engine_stockfish:
+    path:       /api/engine/stockfish
+    controller: ChessApi\Controller\EngineStockfishController::index
+    methods:    POST
+
 api_play_lan:
     path:       /api/play/lan
     controller: ChessApi\Controller\PlayLanController::index

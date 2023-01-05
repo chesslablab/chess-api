@@ -56,6 +56,40 @@ paths:
             video/mp4:
               schema:
                 $ref: '#/components/schemas/DownloadMp4Response'
+  /engine/stockfish:
+    post:
+      tags:
+      - Chess API
+      summary: Returns Stockfish's move in LAN format.
+      requestBody:
+        description: Parameters
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EngineStockfishRequest'
+            examples:
+              200 OK:
+                value:
+                  movetext: "e2e4 e7e5"
+                  skillLevel: 9
+                  depth: 3
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayResponse'
+              examples:
+                200 OK:
+                  value: {
+                    "move": "b1c3",
+                    "fen": "rnbqkbnr\/pppp1ppp\/8\/4p3\/4P3\/2N5\/PPPP1PPP\/R1BQKBNR b KQkq -",
+                    "isCheck": false,
+                    "isMate": false,
+                    "movetext": "1.e4 e5 2.Nc3"
+                  }
   /grandmaster:
     post:
       tags:
@@ -242,6 +276,20 @@ components:
     DownloadMp4Response:
       type: string
       format: binary
+    EngineStockfishRequest:
+      type: object
+      properties:
+        movetext:
+          type: string
+        skillLevel:
+            type: string
+        depth:
+            type: string
+    EngineResponse:
+      type: object
+      properties:
+        movetext:
+          type: string
     GrandmasterRequest:
       type: object
       properties:
