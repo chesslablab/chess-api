@@ -41,12 +41,17 @@ class EngineStockfishController extends AbstractController
                 ]);
 
             $lan = $stockfish->play($board->toFen());
+            $board->playLan($board->getTurn(), $lan);
         } catch (\Exception $e) {
             throw new BadRequestHttpException();
         }
 
         $arr = [
             'move' => $lan,
+            'fen' => $board->toFen(),
+            'isCheck' => $board->isCheck(),
+            'isMate' => $board->isMate(),
+            'movetext' => $board->getMovetext(),
         ];
 
         return $this->json($arr);
