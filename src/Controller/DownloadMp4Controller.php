@@ -7,8 +7,9 @@ use Chess\Movetext;
 use Chess\Media\BoardToMp4;
 use Chess\Player\PgnPlayer;
 use Chess\Variant\Capablanca80\Board as Capablanca80Board;
+use Chess\Variant\Capablanca80\PGN\Move as Capablanca80PgnMove;
 use Chess\Variant\Chess960\Board as Chess960Board;
-use Chess\Variant\Classical\Board as ClassicalBoard;
+use Chess\Variant\Classical\PGN\Move as ClassicalPgnMove;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,7 +37,14 @@ class DownloadMp4Controller extends AbstractController
         if (!isset($params['movetext'])) {
             throw new BadRequestHttpException();
         } else {
-            $movetextObj = new Movetext($params['movetext']);
+            if ($params['variant'] === Game::VARIANT_960) {
+                $move = new ClassicalPgnMove();
+            } elseif ($params['variant'] === Game::VARIANT_CAPABLANCA_80) {
+                $move = new Capablanca80PgnMove();
+            } elseif ($params['variant'] === Game::VARIANT_CLASSICAL) {
+                $move = new ClassicalPgnMove();
+            }
+            $movetextObj = new Movetext($move, $params['movetext']);
             $movetext = $movetextObj->validate();
             if (!$movetext) {
                 throw new BadRequestHttpException();
