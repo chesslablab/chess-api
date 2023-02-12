@@ -1,6 +1,6 @@
 ## Chess API
 
-A REST API using [PHP Chess](https://github.com/chesslablab/php-chess).
+API using [PHP Chess](https://github.com/chesslablab/php-chess).
 
 ### Documentation
 
