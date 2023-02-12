@@ -4,7 +4,7 @@ A REST API using [PHP Chess](https://github.com/chesslablab/php-chess).
 
 ### Documentation
 
-Read the latest docs [here](https://app.swaggerhub.com/apis-docs/chesslablab/chess-rest_api/1.0.0).
+Read the latest docs [here](https://www.chesslablab.com/api/).
 
 ### Installation
 
