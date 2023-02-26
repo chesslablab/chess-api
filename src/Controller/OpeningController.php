@@ -6,7 +6,6 @@ use ChessApi\Pdo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class OpeningController extends AbstractController
 {
@@ -22,14 +21,6 @@ class OpeningController extends AbstractController
     public function index(Request $request): Response
     {
         $params = json_decode($request->getContent(), true);
-
-        if (
-            !isset($params['eco']) &&
-            !isset($params['name']) &&
-            !isset($params['movetext'])
-        ) {
-            throw new BadRequestHttpException();
-        }
 
         $sql = 'SELECT * FROM openings WHERE ';
         $values = [];
