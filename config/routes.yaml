@@ -28,6 +28,11 @@ api_download_image:
     controller: ChessApi\Controller\DownloadImageController::index
     methods:    POST
 
+api_opening:
+    path:       /api/opening
+    controller: ChessApi\Controller\OpeningController::index
+    methods:    POST
+
 api_search:
     path:       /api/search
     controller: ChessApi\Controller\SearchController::index
