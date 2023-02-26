@@ -9,11 +9,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PlayerStatsController extends AbstractController
 {
-    const SEARCH_LIKE = [
+    const SQL_LIKE = [
 
     ];
 
-    const SEARCH_AND = [
+    const SQL_EQUAL = [
         'White',
         'Black',
         'Result',
@@ -27,14 +27,14 @@ class PlayerStatsController extends AbstractController
         $values = [];
 
         foreach ($params as $key => $val) {
-            if (in_array($key, self::SEARCH_LIKE)) {
+            if (in_array($key, self::SQL_LIKE)) {
                 $sql .= "$key LIKE :$key AND ";
                 $values[] = [
                     'param' => ":$key",
                     'value' => '%'.$val.'%',
                     'type' => \PDO::PARAM_STR,
                 ];
-            } else if (in_array($key, self::SEARCH_AND) && $val) {
+            } else if (in_array($key, self::SQL_EQUAL) && $val) {
                 $sql .= "$key = :$key AND ";
                 $values[] = [
                     'param' => ":$key",
