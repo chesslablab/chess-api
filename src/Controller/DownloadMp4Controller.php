@@ -33,25 +33,26 @@ class DownloadMp4Controller extends AbstractController
                 throw new BadRequestHttpException();
             }
         }
-
         if (!isset($params['movetext'])) {
             throw new BadRequestHttpException();
-        } else {
-            if ($params['variant'] === Game::VARIANT_960) {
-                $move = new ClassicalPgnMove();
-            } elseif ($params['variant'] === Game::VARIANT_CAPABLANCA_80) {
-                $move = new Capablanca80PgnMove();
-            } elseif ($params['variant'] === Game::VARIANT_CLASSICAL) {
-                $move = new ClassicalPgnMove();
-            }
-            $movetextObj = new Movetext($move, $params['movetext']);
-            $movetext = $movetextObj->validate();
-            if (!$movetext) {
-                throw new BadRequestHttpException();
-            }
-            if (self::MAX_MOVES < count($movetextObj->getMovetext()->moves)) {
-                throw new BadRequestHttpException();
-            }
+        }
+
+        if ($params['variant'] === Game::VARIANT_960) {
+            $move = new ClassicalPgnMove();
+        } elseif ($params['variant'] === Game::VARIANT_CAPABLANCA_80) {
+            $move = new Capablanca80PgnMove();
+        } elseif ($params['variant'] === Game::VARIANT_CLASSICAL) {
+            $move = new ClassicalPgnMove();
+        }
+
+        $movetextObj = new Movetext($move, $params['movetext']);
+        $movetext = $movetextObj->validate();
+
+        if (!$movetext) {
+            throw new BadRequestHttpException();
+        }
+        if (self::MAX_MOVES < count($movetextObj->getMovetext()->moves)) {
+            throw new BadRequestHttpException();
         }
 
         try {
