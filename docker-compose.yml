@@ -21,7 +21,3 @@ services:
           - ./docker/nginx/ssl/certificate.crt:/etc/nginx/ssl/certificate.crt
           - ./docker/nginx/ssl/private.key:/etc/nginx/ssl/private.key
       working_dir: /usr/share/nginx/chess-api
-networks:
-  default:
-    external: true
-    name: chess-data_default
