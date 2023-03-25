@@ -20,16 +20,7 @@ Create an `.env` file:
 
     $ cp .env.example .env
 
-In order to setup the Chess API you may want to configure your own web server and database or use Docker if you prefer. For further information, read the [`bash/start.sh`](https://github.com/chesslablab/chess-data/blob/master/bash/start.sh) script and check out the [`docker`](https://github.com/chesslablab/chess-api/tree/main/docker) folder.
-
-An SSL certificate needs to be created and setup for the web server. The next posts explain how to create a certificate for the [Chess Server](https://github.com/chesslablab/chess-server), however, the steps to follow are almost identical as those for the Chess API.
-
-- [Creating a Local WebSocket Server With TLS/SSL Is Easy as Pie](https://medium.com/geekculture/creating-a-local-websocket-server-with-tls-ssl-is-easy-as-pie-de1a2ef058e0)
-- [A Simple Example of SSL/TLS WebSocket With ReactPHP and Ratchet](https://medium.com/geekculture/a-simple-example-of-ssl-tls-websocket-with-reactphp-and-ratchet-e03be973f521)
-
-The Chess API goes hand in hand with [Chess Data](https://github.com/chesslablab/chess-data) which is a database, data science and machine learning repository. Setup the database accordingly and [seed the tables with data](https://github.com/chesslablab/chess-data/tree/master/cli#seed-the-tables-with-data).
-
-Also there is an easy quick way to get the API up and running without an SSL certificate for when testing endpoints that don't require a database connection, e.g., `api/download_image` or `api/download_mp4`. In such cases you may want to use [PHP's built-in web server](https://www.php.net/manual/en/features.commandline.webserver.php) as described next.
+The Chess API goes hand in hand with [Chess Data](https://github.com/chesslablab/chess-data) which is a database, data science and machine learning repository. However, there is an easy quick way to get the API up and running without an SSL certificate for when testing endpoints that don't require a database connection, e.g., `api/download_image` or `api/download_mp4`. In such cases you may want to use [PHP's built-in web server](https://www.php.net/manual/en/features.commandline.webserver.php) as described next.
 
 ```
 $ cd public
