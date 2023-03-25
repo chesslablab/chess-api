@@ -8,11 +8,7 @@ Read the [reference guide](https://www.chesslablab.com/documentation/).
 
 ### Installation
 
-Clone the `chesslablab/chess-api` repo into your projects folder as it is described in the following example:
-
-    $ git clone git@github.com:chesslablab/chess-api.git
-
-Then `cd` the `chess-api` directory and install the Composer dependencies:
+Install the Composer packages:
 
     $ composer install
 
@@ -20,7 +16,9 @@ Create an `.env` file:
 
     $ cp .env.example .env
 
-The Chess API goes hand in hand with [Chess Data](https://github.com/chesslablab/chess-data) which is a database, data science and machine learning repository. However, there is an easy quick way to get the API up and running without an SSL certificate for when testing endpoints that don't require a database connection, e.g., `api/download_image` or `api/download_mp4`. In such cases you may want to use [PHP's built-in web server](https://www.php.net/manual/en/features.commandline.webserver.php) as described next.
+The Chess API goes hand in hand with [Chess Data](https://github.com/chesslablab/chess-data) which is a database, data science and machine learning repository.
+
+However, there is an easy quick way to get the API up and running without an SSL certificate for when testing endpoints that don't require a database connection, e.g., `api/download_image` or `api/download_mp4`. In such cases you may want to use [PHP's built-in web server](https://www.php.net/manual/en/features.commandline.webserver.php) as described next.
 
 ```
 $ cd public
