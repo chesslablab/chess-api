@@ -4,6 +4,7 @@ namespace ChessApi\Controller;
 
 use Chess\Game;
 use Chess\Media\BoardToMp4;
+use Chess\Variant\Classical\PGN\AN\Color;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,13 +31,17 @@ class DownloadMp4Controller extends AbstractController
             }
         }
 
+        if (!isset($params['flip'])) {
+            throw new BadRequestHttpException();
+        }
+
         try {
             $filename = (new BoardToMp4(
                 $params['variant'],
                 $params['movetext'],
                 $params['fen'] ?? '',
                 $params['startPos'] ?? '',
-                $flip = false
+                $params['flip'] === Color::B
             ))->output(self::OUTPUT_FOLDER);
             $request->attributes->set('filename', $filename);
         } catch (\Exception $e) {
