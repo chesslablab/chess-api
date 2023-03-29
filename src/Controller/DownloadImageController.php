@@ -6,6 +6,7 @@ use Chess\Game;
 use Chess\Media\BoardToPng;
 use Chess\Variant\Capablanca80\FEN\StrToBoard as Capablanca80StrToBoard;
 use Chess\Variant\Classical\FEN\StrToBoard as ClassicalStrToBoard;
+use Chess\Variant\Classical\PGN\AN\Color;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,6 +27,9 @@ class DownloadImageController extends AbstractController
         if (!isset($params['fen'])) {
             throw new BadRequestHttpException();
         }
+        if (!isset($params['flip'])) {
+            throw new BadRequestHttpException();
+        }
 
         try {
             if ($params['variant'] === Game::VARIANT_960) {
@@ -35,7 +39,8 @@ class DownloadImageController extends AbstractController
             } elseif ($params['variant'] === Game::VARIANT_CLASSICAL) {
                 $board = (new ClassicalStrToBoard($params['fen']))->create();
             }
-            $filename = (new BoardToPng($board))->output(self::OUTPUT_FOLDER);
+            $filename = (new BoardToPng($board, $params['flip'] === Color::B))
+                ->output(self::OUTPUT_FOLDER);
             $request->attributes->set('filename', $filename);
         } catch (\Exception $e) {
             return (new Response())->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
