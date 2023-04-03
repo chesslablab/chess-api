@@ -1,3 +1,8 @@
+api_autocomplete:
+    path:       /api/autocomplete
+    controller: ChessApi\Controller\AutocompleteController::index
+    methods:    GET
+
 api_grandmaster:
     path:       /api/grandmaster
     controller: ChessApi\Controller\GrandmasterController::index
@@ -37,11 +42,6 @@ api_search:
     path:       /api/search
     controller: ChessApi\Controller\SearchController::index
     methods:    POST
-
-api_search_autocomplete:
-    path:       /api/search/autocomplete
-    controller: ChessApi\Controller\SearchAutocompleteController::index
-    methods:    GET
 
 api_player_stats:
     path:       /api/player_stats

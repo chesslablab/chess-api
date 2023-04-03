@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class SearchAutocompleteController extends AbstractController
+class AutocompleteController extends AbstractController
 {
-    const DATA_FOLDER = __DIR__.'/../../data';
+    const DATA_FOLDER = __DIR__.'/../../data/autocomplete';
 
-    const AUTOCOMPLETE_EVENTS = 'autocomplete-events.json';
+    const AUTOCOMPLETE_EVENTS = 'events.json';
 
-    const AUTOCOMPLETE_PLAYERS = 'autocomplete-players.json';
+    const AUTOCOMPLETE_PLAYERS = 'players.json';
 
     public function index(Request $request): Response
     {
