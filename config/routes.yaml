@@ -3,6 +3,11 @@ api_autocomplete_events:
     controller: ChessApi\Controller\AutocompleteEventsController::index
     methods:    GET
 
+api_autocomplete_players:
+    path:       /api/autocomplete/players
+    controller: ChessApi\Controller\AutocompletePlayersController::index
+    methods:    GET
+
 api_grandmaster:
     path:       /api/grandmaster
     controller: ChessApi\Controller\GrandmasterController::index
