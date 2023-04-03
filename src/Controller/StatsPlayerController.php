@@ -7,14 +7,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class EventStatsController extends AbstractController
+class StatsPlayerController extends AbstractController
 {
     const SQL_LIKE = [
 
     ];
 
     const SQL_EQUAL = [
-        'Event',
+        'White',
+        'Black',
         'Result',
     ];
 
