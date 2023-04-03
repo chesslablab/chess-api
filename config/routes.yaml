@@ -52,3 +52,8 @@ api_event_stats:
     path:       /api/event_stats
     controller: ChessApi\Controller\EventStatsController::index
     methods:    POST
+
+api_stats_opening:
+    path:       /api/stats/opening
+    controller: ChessApi\Controller\StatsOpeningController::index
+    methods:    GET
