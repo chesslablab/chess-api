@@ -38,6 +38,11 @@ api_search:
     controller: ChessApi\Controller\SearchController::index
     methods:    POST
 
+api_search_autocomplete:
+    path:       /api/search/autocomplete
+    controller: ChessApi\Controller\SearchAutocompleteController::index
+    methods:    GET
+
 api_player_stats:
     path:       /api/player_stats
     controller: ChessApi\Controller\PlayerStatsController::index
