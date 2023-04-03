@@ -10,14 +10,14 @@ class AutocompleteController extends AbstractController
 {
     const DATA_FOLDER = __DIR__.'/../../data/autocomplete';
 
-    const AUTOCOMPLETE_EVENTS = 'events.json';
+    const AUTOCOMPLETE_EVENTS_FILE = 'events.json';
 
-    const AUTOCOMPLETE_PLAYERS = 'players.json';
+    const AUTOCOMPLETE_PLAYERS_FILE = 'players.json';
 
     public function index(Request $request): Response
     {
-        $events = file_get_contents(self::DATA_FOLDER.'/'.self::AUTOCOMPLETE_EVENTS);
-        $players = file_get_contents(self::DATA_FOLDER.'/'.self::AUTOCOMPLETE_PLAYERS);
+        $events = file_get_contents(self::DATA_FOLDER.'/'.self::AUTOCOMPLETE_EVENTS_FILE);
+        $players = file_get_contents(self::DATA_FOLDER.'/'.self::AUTOCOMPLETE_PLAYERS_FILE);
 
         $content = json_encode([
             'events' => json_decode($events),
