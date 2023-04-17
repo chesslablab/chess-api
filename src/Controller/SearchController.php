@@ -8,6 +8,7 @@ use ChessApi\Pdo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class SearchController extends AbstractController
 {
@@ -28,6 +29,14 @@ class SearchController extends AbstractController
     {
         $params = json_decode($request->getContent(), true);
 
+        try {
+            if (isset($params['movetext'])) {
+                $movetext = (new Movetext(new Move(), $params['movetext']))->validate();
+            }
+        } catch (\Exception $e) {
+            throw new BadRequestHttpException();
+        }
+
         $sql = 'SELECT * FROM players WHERE ';
         $values = [];
 
@@ -35,7 +44,7 @@ class SearchController extends AbstractController
             if (in_array($key, self::SQL_LIKE)) {
                 $sql .= "$key LIKE :$key AND ";
                 if ($key === 'movetext') {
-                    $val = (new Movetext(new Move(), $val))->validate();
+                    $val = $movetext;
                 }
                 $values[] = [
                     'param' => ":$key",
