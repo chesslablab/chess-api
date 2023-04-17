@@ -2,6 +2,8 @@
 
 namespace ChessApi\Controller;
 
+use Chess\Movetext;
+use Chess\Variant\Classical\PGN\Move;
 use ChessApi\Pdo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,6 +13,7 @@ class SearchController extends AbstractController
 {
     const SQL_LIKE = [
         'Date',
+        'movetext',
     ];
 
     const SQL_EQUAL = [
@@ -31,6 +34,9 @@ class SearchController extends AbstractController
         foreach ($params as $key => $val) {
             if (in_array($key, self::SQL_LIKE)) {
                 $sql .= "$key LIKE :$key AND ";
+                if ($key === 'movetext') {
+                    $val = (new Movetext(new Move(), $val))->validate();
+                }
                 $values[] = [
                     'param' => ":$key",
                     'value' => '%'.$val.'%',
