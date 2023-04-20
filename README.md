@@ -1,4 +1,4 @@
-## Chess API
+## PHP Chess API
 
 API using [PHP Chess](https://github.com/chesslablab/php-chess).
 
