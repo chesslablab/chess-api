@@ -41,23 +41,25 @@ class SearchController extends AbstractController
         $values = [];
 
         foreach ($params as $key => $val) {
-            if (in_array($key, self::SQL_LIKE)) {
-                $sql .= "$key LIKE :$key AND ";
-                if ($key === 'movetext') {
-                    $val = $movetext;
+            if ($val) {
+                if (in_array($key, self::SQL_LIKE)) {
+                    $sql .= "$key LIKE :$key AND ";
+                    if ($key === 'movetext') {
+                        $val = $movetext;
+                    }
+                    $values[] = [
+                        'param' => ":$key",
+                        'value' => '%'.$val.'%',
+                        'type' => \PDO::PARAM_STR,
+                    ];
+                } else if (in_array($key, self::SQL_EQUAL) && $val) {
+                    $sql .= "$key = :$key AND ";
+                    $values[] = [
+                        'param' => ":$key",
+                        'value' => $val,
+                        'type' => \PDO::PARAM_STR,
+                    ];
                 }
-                $values[] = [
-                    'param' => ":$key",
-                    'value' => '%'.$val.'%',
-                    'type' => \PDO::PARAM_STR,
-                ];
-            } else if (in_array($key, self::SQL_EQUAL) && $val) {
-                $sql .= "$key = :$key AND ";
-                $values[] = [
-                    'param' => ":$key",
-                    'value' => $val,
-                    'type' => \PDO::PARAM_STR,
-                ];
             }
         }
 
