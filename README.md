@@ -9,20 +9,24 @@ Read the [reference guide](https://www.chesslablab.com/documentation/).
 ### Installation
 
 Install the Composer packages:
-
-    $ composer install
+```
+composer install
+```
 
 Create an `.env` file:
-
-    $ cp .env.example .env
+```
+cp .env.example .env
+```
 
 The Chess API goes hand in hand with [Chess Data](https://github.com/chesslablab/chess-data) which is a database, data science and machine learning repository.
 
 However, there is an easy quick way to get the API up and running without an SSL certificate for when testing endpoints that don't require a database connection, e.g., `api/download_image` or `api/download_mp4`. In such cases you may want to use [PHP's built-in web server](https://www.php.net/manual/en/features.commandline.webserver.php) as described next.
 
 ```
-$ cd public
-$ php -S localhost:8000
+cd public
+```
+```
+php -S localhost:8000
 ```
 
 ### File Permissions Setup
@@ -30,21 +34,21 @@ $ php -S localhost:8000
 Make sure the `var` directory exists:
 
 ```
-$ mkdir var
+mkdir var
 ```
 
 And set up the following permissions:
 
 ```
-$ sudo chown www-data:standard -R var
-$ sudo chmod 775 -R var
+sudo chown www-data:standard -R var
+sudo chmod 775 -R var
 ```
 
 Finally, set up the following permissions for the `storage` directory:
 
 ```
-$ sudo chown www-data:standard -R storage
-$ sudo chmod 775 -R storage
+sudo chown www-data:standard -R storage
+sudo chmod 775 -R storage
 ```
 
 ### Contributions
