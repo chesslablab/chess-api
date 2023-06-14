@@ -2,8 +2,8 @@
 
 namespace ChessApi\Controller;
 
-use Chess\Game;
 use Chess\Media\BoardToMp4;
+use Chess\Variant\Chess960\Board as Chess960Board;
 use Chess\Variant\Classical\PGN\AN\Color;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -25,7 +25,7 @@ class DownloadMp4Controller extends AbstractController
 
         if (!isset($params['variant'])) {
             throw new BadRequestHttpException();
-        } elseif ($params['variant'] === Game::VARIANT_960) {
+        } elseif ($params['variant'] === Chess960Board::VARIANT) {
             if (!isset($params['startPos'])) {
                 throw new BadRequestHttpException();
             }

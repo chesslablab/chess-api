@@ -2,9 +2,8 @@
 
 namespace ChessApi\Controller;
 
-use Chess\Game;
 use Chess\Player\LanPlayer;
-use Chess\Variant\Capablanca80\Board as Capablanca80Board;
+use Chess\Variant\Capablanca\Board as CapablancaBoard;
 use Chess\Variant\Chess960\Board as Chess960Board;
 use Chess\Variant\Classical\Board as ClassicalBoard;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,25 +26,25 @@ class PlayLanController extends AbstractController
         }
 
         if (
-            $params['variant'] !== Game::VARIANT_960 &&
-            $params['variant'] !== Game::VARIANT_CAPABLANCA_80 &&
-            $params['variant'] !== Game::VARIANT_CLASSICAL
+            $params['variant'] !== Chess960Board::VARIANT &&
+            $params['variant'] !== CapablancaBoard::VARIANT &&
+            $params['variant'] !== ClassicalBoard::VARIANT
         ) {
             throw new BadRequestHttpException();
         }
 
-        if ($params['variant'] === Game::VARIANT_960) {
+        if ($params['variant'] === Chess960Board::VARIANT) {
             if (!isset($params['startPos'])) {
                 throw new BadRequestHttpException();
             }
         }
 
-        if ($params['variant'] === Game::VARIANT_960) {
+        if ($params['variant'] === Chess960Board::VARIANT) {
             $startPos = str_split($params['startPos']);
             $board = new Chess960Board($startPos);
-        } elseif ($params['variant'] === Game::VARIANT_CAPABLANCA_80) {
-            $board = new Capablanca80Board();
-        } elseif ($params['variant'] === Game::VARIANT_CLASSICAL) {
+        } elseif ($params['variant'] === CapablancaBoard::VARIANT) {
+            $board = new CapablancaBoard();
+        } elseif ($params['variant'] === ClassicalBoard::VARIANT) {
             $board = new ClassicalBoard();
         }
 
