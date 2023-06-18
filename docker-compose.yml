@@ -17,6 +17,7 @@ services:
       restart: always
       volumes:
           - ./:/usr/share/nginx/chess-api
+          - ./docker/nginx/conf.d/prod.conf:/etc/nginx/conf.d/prod.conf
           - ./docker/nginx/ssl/certificate.crt:/etc/nginx/ssl/certificate.crt
           - ./docker/nginx/ssl/private.key:/etc/nginx/ssl/private.key
       working_dir: /usr/share/nginx/chess-api

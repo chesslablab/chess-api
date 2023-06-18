@@ -22,7 +22,7 @@ cp .env.example .env
 The Chess API goes hand in hand with [Chess Data](https://github.com/chesslablab/chess-data) which is a database, data science and machine learning repository. Described below is how to run the Docker containers for the development environment.
 
 ```
-docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+docker compose -f docker-compose.dev.yml up -d
 ```
 
 Alternatively, there is an easy quick way to get the API up and running without an SSL certificate for when testing endpoints that don't require a database connection, e.g., `api/download_image` or `api/download_mp4`. In such cases use [PHP's built-in web server](https://www.php.net/manual/en/features.commandline.webserver.php) as described next.
