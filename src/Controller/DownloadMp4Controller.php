@@ -9,6 +9,7 @@ use Chess\Variant\Chess960\Board as Chess960Board;
 use Chess\Variant\Chess960\FEN\StrToBoard as Chess960FenStrToBoard;
 use Chess\Variant\Classical\Board as ClassicalBoard;
 use Chess\Variant\Classical\FEN\StrToBoard as ClassicalFenStrToBoard;
+use Chess\Variant\Classical\PGN\AN\Color;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -70,7 +71,7 @@ class DownloadMp4Controller extends AbstractController
             $filename = (new BoardToMp4(
                 $params['movetext'],
                 $board,
-                $flip = $params['flip']
+                $params['flip'] === Color::B
             ))->output(self::OUTPUT_FOLDER);
 
             $request->attributes->set('filename', $filename);
