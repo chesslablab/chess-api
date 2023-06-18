@@ -40,9 +40,10 @@ class DownloadMp4Controller extends AbstractController
         }
 
         try {
-            if ($params['fen']) {
+            if (isset($params['fen'])) {
                 if ($params['variant'] === Chess960Board::VARIANT) {
-                    $board = (new Chess960FenStrToBoard($params['fen'], $params['startPos']))
+                    $startPos = str_split($params['startPos']);
+                    $board = (new Chess960FenStrToBoard($params['fen'], $startPos))
                         ->create();
                 } elseif ($params['variant'] === CapablancaBoard::VARIANT) {
                     $board = (new CapablancaFenStrToBoard($params['fen']))
@@ -55,7 +56,8 @@ class DownloadMp4Controller extends AbstractController
                 }
             } else {
                 if ($params['variant'] === Chess960Board::VARIANT) {
-                    $board = new Chess960Board($params['startPos']);
+                    $startPos = str_split($params['startPos']);
+                    $board = new Chess960Board($startPos);
                 } elseif ($params['variant'] === CapablancaBoard::VARIANT) {
                     $board = new CapablancaBoard();
                 } elseif ($params['variant'] === ClassicalBoard::VARIANT) {
