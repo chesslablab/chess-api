@@ -34,7 +34,7 @@ cd public
 php -S localhost:8000
 ```
 
-Then you may want to add the following entry to your `/etc/hosts` file:
+Add the following entry to your `/etc/hosts` file:
 
 ```
 127.0.0.1       pchess.net
