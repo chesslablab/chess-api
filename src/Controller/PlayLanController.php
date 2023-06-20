@@ -2,7 +2,7 @@
 
 namespace ChessApi\Controller;
 
-use Chess\Player\LanPlayer;
+use Chess\Play\LAN;
 use Chess\Variant\Capablanca\Board as CapablancaBoard;
 use Chess\Variant\Chess960\Board as Chess960Board;
 use Chess\Variant\Classical\Board as ClassicalBoard;
@@ -49,7 +49,9 @@ class PlayLanController extends AbstractController
         }
 
         try {
-            $board = (new LanPlayer($params['movetext'], $board))->play()->getBoard();
+            $board = (new LAN($params['movetext'], $board))
+                ->play()
+                ->getBoard();
         } catch (\Exception $e) {
             throw new BadRequestHttpException();
         }
