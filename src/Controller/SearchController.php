@@ -2,7 +2,7 @@
 
 namespace ChessApi\Controller;
 
-use Chess\Movetext\SAN;
+use Chess\Movetext\SanMovetext;
 use Chess\Variant\Classical\PGN\Move;
 use ChessApi\Pdo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,7 +31,10 @@ class SearchController extends AbstractController
 
         try {
             if (isset($params['movetext'])) {
-                $san = (new SAN(new Move(), $params['movetext']))->validate();
+                $sanMovetext = (new SanMovetext(
+                    new Move(),
+                    $params['movetext']
+                ))->validate();
             }
         } catch (\Exception $e) {
             throw new BadRequestHttpException();
@@ -45,7 +48,7 @@ class SearchController extends AbstractController
                 if (in_array($key, self::SQL_LIKE)) {
                     $sql .= "$key LIKE :$key AND ";
                     if ($key === 'movetext') {
-                        $val = $san;
+                        $val = $sanMovetext;
                     }
                     $values[] = [
                         'param' => ":$key",

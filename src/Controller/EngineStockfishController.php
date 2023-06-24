@@ -2,7 +2,7 @@
 
 namespace ChessApi\Controller;
 
-use Chess\Play\LAN;
+use Chess\Play\LanPlay;
 use Chess\UciEngine\Stockfish;
 use Chess\Variant\Classical\Board as ClassicalBoard;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,7 +29,7 @@ class EngineStockfishController extends AbstractController
         }
 
         try {
-            $board = (new LAN($params['movetext'], new ClassicalBoard()))
+            $board = (new LanPlay($params['movetext'], new ClassicalBoard()))
                 ->play()
                 ->getBoard();
 
