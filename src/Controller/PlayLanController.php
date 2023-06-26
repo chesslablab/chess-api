@@ -50,7 +50,7 @@ class PlayLanController extends AbstractController
 
         try {
             $board = (new LanPlay($params['movetext'], $board))
-                ->play()
+                ->validate()
                 ->getBoard();
         } catch (\Exception $e) {
             throw new BadRequestHttpException();

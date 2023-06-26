@@ -50,7 +50,7 @@ class PlayPgnController extends AbstractController
 
         try {
             $board = (new SanPlay($params['movetext'], $board))
-                ->play()
+                ->validate()
                 ->getBoard();
         } catch (\Exception $e) {
             throw new BadRequestHttpException();

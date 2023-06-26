@@ -30,7 +30,7 @@ class EngineStockfishController extends AbstractController
 
         try {
             $board = (new LanPlay($params['movetext'], new ClassicalBoard()))
-                ->play()
+                ->validate()
                 ->getBoard();
 
             $stockfish = (new Stockfish($board))
