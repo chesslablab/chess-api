@@ -2,7 +2,7 @@
 
 Downloads an image.
 
-Parameters:
+## Parameters
 
 | Name | Description | Required |
 | ---- | ----------- | -------- |
@@ -10,7 +10,7 @@ Parameters:
 | fen | A FEN string. | Yes |
 | flip | Accepts: w, b. | Yes |
 
-Example:
+## Example
 
 ```text
 curl https://pchess.net/api/download/image \
@@ -22,7 +22,5 @@ curl https://pchess.net/api/download/image \
   }' \
   --output image.png
 ```
-
-Response:
 
 ![Figure 1](https://raw.githubusercontent.com/chesslablab/chess-api/master/docs/post-download-image_01.png)

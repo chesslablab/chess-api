@@ -2,13 +2,11 @@
 
 Returns autocomplete data for chess events and players.
 
-Example:
+## Example
 
 ```text
 curl https://pchess.net/api/autocomplete
 ```
-
-Response:
 
 ```text
 {

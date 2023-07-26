@@ -2,7 +2,7 @@
 
 Downloads a video.
 
-Parameters:
+## Parameters
 
 | Name | Description | Required |
 | ---- | ----------- | -------- |
@@ -12,7 +12,7 @@ Parameters:
 | startPos | Start position in a Fischer Random game, also known as Chess960. | Only in a Chess960 game. |
 | flip | Accepts: w, b. | Yes |
 
-Example:
+## Example
 
 Downloads a classical game from the start position.
 
