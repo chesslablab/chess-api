@@ -4,7 +4,7 @@ API using [PHP Chess](https://github.com/chesslablab/php-chess).
 
 ### Documentation
 
-Read the [reference guide](https://www.chesslablab.com/documentation/).
+Read the latest docs [here](https://chess-api.readthedocs.io/en/latest/).
 
 ### Installation
 
