@@ -9,7 +9,7 @@ Downloads a video.
 | variant | Accepts: 960, capablanca, classical. | Yes |
 | fen | A FEN string. | No |
 | movetext | A portable game notation (PGN) movetext. | Yes |
-| startPos | Start position in a Fischer Random game, also known as Chess960. | Only in a Chess960 game. |
+| startPos | Start position. | Only in a Chess960 game. |
 | flip | Accepts: w, b. | Yes |
 
 ## Example
