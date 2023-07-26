@@ -11,4 +11,5 @@ pages:
   - POST /play/lan: post-play-lan.md
   - POST /play/pgn: post-play-pgn.md
   - POST /search: post-search.md
+  - POST /stats/event: post-stats-event.md
 theme: readthedocs
