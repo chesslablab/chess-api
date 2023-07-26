@@ -6,6 +6,10 @@ API using [PHP Chess](https://github.com/chesslablab/php-chess).
 
 Read the latest docs [here](https://chess-api.readthedocs.io/en/latest/).
 
+### Demo
+
+Check out [this demo](https://www.chesslablab.com).
+
 ### Installation
 
 Install the Composer packages:
