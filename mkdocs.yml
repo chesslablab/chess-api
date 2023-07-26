@@ -1,4 +1,5 @@
 site_name: Chess API
 pages:
   - Chess API for Web Apps: index.md
+  - GET /autocomplete: get-autocomplete.md
 theme: readthedocs
