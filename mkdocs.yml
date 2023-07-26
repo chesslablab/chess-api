@@ -3,4 +3,5 @@ pages:
   - Chess API for Web Apps: index.md
   - GET /autocomplete: get-autocomplete.md
   - GET /stats/opening: get-stats-opening.md
+  - POST /download/image: post-download-image.md
 theme: readthedocs
