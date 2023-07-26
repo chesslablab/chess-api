@@ -5,4 +5,5 @@ pages:
   - GET /stats/opening: get-stats-opening.md
   - POST /download/image: post-download-image.md
   - POST /download/mp4: post-download-mp4.md
+  - POST /engine/stockfish: post-engine-stockfish.md
 theme: readthedocs
