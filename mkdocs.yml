@@ -8,4 +8,5 @@ pages:
   - POST /engine/stockfish: post-engine-stockfish.md
   - POST /grandmaster: post-engine-stockfish.md
   - POST /opening: post-opening.md
+  - POST /play/lan: post-play-lan.md
 theme: readthedocs
