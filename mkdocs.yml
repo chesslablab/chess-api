@@ -7,4 +7,5 @@ pages:
   - POST /download/mp4: post-download-mp4.md
   - POST /engine/stockfish: post-engine-stockfish.md
   - POST /grandmaster: post-engine-stockfish.md
+  - POST /opening: post-opening.md
 theme: readthedocs
