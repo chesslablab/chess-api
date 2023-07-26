@@ -4,4 +4,5 @@ pages:
   - GET /autocomplete: get-autocomplete.md
   - GET /stats/opening: get-stats-opening.md
   - POST /download/image: post-download-image.md
+  - POST /download/mp4: post-download-mp4.md
 theme: readthedocs
