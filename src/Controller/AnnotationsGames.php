@@ -8,5 +8,5 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AnnotationsGames extends AbstractController
 {
-  const DATA_FOLDER = __DIR__.'/../../ data/annotations/games.json';
+  const DATA_FOLDER = __DIR__.'/../../ data/annotations/';
 }
