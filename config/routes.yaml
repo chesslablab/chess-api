@@ -18,6 +18,11 @@ api_engine_stockfish:
     controller: ChessApi\Controller\EngineStockfishController::index
     methods:    POST
 
+api_annotations_games:
+    path:       /api/annotations/games
+    controller: ChessApi\Controller\AnnotationsGamesController::index
+    methods:    GET
+
 api_grandmaster:
     path:       /api/grandmaster
     controller: ChessApi\Controller\GrandmasterController::index
