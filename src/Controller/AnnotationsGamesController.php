@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AnnotationsGames extends AbstractController
+class AnnotationsGamesController extends AbstractController
 {
-  const DATA_FOLDER = __DIR__.'/../../ data/annotations/';
+    const DATA_FOLDER = __DIR__.'/../../data/annotations';
 
-  const ANNOTATIONS_GAMES_FILE = 'games.json';
+    const ANNOTATIONS_GAMES_FILE = 'games.json';
 
-  public function index(Request $request): Response
+    public function index(Request $request): Response
     {
         $games = file_get_contents(self::DATA_FOLDER.'/'.self::ANNOTATIONS_GAMES_FILE);
 
@@ -26,5 +26,4 @@ class AnnotationsGames extends AbstractController
 
         return $response;
     }
-  
 }
