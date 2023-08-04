@@ -3,6 +3,11 @@ api_autocomplete:
     controller: ChessApi\Controller\AutocompleteController::index
     methods:    GET
 
+api_autocomplete_events:
+    path:       /api/autocomplete/events
+    controller: ChessApi\Controller\AutocompleteEventsController::index
+    methods:    GET
+
 api_download_mp4:
     path:       /api/download/mp4
     controller: ChessApi\Controller\DownloadMp4Controller::index
