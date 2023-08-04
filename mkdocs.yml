@@ -2,7 +2,8 @@ site_name: Chess API
 pages:
   - Chess API for Web Apps: index.md
   - GET /annotations/games: get-annotations-games.md
-  - GET /autocomplete: get-autocomplete.md
+  - GET /autocomplete/events: get-autocomplete-events.md
+  - GET /autocomplete/players: get-autocomplete-players.md
   - GET /stats/opening: get-stats-opening.md
   - POST /download/image: post-download-image.md
   - POST /download/mp4: post-download-mp4.md
