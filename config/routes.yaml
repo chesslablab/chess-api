@@ -1,11 +1,11 @@
-api_autocomplete_events:
-    path:       /api/autocomplete/events
-    controller: ChessApi\Controller\AutocompleteEventsController::index
+api_autocomplete_event:
+    path:       /api/autocomplete/event
+    controller: ChessApi\Controller\AutocompleteEventController::index
     methods:    GET
 
-api_autocomplete_players:
-    path:       /api/autocomplete/players
-    controller: ChessApi\Controller\AutocompletePlayersController::index
+api_autocomplete_player:
+    path:       /api/autocomplete/player
+    controller: ChessApi\Controller\AutocompletePlayerController::index
     methods:    GET
 
 api_download_mp4:

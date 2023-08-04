@@ -1,11 +1,11 @@
-# GET /autocomplete/players
+# GET /autocomplete/player
 
 Returns autocomplete data for chess players.
 
 ## Example
 
 ```text
-curl https://pchess.net/api/autocomplete/players
+curl https://pchess.net/api/autocomplete/player
 ```
 
 ```text

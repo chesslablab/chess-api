@@ -6,15 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AutocompletePlayersController extends AbstractController
+class AutocompleteEventController extends AbstractController
 {
     const DATA_FOLDER = __DIR__.'/../../data/autocomplete';
 
-    const AUTOCOMPLETE_PLAYERS_FILE = 'players.json';
+    const AUTOCOMPLETE_EVENT_FILE = 'events.json';
 
     public function index(Request $request): Response
     {
-        $content = file_get_contents(self::DATA_FOLDER.'/'.self::AUTOCOMPLETE_PLAYERS_FILE);
+        $content = file_get_contents(self::DATA_FOLDER.'/'.self::AUTOCOMPLETE_EVENT_FILE);
 
         $response = new Response();
         $response->setContent($content);

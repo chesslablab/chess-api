@@ -1,11 +1,11 @@
-# GET /autocomplete/events
+# GET /autocomplete/event
 
 Returns autocomplete data for chess events.
 
 ## Example
 
 ```text
-curl https://pchess.net/api/autocomplete/events
+curl https://pchess.net/api/autocomplete/event
 ```
 
 ```text
