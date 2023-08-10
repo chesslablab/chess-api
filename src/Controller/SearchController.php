@@ -28,6 +28,7 @@ class SearchController extends AbstractController
     public function index(Request $request): Response
     {
         $params = json_decode($request->getContent(), true);
+		$sanMovetext = null;
 
         try {
             if (isset($params['movetext'])) {
@@ -37,7 +38,8 @@ class SearchController extends AbstractController
                 ))->validate();
             }
         } catch (\Exception $e) {
-            throw new BadRequestHttpException();
+			$response = new Response();
+			$response->setStatusCode(Response::HTTP_NO_CONTENT);
         }
 
         $sql = 'SELECT * FROM players WHERE ';
