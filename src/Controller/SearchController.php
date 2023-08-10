@@ -37,7 +37,9 @@ class SearchController extends AbstractController
                 ))->validate();
             }
         } catch (\Exception $e) {
-            throw new BadRequestHttpException();
+            $response = new Response();
+            $response->setStatusCode(Response::HTTP_NO_CONTENT);
+            return $response;
         }
 
         $sql = 'SELECT * FROM players WHERE ';
