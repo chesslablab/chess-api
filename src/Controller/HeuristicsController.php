@@ -4,8 +4,11 @@ namespace ChessApi\Controller;
 
 use Chess\Heuristics;
 use Chess\Variant\Capablanca\Board as CapablancaBoard;
+use Chess\Variant\Capablanca\FEN\StrToBoard as CapablancaFenStrToBoard;
 use Chess\Variant\Chess960\Board as Chess960Board;
+use Chess\Variant\Chess960\FEN\StrToBoard as Chess960FenStrToBoard;
 use Chess\Variant\Classical\Board as ClassicalBoard;
+use Chess\Variant\Classical\FEN\StrToBoard as ClassicalFenStrToBoard;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,20 +34,24 @@ class HeuristicsController extends AbstractController
 
         if ($params['variant'] === Chess960Board::VARIANT) {
             $startPos = str_split($params['startPos']);
-            $board = new Chess960Board($startPos);
+            $board = isset($params['fen'])
+                ? (new Chess960FenStrToBoard($params['fen'], $startPos))->create()
+                : new Chess960Board($startPos);
         } elseif ($params['variant'] === CapablancaBoard::VARIANT) {
-            $board = new CapablancaBoard();
+            $board = isset($params['fen'])
+                ? (new CapablancaFenStrToBoard($params['fen']))->create()
+                : new CapablancaBoard();
         } elseif ($params['variant'] === ClassicalBoard::VARIANT) {
-            $board = new ClassicalBoard();
+            $board = isset($params['fen'])
+                ? (new ClassicalFenStrToBoard($params['fen']))->create()
+                : new ClassicalBoard();
         }
 
         $heuristics = new Heuristics($params['movetext'], $board);
 
-        $arr = [
+        return $this->json([
             'evalNames' => $heuristics->getEvalNames(),
             'balance' => $heuristics->getBalance(),
-        ];
-
-        return $this->json($arr);
+        ]);
     }
 }
