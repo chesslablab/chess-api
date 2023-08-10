@@ -9,6 +9,7 @@ pages:
   - POST /download/mp4: post-download-mp4.md
   - POST /engine/stockfish: post-engine-stockfish.md
   - POST /grandmaster: post-grandmaster.md
+  - POST /heuristics: post-heuristics.md
   - POST /opening: post-opening.md
   - POST /play/lan: post-play-lan.md
   - POST /play/pgn: post-play-pgn.md
