@@ -53,6 +53,11 @@ api_play_pgn:
     controller: ChessApi\Controller\PlayPgnController::index
     methods:    POST
 
+api_play_rav:
+    path:       /api/play/rav
+    controller: ChessApi\Controller\PlayRavController::index
+    methods:    POST
+
 api_search:
     path:       /api/search
     controller: ChessApi\Controller\SearchController::index
