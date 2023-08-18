@@ -1,4 +1,4 @@
-site_name: Chess API
+site_name: PHP Chess API
 pages:
   - Chess API for Web Apps: index.md
   - GET /annotations/games: get-annotations-games.md
