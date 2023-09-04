@@ -202,5 +202,17 @@
     "Result": "0-1",
     "ECO": "D02",
     "movetext": "{ Adapted notes, originally by Raymond Keene, from \"Aron Nimzowitsch: A Reappraisal.\" } 1.d4 d5 2.Nf3 Bg4 3.c4 Bxf3 4.gxf3 Nc6 5.Nc3 e6 6.e3 Bb4 7.cxd5 Qxd5 8.Bd2 Bxc3 9.bxc3 Nge7 10.Rg1 Qh5 11.Qb3 Nd8 12.Qb5+ Qxb5 13.Bxb5+ c6 14.Bd3 Ng6 15.f4 O-O 16.Ke2 Rc8 17.Rg3 { and Chigorin succeeds in implementing the blockade. One of Nimzowitsch's achievements was to elaborate an openings repertoire that successfully brought about blockade situations as a logical consequence of the initial moves:} (17.f5 { would have been much stronger breaking open the position for the bishops. }) 17...c5 18.Rag1 c4 19.Bc2 f5 20.Bc1 Rf7 21.Ba3 Rc6 22.Bc5 Ra6 23.a4 Nc6 24.Rb1 Rd7 25.Rgg1 Nge7 26.Rb2 Nd5 27.Kd2 Ra5 28.Rgb1 b6 29.Ba3 g6 30.Rb5 Ra6 31.Bc1 Nd8 32.Ra1 Nf7 33.Rbb1 Nd6 34.f3 Nf7 35.Ra3 g5 36.Ke2 gxf4 37.e4 $1 Nf6 38.Bxf4 Nh5 39.Be3 f4 40.Bf2 Ra5 41.Rg1+ Kf8 42.Raa1 (42.e5 { looks as if White can lift the blockade but in that case Chigorin had planned the following. } b5 43.Bxh7 Nxe5 44.Rg8+ Kf7 45.dxe5 b4 $1 46.cxb4 Rxe5+ 47.Kf1 Nf6 $19) 42...e5 43.Rab1 Ng7 44.Rb4 Rc7 45.Bb1 Ne6 46.Rd1 Ned8 47.Rd2 (47.dxe5 { had to be tried instead. }) 47...Nc6 { leaves Black with a won game. } 48.Rb5 Rxa4 49.dxe5 Nfxe5 50.Bh4 Rg7 51.Kf2 Rg6 52.Rdd5 Ra1 53.Bd8 Nd3+ 54.Bxd3 cxd3 55.Rxd3 Rag1 $1 56.Rf5+ Ke8 57.Bg5 R6xg5 (57.Rxf4 R5g2+ 58.Ke3 Re1#) 0-1"
+  },
+  {
+    "Event": "Karlsbad",
+    "Site": "Karlsbad (Karlovy Vary) AUH",
+    "Date": "1911.09.15",
+    "White": "Aron Nimzowitsch",
+    "Black": "Grigory Levenfish",
+    "WhiteElo": "?",
+    "BlackElo": "?",
+    "Result": "1-0",
+    "ECO": "C02",
+    "movetext": "{ Adapted notes, originally by Raymond Keene. With two bishops for two knights, and a central pawn majority, Black probably felt confident in the outcome of this game. But Nimzowitsch proves that the opposing centre is a liability because the squares in front of it are weak, inviting invasion by blockading knights. The bishops, locked behind the pawns, are never given a chance. Not strictly true! Nimzowitsch inadvertently allows the bishops to escape, but then proceeds to dominate them with his knights on an open board. } 1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 f6 {!?} 6.Bb5 { naturally preparing to exchange bishops for knights. } Bd7 7.O-O Qb6 (7...Nxe5 8.Nxe5 Bxb5 9.Qh5+ Ke7 10.Qf7+ Kd6 11.dxc5+ Kxe5 12.Re1+ Kf5 13.Qh5+ g5 14.g4 { mate -- Nimzowitsch. }) 8.Bxc6 bxc6 9.exf6 Nxf6 $2 (9...gxf6 $1) 10.Ne5 Bd6 11.dxc5 Bxc5 12.Bg5 Qd8 13.Bxf6 {! and the other one.} Qxf6 14.Qh5+ { is a common device in Nimzowitsch's games. The idea is to weaken Black's kingside. } g6 15.Qe2 Rd8 16.Nd2 O-O 17.Rae1 Rfe8 18.Kh1 Bd6 19.f4 c5 20.c4 (20.Qa6 $1) 20...Bf8 21.cxd5 Bc8 {Black gives up a pawn to smash the blockade and bring his prelates to life.} 22.Ne4 Qg7 23.dxe6 {23 d6!?} Bxe6 24.Qa6 Kh8 25.Rd1 Bg8 26.b3 Rd4 27.Rxd4 cxd4 28.Qa5 Rc8 29.Rd1 Rc2 30.h3 Qb7 31.Rxd4 Bc5 {With serious threats, e.g. 32 Ra4 Bb6 33 Qe1 Bd5, or 33 Qa6 Qxa6 34 Rxa6 and, once again, 34...Bd5 and Black penetrates to White's g2-square.} 32.Qd8 {! The taming of the bishops. If now 32...Bxd4 33 Qxd4 Qg7! 34 Nd6 and there is no answer to 35 Ne8 accompanied by a lethal discovered check. Can a 'system' really teach you to spot variations like this one?} Be7 33.Qd7 {What follows now is a rout.} Qa6 34.Rd3 Bf8 35.Nf7+ Bxf7 36.Qxf7 Rc8 37.Rd7 1-0"
   }
 ]
