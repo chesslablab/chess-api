@@ -42,15 +42,23 @@ Before starting the Chess API for the first time, make sure to have created the 
 
 #### Development
 
-This will allow the `HOST` website running on `PORT` as defined in [react-chess/.env.example](https://github.com/chesslablab/react-chess/blob/master/.env.example) to send requests to the Chess API server.
+The [docker/nginx/conf.d/dev.conf](https://github.com/chesslablab/chess-api/blob/main/docker/nginx/conf.d/dev.conf) file is used to setup the Chess API allowing connections from https://www.chesslablab.com:9443 only.
 
 ```
 docker compose -f docker-compose.dev.yml up -d
 ```
 
+#### Staging
+
+The [docker/nginx/conf.d/staging.conf](https://github.com/chesslablab/chess-api/blob/main/docker/nginx/conf.d/dev.conf) file is used to setup the Chess API allowing connections from any origin.
+
+```
+docker compose -f docker-compose.staging.yml up -d
+```
+
 #### Production
 
-This will allow any origin to send requests to the Chess API server.
+The [docker/nginx/conf.d/prod.conf](https://github.com/chesslablab/chess-api/blob/main/docker/nginx/conf.d/dev.conf) file is used to setup the Chess API allowing connections from https://www.chesslablab.com only.
 
 ```
 docker compose -f docker-compose.prod.yml up -d
