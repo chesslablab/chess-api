@@ -14,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class DownloadMp4Controller extends AbstractController
@@ -79,6 +80,13 @@ class DownloadMp4Controller extends AbstractController
             return (new Response())->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
-        return  new BinaryFileResponse(self::OUTPUT_FOLDER.'/'.$filename);
+        $response = new BinaryFileResponse(self::OUTPUT_FOLDER.'/'.$filename);
+        $response->headers->set('Content-Type', 'video/mp4');
+        $response->setContentDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            'chessgame.mp4'
+        );
+
+        return $response;
     }
 }
