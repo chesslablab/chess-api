@@ -8,17 +8,13 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "chesslablab/php-chess": "dev-master",
-        "composer/package-versions-deprecated": "1.11.99.4",
-        "friendsofsymfony/rest-bundle": "^3.2",
-        "symfony/console": "6.0.*",
-        "symfony/dotenv": "6.0.*",
+        "friendsofsymfony/rest-bundle": "^3.6",
+        "symfony/console": "6.3.*",
+        "symfony/dotenv": "6.3.*",
         "symfony/flex": "^2",
-        "symfony/framework-bundle": "6.0.*",
-        "symfony/mime": "6.0.*",
-        "symfony/proxy-manager-bridge": "6.0.*",
-        "symfony/runtime": "6.0.*",
-        "symfony/yaml": "6.0.*",
-        "vlucas/phpdotenv": "^5.4"
+        "symfony/framework-bundle": "6.3.*",
+        "symfony/runtime": "6.3.*",
+        "symfony/yaml": "6.3.*"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
@@ -26,13 +22,9 @@
     },
     "config": {
         "allow-plugins": {
-            "composer/package-versions-deprecated": true,
+            "php-http/discovery": true,
             "symfony/flex": true,
             "symfony/runtime": true
-        },
-        "optimize-autoloader": true,
-        "preferred-install": {
-            "*": "dist"
         },
         "sort-packages": true
     },
@@ -52,7 +44,8 @@
         "symfony/polyfill-php72": "*",
         "symfony/polyfill-php73": "*",
         "symfony/polyfill-php74": "*",
-        "symfony/polyfill-php80": "*"
+        "symfony/polyfill-php80": "*",
+        "symfony/polyfill-php81": "*"
     },
     "scripts": {
         "auto-scripts": {
@@ -72,8 +65,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.0.*",
-            "docker": false
+            "require": "6.3.*"
         }
     }
 }
