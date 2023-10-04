@@ -30,13 +30,19 @@ class PlayRavController extends AbstractController
         if (
             $params['variant'] !== Chess960Board::VARIANT &&
             $params['variant'] !== CapablancaBoard::VARIANT &&
-            $params['variant'] !== CapablancaFischer::VARIANT &&
+            $params['variant'] !== CapablancaFischerBoard::VARIANT &&
             $params['variant'] !== ClassicalBoard::VARIANT
         ) {
             throw new BadRequestHttpException();
         }
 
         if ($params['variant'] === Chess960Board::VARIANT) {
+            if (!isset($params['startPos'])) {
+                throw new BadRequestHttpException();
+            }
+        }
+
+        if ($params['variant'] === CapablancaFischerBoard::VARIANT) {
             if (!isset($params['startPos'])) {
                 throw new BadRequestHttpException();
             }
@@ -56,9 +62,9 @@ class PlayRavController extends AbstractController
                     $board = FenToBoard::create($params['fen'], $board);
                 }
                 $ravPlay = new RavPlay($params['movetext'], $board);
-            } elseif ($params['variant'] === CapablancaFischer::VARIANT) {
+            } elseif ($params['variant'] === CapablancaFischerBoard::VARIANT) {
                 $startPos = str_split($params['startPos']);
-                $board = new CapablancaFischer($startPos);
+                $board = new CapablancaFischerBoard($startPos);
                 if (isset($params['fen'])) {
                     $board = FenToBoard::create($params['fen'], $board);
                 }
@@ -84,6 +90,10 @@ class PlayRavController extends AbstractController
             'breakdown' => $ravPlay->getRavMovetext()->getBreakdown(),
             'fen' => $ravPlay->getFen(),
             ...($params['variant'] === Chess960Board::VARIANT
+                ? ['startPos' =>  $params['startPos']]
+                : []
+            ),
+            ...($params['variant'] === CapablancaFischerBoard::VARIANT
                 ? ['startPos' =>  $params['startPos']]
                 : []
             ),
