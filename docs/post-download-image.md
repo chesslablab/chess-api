@@ -6,7 +6,7 @@ Downloads an image.
 
 | Name | Description | Required |
 | ---- | ----------- | -------- |
-| variant | Accepts: 960, capablanca, classical. | Yes |
+| variant | Accepts: 960, capablanca, capablanca-fischer, classical. | Yes |
 | fen | A FEN string. | Yes |
 | flip | Accepts: w, b. | Yes |
 

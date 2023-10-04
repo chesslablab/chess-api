@@ -7,7 +7,7 @@ Plays the moves in a RAV movetext returning the sequence of FEN positions that m
 | Name | Description | Required |
 | ---- | ----------- | -------- |
 | movetext | A portable game notation (PGN) movetext. | Yes |
-| variant | Accepts: 960, capablanca, classical. | Yes |
+| variant | Accepts: 960, capablanca, capablanca-fischer, classical. | Yes |
 | fen | Initial FEN string. | No |
 | startPos | Start position. | Only in a Chess960 game. |
 

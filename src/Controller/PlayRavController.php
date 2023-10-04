@@ -5,6 +5,7 @@ namespace ChessApi\Controller;
 use Chess\FenToBoard;
 use Chess\Play\RavPlay;
 use Chess\Variant\Capablanca\Board as CapablancaBoard;
+use Chess\Variant\CapablancaFischer\Board as CapablancaFischerBoard;
 use Chess\Variant\Chess960\Board as Chess960Board;
 use Chess\Variant\Classical\Board as ClassicalBoard;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,6 +30,7 @@ class PlayRavController extends AbstractController
         if (
             $params['variant'] !== Chess960Board::VARIANT &&
             $params['variant'] !== CapablancaBoard::VARIANT &&
+            $params['variant'] !== CapablancaFischer::VARIANT &&
             $params['variant'] !== ClassicalBoard::VARIANT
         ) {
             throw new BadRequestHttpException();
@@ -50,6 +52,13 @@ class PlayRavController extends AbstractController
                 $ravPlay = new RavPlay($params['movetext'], $board);
             } elseif ($params['variant'] === CapablancaBoard::VARIANT) {
                 $board = new CapablancaBoard();
+                if (isset($params['fen'])) {
+                    $board = FenToBoard::create($params['fen'], $board);
+                }
+                $ravPlay = new RavPlay($params['movetext'], $board);
+            } elseif ($params['variant'] === CapablancaFischer::VARIANT) {
+                $startPos = str_split($params['startPos']);
+                $board = new CapablancaFischer($startPos);
                 if (isset($params['fen'])) {
                     $board = FenToBoard::create($params['fen'], $board);
                 }

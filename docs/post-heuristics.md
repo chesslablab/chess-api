@@ -6,7 +6,7 @@ Takes a balanced heuristic picture of the given PGN movetext. A chess game can b
 
 | Name | Description | Required |
 | ---- | ----------- | -------- |
-| variant | Chess variant. | Yes |
+| variant | Accepts: 960, capablanca, capablanca-fischer, classical. | Yes |
 | movetext | A portable game notation (PGN) movetext. | Yes |
 | fen | Initial FEN string. | No |
 | startPos | Start position. | Only in a Chess960 game. |

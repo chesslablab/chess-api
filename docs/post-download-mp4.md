@@ -6,7 +6,7 @@ Downloads a video.
 
 | Name | Description | Required |
 | ---- | ----------- | -------- |
-| variant | Accepts: 960, capablanca, classical. | Yes |
+| variant | Accepts: 960, capablanca, capablanca-fischer, classical. | Yes |
 | fen | A FEN string. | No |
 | movetext | A portable game notation (PGN) movetext. | Yes |
 | startPos | Start position. | Only in a Chess960 game. |
