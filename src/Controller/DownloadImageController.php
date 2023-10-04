@@ -6,7 +6,6 @@ use Chess\Media\BoardToPng;
 use Chess\Variant\Capablanca\Board as CapablancaBoard;
 use Chess\Variant\Capablanca\FEN\StrToBoard as CapablancaStrToBoard;
 use Chess\Variant\CapablancaFischer\Board as CapablancaFischerBoard;
-use Chess\Variant\CapablancaFischer\FEN\StrToBoard as CapablancaFischerStrToBoard;
 use Chess\Variant\Chess960\Board as Chess960Board;
 use Chess\Variant\Classical\Board as ClassicalBoard;
 use Chess\Variant\Classical\FEN\StrToBoard as ClassicalStrToBoard;
@@ -42,7 +41,7 @@ class DownloadImageController extends AbstractController
             } elseif ($params['variant'] === CapablancaBoard::VARIANT) {
                 $board = (new CapablancaStrToBoard($params['fen']))->create();
             } elseif ($params['variant'] === CapablancaFischerBoard::VARIANT) {
-                $board = (new CapablancaFischerStrToBoard($params['fen']))->create();
+                $board = (new CapablancaStrToBoard($params['fen']))->create();
             } elseif ($params['variant'] === ClassicalBoard::VARIANT) {
                 $board = (new ClassicalStrToBoard($params['fen']))->create();
             }
