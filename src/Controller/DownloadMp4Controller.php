@@ -5,6 +5,8 @@ namespace ChessApi\Controller;
 use Chess\Media\BoardToMp4;
 use Chess\Variant\Capablanca\Board as CapablancaBoard;
 use Chess\Variant\Capablanca\FEN\StrToBoard as CapablancaFenStrToBoard;
+use Chess\Variant\CapablancaFischer\Board as CapablancaFischerBoard;
+use Chess\Variant\CapablancaFischer\FEN\StrToBoard as CapablancaFischerStrToBoard;
 use Chess\Variant\Chess960\Board as Chess960Board;
 use Chess\Variant\Chess960\FEN\StrToBoard as Chess960FenStrToBoard;
 use Chess\Variant\Classical\Board as ClassicalBoard;
@@ -14,6 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class DownloadMp4Controller extends AbstractController
@@ -49,6 +52,10 @@ class DownloadMp4Controller extends AbstractController
                 } elseif ($params['variant'] === CapablancaBoard::VARIANT) {
                     $board = (new CapablancaFenStrToBoard($params['fen']))
                         ->create();
+                } elseif ($params['variant'] === CapablancaFischerBoard::VARIANT) {
+                    $startPos = str_split($params['startPos']);
+                    $board = (new CapablancaFischerStrToBoard($params['fen'], $startPos))
+                        ->create();
                 } elseif ($params['variant'] === ClassicalBoard::VARIANT) {
                     $board = (new ClassicalFenStrToBoard($params['fen']))
                         ->create();
@@ -61,6 +68,9 @@ class DownloadMp4Controller extends AbstractController
                     $board = new Chess960Board($startPos);
                 } elseif ($params['variant'] === CapablancaBoard::VARIANT) {
                     $board = new CapablancaBoard();
+                } elseif ($params['variant'] === CapablancaFischerBoard::VARIANT) {
+                    $startPos = str_split($params['startPos']);
+                    $board = new CapablancaFischerStrToBoard($startPos);
                 } elseif ($params['variant'] === ClassicalBoard::VARIANT) {
                     $board = new ClassicalBoard();
                 } else {
@@ -79,6 +89,13 @@ class DownloadMp4Controller extends AbstractController
             return (new Response())->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
-        return  new BinaryFileResponse(self::OUTPUT_FOLDER.'/'.$filename);
+        $response = new BinaryFileResponse(self::OUTPUT_FOLDER.'/'.$filename);
+        $response->headers->set('Content-Type', 'video/mp4');
+        $response->setContentDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            'chessgame.mp4'
+        );
+
+        return $response;
     }
 }

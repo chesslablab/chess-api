@@ -5,6 +5,8 @@ namespace ChessApi\Controller;
 use Chess\Heuristics;
 use Chess\Variant\Capablanca\Board as CapablancaBoard;
 use Chess\Variant\Capablanca\FEN\StrToBoard as CapablancaFenStrToBoard;
+use Chess\Variant\CapablancaFischer\Board as CapablancaFischerBoard;
+use Chess\Variant\CapablancaFischer\FEN\StrToBoard as CapablancaFischerStrToBoard;
 use Chess\Variant\Chess960\Board as Chess960Board;
 use Chess\Variant\Chess960\FEN\StrToBoard as Chess960FenStrToBoard;
 use Chess\Variant\Classical\Board as ClassicalBoard;
@@ -41,6 +43,11 @@ class HeuristicsController extends AbstractController
             $board = isset($params['fen'])
                 ? (new CapablancaFenStrToBoard($params['fen']))->create()
                 : new CapablancaBoard();
+        } elseif ($params['variant'] === CapablancaFischerBoard::VARIANT) {
+            $startPos = str_split($params['startPos']);
+            $board = isset($params['fen'])
+                ? (new CapablancaFischerStrToBoard($params['fen'], $startPos))->create()
+                : new CapablancaFischerBoard($startPos);
         } elseif ($params['variant'] === ClassicalBoard::VARIANT) {
             $board = isset($params['fen'])
                 ? (new ClassicalFenStrToBoard($params['fen']))->create()

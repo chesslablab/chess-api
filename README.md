@@ -42,7 +42,7 @@ Before starting the Chess API for the first time, make sure to have created the 
 
 #### Development
 
-The [docker/nginx/conf.d/dev.conf](https://github.com/chesslablab/chess-api/blob/main/docker/nginx/conf.d/dev.conf) file is used to setup the Chess API allowing connections from https://www.chesslablab.com:9443 only.
+Allow connections from https://www.chesslablab.com:9443 only.
 
 ```
 docker compose -f docker-compose.dev.yml up -d
@@ -50,7 +50,7 @@ docker compose -f docker-compose.dev.yml up -d
 
 #### Staging
 
-The [docker/nginx/conf.d/staging.conf](https://github.com/chesslablab/chess-api/blob/main/docker/nginx/conf.d/dev.conf) file is used to setup the Chess API allowing connections from any origin.
+Allow connections from any origin.
 
 ```
 docker compose -f docker-compose.staging.yml up -d
@@ -58,7 +58,7 @@ docker compose -f docker-compose.staging.yml up -d
 
 #### Production
 
-The [docker/nginx/conf.d/prod.conf](https://github.com/chesslablab/chess-api/blob/main/docker/nginx/conf.d/dev.conf) file is used to setup the Chess API allowing connections from https://www.chesslablab.com only.
+Allow connections from https://www.chesslablab.com only.
 
 ```
 docker compose -f docker-compose.prod.yml up -d

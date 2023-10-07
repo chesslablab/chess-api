@@ -5,6 +5,7 @@ namespace ChessApi\Controller;
 use Chess\Media\BoardToPng;
 use Chess\Variant\Capablanca\Board as CapablancaBoard;
 use Chess\Variant\Capablanca\FEN\StrToBoard as CapablancaStrToBoard;
+use Chess\Variant\CapablancaFischer\Board as CapablancaFischerBoard;
 use Chess\Variant\Chess960\Board as Chess960Board;
 use Chess\Variant\Classical\Board as ClassicalBoard;
 use Chess\Variant\Classical\FEN\StrToBoard as ClassicalStrToBoard;
@@ -13,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class DownloadImageController extends AbstractController
@@ -38,6 +40,8 @@ class DownloadImageController extends AbstractController
                 $board = (new ClassicalStrToBoard($params['fen']))->create();
             } elseif ($params['variant'] === CapablancaBoard::VARIANT) {
                 $board = (new CapablancaStrToBoard($params['fen']))->create();
+            } elseif ($params['variant'] === CapablancaFischerBoard::VARIANT) {
+                $board = (new CapablancaStrToBoard($params['fen']))->create();
             } elseif ($params['variant'] === ClassicalBoard::VARIANT) {
                 $board = (new ClassicalStrToBoard($params['fen']))->create();
             }
@@ -48,6 +52,13 @@ class DownloadImageController extends AbstractController
             return (new Response())->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
-        return new BinaryFileResponse(self::OUTPUT_FOLDER.'/'.$filename);
+        $response = new BinaryFileResponse(self::OUTPUT_FOLDER.'/'.$filename);
+        $response->headers->set('Content-Type', 'image/png');
+        $response->setContentDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            'chessboard.png'
+        );
+
+        return $response;
     }
 }
