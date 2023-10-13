@@ -68,6 +68,13 @@ class SearchController extends AbstractController
             }
         }
 
+        if (!$values) {
+            $response = new Response();
+            $response->setStatusCode(Response::HTTP_RESET_CONTENT);
+
+            return $response;
+        }
+
         str_ends_with($sql, 'WHERE ')
             ? $sql = substr($sql, 0, -6)
             : $sql = substr($sql, 0, -4);
