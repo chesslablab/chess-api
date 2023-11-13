@@ -6,10 +6,6 @@ API using [Chess Data](https://github.com/chesslablab/chess-data).
 
 Read the latest docs [here](https://chess-api.readthedocs.io/en/latest/).
 
-### Demo
-
-Check out [this demo](https://www.chesslablab.com).
-
 ### Installation
 
 Install the Composer packages:
