@@ -2,7 +2,7 @@
 
 namespace ChessApi\Controller;
 
-use Chess\Heuristics\EvalFunction;
+use Chess\Function\StandardFunction;
 use Chess\Heuristics\SanHeuristics;
 use Chess\Variant\Capablanca\Board as CapablancaBoard;
 use Chess\Variant\Capablanca\FEN\StrToBoard as CapablancaFenStrToBoard;
@@ -55,11 +55,11 @@ class HeuristicsController extends AbstractController
                 : new ClassicalBoard();
         }
 
-        $evalFunction = new EvalFunction();
+        $standardFunction = new StandardFunction();
         $heuristics = new SanHeuristics($params['movetext'], $board);
 
         return $this->json([
-            'evalNames' => $evalFunction->names(),
+            'names' => $standardFunction->names(),
             'balance' => $heuristics->getBalance(),
         ]);
     }
