@@ -24,7 +24,7 @@ curl https://pchess.net/api/heuristics \
 
 ```text
 {
-  "evalNames": [
+  "names": [
     "Material",
     "Center",
     "Connectivity",
