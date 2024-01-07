@@ -87,3 +87,9 @@ sudo chmod 775 -R storage
 See the [contributing guidelines](https://github.com/chesslablab/chess-api/blob/main/CONTRIBUTING.md).
 
 Happy learning and coding!
+
+<a href="https://github.com/chesslablab/chess-api/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=chesslablab/chess-api" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
