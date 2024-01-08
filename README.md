@@ -38,7 +38,7 @@ Before starting the Chess API for the first time, make sure to have created the 
 
 #### Development
 
-Allow connections from https://www.chesslablab.com:9443 only.
+Allow connections from https://www.reactchess.net:9443 only.
 
 ```
 docker compose -f docker-compose.dev.yml up -d
@@ -54,7 +54,7 @@ docker compose -f docker-compose.staging.yml up -d
 
 #### Production
 
-Allow connections from https://www.chesslablab.com only.
+Allow connections from https://www.reactchess.net only.
 
 ```
 docker compose -f docker-compose.prod.yml up -d
