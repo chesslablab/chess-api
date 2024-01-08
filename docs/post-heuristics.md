@@ -14,7 +14,7 @@ Takes a balanced heuristic picture of the given PGN movetext. A chess game can b
 ### Example
 
 ```text
-curl https://pchess.net/api/heuristics \
+curl https://chesslablab.net/api/heuristics \
   -H "Content-Type: application/json" \
   --data-raw '{
     "variant": "classical",

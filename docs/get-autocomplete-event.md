@@ -5,7 +5,7 @@ Returns autocomplete data for chess events.
 ## Example
 
 ```text
-curl https://pchess.net/api/autocomplete/event
+curl https://chesslablab.net/api/autocomplete/event
 ```
 
 ```text

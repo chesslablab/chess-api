@@ -17,7 +17,7 @@ Finds up to 25 games matching the criteria.
 ## Example
 
 ```text
-curl https://pchess.net/api/search \
+curl https://chesslablab.net/api/search \
   -H "Content-Type: application/json" \
   --data-raw '{
     "Black": "Kasparov,G",
