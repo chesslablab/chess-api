@@ -62,23 +62,17 @@ docker compose -f docker-compose.prod.yml up -d
 
 ### File Permissions Setup
 
-Make sure the `var` directory exists:
+Set up permissions for the `var` directory:
 
 ```
-mkdir var
-```
-
-And set up the following permissions:
-
-```
-sudo chown www-data:standard -R var
+sudo chown www-data:$USER -R var
 sudo chmod 775 -R var
 ```
 
-Finally, set up the following permissions for the `storage` directory:
+Set up permissions for the `storage` directory:
 
 ```
-sudo chown www-data:standard -R storage
+sudo chown www-data:$USER -R storage
 sudo chmod 775 -R storage
 ```
 

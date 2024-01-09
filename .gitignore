@@ -28,3 +28,6 @@
 ### storage
 /storage/tmp/*
 !/storage/tmp/.gitkeep
+
+### var
+!/var/.gitkeep
