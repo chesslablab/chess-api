@@ -42,7 +42,7 @@ class SearchController extends AbstractController
             return $response;
         }
 
-        $sql = 'SELECT * FROM players WHERE ';
+        $sql = 'SELECT * FROM games WHERE ';
         $values = [];
 
         foreach ($params as $key => $val) {

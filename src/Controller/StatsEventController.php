@@ -22,7 +22,7 @@ class StatsEventController extends AbstractController
     {
         $params = json_decode($request->getContent(), true);
 
-        $sql = 'SELECT ECO, COUNT(*) as total FROM players WHERE ';
+        $sql = 'SELECT ECO, COUNT(*) as total FROM games WHERE ';
         $values = [];
 
         foreach ($params as $key => $val) {
