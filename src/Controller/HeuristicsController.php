@@ -55,12 +55,24 @@ class HeuristicsController extends AbstractController
                 : new ClassicalBoard();
         }
 
-        $standardFunction = new StandardFunction();
-        $heuristics = new SanHeuristics($params['movetext'], $board);
+        $names = (new StandardFunction())->names();
+        $balance = (new SanHeuristics($params['movetext'], $board))->getBalance();
+
+        $filteredNames = [];
+        $filteredBalance = [];
+
+        for ($i = 0; $i < count($balance[0]); $i++) {
+            $column = array_column($balance, $i);
+            $sum = array_sum($column);
+            if ($sum > 0) {
+                $filteredNames[] = $names[$i];
+                $filteredBalance[] = $column;
+            }
+        }
 
         return $this->json([
-            'names' => $standardFunction->names(),
-            'balance' => $heuristics->getBalance(),
+            'names' => $filteredNames,
+            'balance' => $filteredBalance,
         ]);
     }
 }
