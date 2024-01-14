@@ -19,8 +19,6 @@ Create an `.env` file:
 cp .env.example .env
 ```
 
-Finally, you may want to add the following entry to your `/etc/hosts` file if running the PHP chess API on your localhost along with [React Chess](https://github.com/chesslablab/react-chess) as per the `REACT_APP_API_HOST` variable defined in the [react-chess/.env.example](https://github.com/chesslablab/react-chess/blob/master/.env.example) file.
-
 ### Run the Chess API
 
 There is an easy quick way to get the Chess API up and running without an SSL certificate for when testing endpoints that don't require a database connection, e.g., `POST /api/download/image`. In such cases use [PHP's built-in web server](https://www.php.net/manual/en/features.commandline.webserver.php) as described next.
@@ -34,7 +32,7 @@ php -S localhost:8000
 
 ### Run the Chess API on a Docker Container
 
-Before starting the Chess API for the first time, make sure to have created the `certificate.crt` and `private.key` files into the `docker/nginx/ssl` folder.
+Alternatively, you may want to run it on a Docker container but first things first, make sure to have created the `certificate.crt` and `private.key` files into the `docker/nginx/ssl` folder.
 
 #### Development
 
