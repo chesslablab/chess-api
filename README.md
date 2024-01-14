@@ -1,6 +1,6 @@
 ## PHP Chess API
 
-API using [Chess Data](https://github.com/chesslablab/chess-data).
+Symfony API using the PHP Chess library.
 
 ### Documentation
 
