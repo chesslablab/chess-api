@@ -52,3 +52,8 @@ api_stats_player:
     path:       /api/stats/player
     controller: ChessApi\Controller\StatsPlayerController::index
     methods:    POST
+
+api_tutor_fen:
+    path:       /api/tutor/fen
+    controller: ChessApi\Controller\TutorFenController::index
+    methods:    POST
