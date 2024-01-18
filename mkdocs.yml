@@ -12,5 +12,4 @@ pages:
   - POST /stats/event: post-stats-event.md
   - POST /stats/player: post-stats-player.md
   - POST /play/rav: post-play-rav.md
-  - POST /tutor/fen: post-tutor-fen.md
 theme: readthedocs
