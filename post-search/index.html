@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>POST /search - PHP Chess API</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "POST /search";
+    var mkdocs_page_input_path = "post-search.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> PHP Chess API</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Chess API for Web Apps</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../get-annotations-games/">GET /annotations/games</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../get-autocomplete-event/">GET /autocomplete/event</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../get-autocomplete-player/">GET /autocomplete/player</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../get-stats-opening/">GET /stats/opening</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../post-download-image/">POST /download/image</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../post-download-mp4/">POST /download/mp4</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../post-heuristics/">POST /heuristics</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">POST /search</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../post-stats-event/">POST /stats/event</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../post-stats-player/">POST /stats/player</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../post-play-rav/">POST /play/rav</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">PHP Chess API</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>POST /search</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="post-search">POST /search</h1>
+<p>Finds up to 25 games matching the criteria.</p>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Event</td>
+<td>The name of the event.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>The year in which the event took place.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>White</td>
+<td>The player with the white pieces.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Black</td>
+<td>The player with the black pieces.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Result</td>
+<td>Accepts: 1-0, 0-1, 1/2-1/2.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>ECO</td>
+<td>Encyclopaedia of Chess Openings (ECO) code.</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example</h2>
+<pre><code class="language-text">curl https://chesslablab.net/api/search \
+  -H &quot;Content-Type: application/json&quot; \
+  --data-raw '{
+    &quot;Black&quot;: &quot;Kasparov,G&quot;,
+    &quot;ECO&quot;: &quot;D37&quot;
+  }'
+</code></pre>
+<pre><code class="language-text">[
+  {
+    &quot;id&quot;: 156639,
+    &quot;Event&quot;: &quot;Rapid&quot;,
+    &quot;Site&quot;: &quot;Reykjavik ISL&quot;,
+    &quot;Date&quot;: &quot;2004.03.20&quot;,
+    &quot;White&quot;: &quot;Nielsen,PH&quot;,
+    &quot;Black&quot;: &quot;Kasparov,G&quot;,
+    &quot;Result&quot;: &quot;1\/2-1\/2&quot;,
+    &quot;WhiteElo&quot;: &quot;2638&quot;,
+    &quot;BlackElo&quot;: &quot;2831&quot;,
+    &quot;ECO&quot;: &quot;D37&quot;,
+    &quot;FEN&quot;: null,
+    &quot;movetext&quot;: &quot;1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 Be7 5.Bf4 O-O 6.e3 c5 7.dxc5 Bxc5 8.a3 Nc6 9.Rc1 a6 10.b4 Bd6 11.Bg5 a5 12.b5 Ne7 13.Bxf6 gxf6 14.a4 Bb4 15.Be2 dxc4 16.O-O Nd5 17.Na2 Nb6 18.Qc2 e5 19.Nxb4 axb4 20.Bxc4 Nxc4 21.Qxc4 Rxa4 22.Rfd1 Qb6 23.Nh4 Be6 24.Qe4 Qxb5 25.Qf3 Kg7 26.Nf5+ Bxf5 27.Qxf5 b3 28.Rd6 b2 29.Qxf6+ Kg8 30.Qg5+ Kh8 31.Qf6+&quot;
+  },
+  {
+    &quot;id&quot;: 369145,
+    &quot;Event&quot;: &quot;Corus&quot;,
+    &quot;Site&quot;: &quot;Wijk aan Zee NED&quot;,
+    &quot;Date&quot;: &quot;2001.01.27&quot;,
+    &quot;White&quot;: &quot;Van Wely,L&quot;,
+    &quot;Black&quot;: &quot;Kasparov,G&quot;,
+    &quot;Result&quot;: &quot;1\/2-1\/2&quot;,
+    &quot;WhiteElo&quot;: &quot;2700&quot;,
+    &quot;BlackElo&quot;: &quot;2849&quot;,
+    &quot;ECO&quot;: &quot;D37&quot;,
+    &quot;FEN&quot;: null,
+    &quot;movetext&quot;: &quot;1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 Be7 5.Bf4 O-O 6.e3 c5 7.dxc5 Bxc5 8.cxd5 Nxd5 9.Nxd5 exd5 10.a3 Nc6 11.Bd3 Bb6 12.O-O Bg4 13.h3 Bh5 14.b4 Re8 15.Rc1 a6 16.g4 Bg6 17.Bxg6 hxg6 18.Rc3 d4 19.Rd3 Qd5 20.exd4 Re4 21.Be3 Rd8 22.Re1 f6 23.Kg2 f5 24.gxf5 gxf5 25.Qb3 Qxb3 26.Rxb3 f4 27.d5 fxe3 28.dxc6 Re6 29.fxe3 Rxc6 30.Kf2 Rf8 31.Ke2 Rc2+ 32.Nd2 Rd8 33.Rd3 Ra2 34.Rxd8+ Bxd8 35.Rc1 Bf6 36.Rc7 b5 37.Rc6 Rxa3 38.Ne4 Be7 39.Nc5 a5 40.Rb6 axb4 41.Rxb5 Ra2+ 42.Kd3 Rh2 43.Na6&quot;
+  },
+  {
+    &quot;id&quot;: 332967,
+    &quot;Event&quot;: &quot;Corus&quot;,
+    &quot;Site&quot;: &quot;Wijk aan Zee NED&quot;,
+    &quot;Date&quot;: &quot;2001.01.27&quot;,
+    &quot;White&quot;: &quot;Van Wely,L&quot;,
+    &quot;Black&quot;: &quot;Kasparov,G&quot;,
+    &quot;Result&quot;: &quot;1\/2-1\/2&quot;,
+    &quot;WhiteElo&quot;: &quot;2700&quot;,
+    &quot;BlackElo&quot;: &quot;2849&quot;,
+    &quot;ECO&quot;: &quot;D37&quot;,
+    &quot;FEN&quot;: null,
+    &quot;movetext&quot;: &quot;1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 Be7 5.Bf4 O-O 6.e3 c5 7.dxc5 Bxc5 8.cxd5 Nxd5 9.Nxd5 exd5 10.a3 Nc6 11.Bd3 Bb6 12.O-O Bg4 13.h3 Bh5 14.b4 Re8 15.Rc1 a6 16.g4 Bg6 17.Bxg6 hxg6 18.Rc3 d4 19.Rd3 Qd5 20.exd4 Re4 21.Be3 Rd8 22.Re1 f6 23.Kg2 f5 24.gxf5 gxf5 25.Qb3 Qxb3 26.Rxb3 f4 27.d5 fxe3 28.dxc6 Re6 29.fxe3 Rxc6 30.Kf2 Rf8 31.Ke2 Rc2+ 32.Nd2 Rd8 33.Rd3 Ra2 34.Rxd8+ Bxd8 35.Rc1 Bf6 36.Rc7 b5 37.Rc6 Rxa3 38.Ne4 Be7 39.Nc5 a5 40.Rb6 axb4 41.Rxb5 Ra2+ 42.Kd3 Rh2 43.Na6&quot;
+  },
+  {
+    &quot;id&quot;: 369372,
+    &quot;Event&quot;: &quot;Rapid&quot;,
+    &quot;Site&quot;: &quot;Reykjavik ISL&quot;,
+    &quot;Date&quot;: &quot;2004.03.20&quot;,
+    &quot;White&quot;: &quot;Nielsen,PH&quot;,
+    &quot;Black&quot;: &quot;Kasparov,G&quot;,
+    &quot;Result&quot;: &quot;1\/2-1\/2&quot;,
+    &quot;WhiteElo&quot;: &quot;2638&quot;,
+    &quot;BlackElo&quot;: &quot;2831&quot;,
+    &quot;ECO&quot;: &quot;D37&quot;,
+    &quot;FEN&quot;: null,
+    &quot;movetext&quot;: &quot;1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 Be7 5.Bf4 O-O 6.e3 c5 7.dxc5 Bxc5 8.a3 Nc6 9.Rc1 a6 10.b4 Bd6 11.Bg5 a5 12.b5 Ne7 13.Bxf6 gxf6 14.a4 Bb4 15.Be2 dxc4 16.O-O Nd5 17.Na2 Nb6 18.Qc2 e5 19.Nxb4 axb4 20.Bxc4 Nxc4 21.Qxc4 Rxa4 22.Rfd1 Qb6 23.Nh4 Be6 24.Qe4 Qxb5 25.Qf3 Kg7 26.Nf5+ Bxf5 27.Qxf5 b3 28.Rd6 b2 29.Qxf6+ Kg8 30.Qg5+ Kh8 31.Qf6+&quot;
+  }
+]
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../post-stats-event/" class="btn btn-neutral float-right" title="POST /stats/event">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../post-heuristics/" class="btn btn-neutral" title="POST /heuristics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../post-heuristics/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../post-stats-event/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

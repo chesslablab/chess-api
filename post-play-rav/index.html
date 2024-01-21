@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>POST /play/rav - PHP Chess API</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "POST /play/rav";
+    var mkdocs_page_input_path = "post-play-rav.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> PHP Chess API</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Chess API for Web Apps</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../get-annotations-games/">GET /annotations/games</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../get-autocomplete-event/">GET /autocomplete/event</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../get-autocomplete-player/">GET /autocomplete/player</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../get-stats-opening/">GET /stats/opening</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../post-download-image/">POST /download/image</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../post-download-mp4/">POST /download/mp4</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../post-heuristics/">POST /heuristics</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../post-search/">POST /search</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../post-stats-event/">POST /stats/event</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../post-stats-player/">POST /stats/player</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">POST /play/rav</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">PHP Chess API</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>POST /play/rav</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="post-playrav">POST /play/rav</h1>
+<p>Plays the moves in a RAV movetext returning the sequence of FEN positions that make up such movetext.</p>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>movetext</td>
+<td>A portable game notation (PGN) movetext.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>variant</td>
+<td>Accepts: 960, capablanca, capablanca-fischer, classical.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>fen</td>
+<td>Initial FEN string.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>startPos</td>
+<td>Start position.</td>
+<td>Only in a Chess960 game.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example</h2>
+<pre><code class="language-text">curl https://chesslablab.net/api/play/rav \
+  -H &quot;Content-Type: application/json&quot; \
+  --data-raw '{
+    &quot;movetext&quot;: &quot;1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 Be7 5.Bf4 O-O 6.e3 c5 7.dxc5 Bxc5 8.a3 Nc6 9.Rc1 a6 10.b4 Bd6 11.Bg5 a5 12.b5 Ne7 13.Bxf6 gxf6 14.a4 Bb4 15.Be2 dxc4 16.O-O Nd5 17.Na2 Nb6 18.Qc2 e5 19.Nxb4 axb4 20.Bxc4 Nxc4 21.Qxc4 Rxa4 22.Rfd1 Qb6 23.Nh4 Be6 24.Qe4 Qxb5 25.Qf3 Kg7 26.Nf5+ Bxf5 27.Qxf5 b3 28.Rd6 b2 29.Qxf6+ Kg8 30.Qg5+ Kh8 31.Qf6+&quot;,
+    &quot;variant&quot;: &quot;classical&quot;
+  }'
+</code></pre>
+<pre><code class="language-text">{
+  &quot;variant&quot;: &quot;classical&quot;,
+  &quot;turn&quot;: &quot;b&quot;,
+  &quot;filtered&quot;: &quot;1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 Be7 5.Bf4 O-O 6.e3 c5 7.dxc5 Bxc5 8.a3 Nc6 9.Rc1 a6 10.b4 Bd6 11.Bg5 a5 12.b5 Ne7 13.Bxf6 gxf6 14.a4 Bb4 15.Be2 dxc4 16.O-O Nd5 17.Na2 Nb6 18.Qc2 e5 19.Nxb4 axb4 20.Bxc4 Nxc4 21.Qxc4 Rxa4 22.Rfd1 Qb6 23.Nh4 Be6 24.Qe4 Qxb5 25.Qf3 Kg7 26.Nf5+ Bxf5 27.Qxf5 b3 28.Rd6 b2 29.Qxf6+ Kg8 30.Qg5+ Kh8 31.Qf6+&quot;,
+  &quot;movetext&quot;: &quot;1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 Be7 5.Bf4 O-O 6.e3 c5 7.dxc5 Bxc5 8.a3 Nc6 9.Rc1 a6 10.b4 Bd6 11.Bg5 a5 12.b5 Ne7 13.Bxf6 gxf6 14.a4 Bb4 15.Be2 dxc4 16.O-O Nd5 17.Na2 Nb6 18.Qc2 e5 19.Nxb4 axb4 20.Bxc4 Nxc4 21.Qxc4 Rxa4 22.Rfd1 Qb6 23.Nh4 Be6 24.Qe4 Qxb5 25.Qf3 Kg7 26.Nf5+ Bxf5 27.Qxf5 b3 28.Rd6 b2 29.Qxf6+ Kg8 30.Qg5+ Kh8 31.Qf6+&quot;,
+  &quot;breakdown&quot;: [
+    &quot;1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 Be7 5.Bf4 O-O 6.e3 c5 7.dxc5 Bxc5 8.a3 Nc6 9.Rc1 a6 10.b4 Bd6 11.Bg5 a5 12.b5 Ne7 13.Bxf6 gxf6 14.a4 Bb4 15.Be2 dxc4 16.O-O Nd5 17.Na2 Nb6 18.Qc2 e5 19.Nxb4 axb4 20.Bxc4 Nxc4 21.Qxc4 Rxa4 22.Rfd1 Qb6 23.Nh4 Be6 24.Qe4 Qxb5 25.Qf3 Kg7 26.Nf5+ Bxf5 27.Qxf5 b3 28.Rd6 b2 29.Qxf6+ Kg8 30.Qg5+ Kh8 31.Qf6+&quot;
+  ],
+  &quot;fen&quot;: [
+    &quot;rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -&quot;,
+    &quot;rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3&quot;,
+    &quot;rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -&quot;,
+    &quot;rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3&quot;,
+    &quot;rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -&quot;,
+    &quot;rnbqkb1r/pppp1ppp/4pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq -&quot;,
+    &quot;rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq d6&quot;,
+    &quot;rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq -&quot;,
+    &quot;rnbqk2r/ppp1bppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq -&quot;,
+    &quot;rnbqk2r/ppp1bppp/4pn2/3p4/2PP1B2/2N2N2/PP2PPPP/R2QKB1R b KQkq -&quot;,
+    &quot;rnbq1rk1/ppp1bppp/4pn2/3p4/2PP1B2/2N2N2/PP2PPPP/R2QKB1R w KQ -&quot;,
+    &quot;rnbq1rk1/ppp1bppp/4pn2/3p4/2PP1B2/2N1PN2/PP3PPP/R2QKB1R b KQ -&quot;,
+    &quot;rnbq1rk1/pp2bppp/4pn2/2pp4/2PP1B2/2N1PN2/PP3PPP/R2QKB1R w KQ c6&quot;,
+    &quot;rnbq1rk1/pp2bppp/4pn2/2Pp4/2P2B2/2N1PN2/PP3PPP/R2QKB1R b KQ -&quot;,
+    &quot;rnbq1rk1/pp3ppp/4pn2/2bp4/2P2B2/2N1PN2/PP3PPP/R2QKB1R w KQ -&quot;,
+    &quot;rnbq1rk1/pp3ppp/4pn2/2bp4/2P2B2/P1N1PN2/1P3PPP/R2QKB1R b KQ -&quot;,
+    &quot;r1bq1rk1/pp3ppp/2n1pn2/2bp4/2P2B2/P1N1PN2/1P3PPP/R2QKB1R w KQ -&quot;,
+    &quot;r1bq1rk1/pp3ppp/2n1pn2/2bp4/2P2B2/P1N1PN2/1P3PPP/2RQKB1R b K -&quot;,
+    &quot;r1bq1rk1/1p3ppp/p1n1pn2/2bp4/2P2B2/P1N1PN2/1P3PPP/2RQKB1R w K -&quot;,
+    &quot;r1bq1rk1/1p3ppp/p1n1pn2/2bp4/1PP2B2/P1N1PN2/5PPP/2RQKB1R b K b3&quot;,
+    &quot;r1bq1rk1/1p3ppp/p1nbpn2/3p4/1PP2B2/P1N1PN2/5PPP/2RQKB1R w K -&quot;,
+    &quot;r1bq1rk1/1p3ppp/p1nbpn2/3p2B1/1PP5/P1N1PN2/5PPP/2RQKB1R b K -&quot;,
+    &quot;r1bq1rk1/1p3ppp/2nbpn2/p2p2B1/1PP5/P1N1PN2/5PPP/2RQKB1R w K -&quot;,
+    &quot;r1bq1rk1/1p3ppp/2nbpn2/pP1p2B1/2P5/P1N1PN2/5PPP/2RQKB1R b K -&quot;,
+    &quot;r1bq1rk1/1p2nppp/3bpn2/pP1p2B1/2P5/P1N1PN2/5PPP/2RQKB1R w K -&quot;,
+    &quot;r1bq1rk1/1p2nppp/3bpB2/pP1p4/2P5/P1N1PN2/5PPP/2RQKB1R b K -&quot;,
+    &quot;r1bq1rk1/1p2np1p/3bpp2/pP1p4/2P5/P1N1PN2/5PPP/2RQKB1R w K -&quot;,
+    &quot;r1bq1rk1/1p2np1p/3bpp2/pP1p4/P1P5/2N1PN2/5PPP/2RQKB1R b K -&quot;,
+    &quot;r1bq1rk1/1p2np1p/4pp2/pP1p4/PbP5/2N1PN2/5PPP/2RQKB1R w K -&quot;,
+    &quot;r1bq1rk1/1p2np1p/4pp2/pP1p4/PbP5/2N1PN2/4BPPP/2RQK2R b K -&quot;,
+    &quot;r1bq1rk1/1p2np1p/4pp2/pP6/Pbp5/2N1PN2/4BPPP/2RQK2R w K -&quot;,
+    &quot;r1bq1rk1/1p2np1p/4pp2/pP6/Pbp5/2N1PN2/4BPPP/2RQ1RK1 b - -&quot;,
+    &quot;r1bq1rk1/1p3p1p/4pp2/pP1n4/Pbp5/2N1PN2/4BPPP/2RQ1RK1 w - -&quot;,
+    &quot;r1bq1rk1/1p3p1p/4pp2/pP1n4/Pbp5/4PN2/N3BPPP/2RQ1RK1 b - -&quot;,
+    &quot;r1bq1rk1/1p3p1p/1n2pp2/pP6/Pbp5/4PN2/N3BPPP/2RQ1RK1 w - -&quot;,
+    &quot;r1bq1rk1/1p3p1p/1n2pp2/pP6/Pbp5/4PN2/N1Q1BPPP/2R2RK1 b - -&quot;,
+    &quot;r1bq1rk1/1p3p1p/1n3p2/pP2p3/Pbp5/4PN2/N1Q1BPPP/2R2RK1 w - -&quot;,
+    &quot;r1bq1rk1/1p3p1p/1n3p2/pP2p3/PNp5/4PN2/2Q1BPPP/2R2RK1 b - -&quot;,
+    &quot;r1bq1rk1/1p3p1p/1n3p2/1P2p3/Ppp5/4PN2/2Q1BPPP/2R2RK1 w - -&quot;,
+    &quot;r1bq1rk1/1p3p1p/1n3p2/1P2p3/PpB5/4PN2/2Q2PPP/2R2RK1 b - -&quot;,
+    &quot;r1bq1rk1/1p3p1p/5p2/1P2p3/Ppn5/4PN2/2Q2PPP/2R2RK1 w - -&quot;,
+    &quot;r1bq1rk1/1p3p1p/5p2/1P2p3/PpQ5/4PN2/5PPP/2R2RK1 b - -&quot;,
+    &quot;2bq1rk1/1p3p1p/5p2/1P2p3/rpQ5/4PN2/5PPP/2R2RK1 w - -&quot;,
+    &quot;2bq1rk1/1p3p1p/5p2/1P2p3/rpQ5/4PN2/5PPP/2RR2K1 b - -&quot;,
+    &quot;2b2rk1/1p3p1p/1q3p2/1P2p3/rpQ5/4PN2/5PPP/2RR2K1 w - -&quot;,
+    &quot;2b2rk1/1p3p1p/1q3p2/1P2p3/rpQ4N/4P3/5PPP/2RR2K1 b - -&quot;,
+    &quot;5rk1/1p3p1p/1q2bp2/1P2p3/rpQ4N/4P3/5PPP/2RR2K1 w - -&quot;,
+    &quot;5rk1/1p3p1p/1q2bp2/1P2p3/rp2Q2N/4P3/5PPP/2RR2K1 b - -&quot;,
+    &quot;5rk1/1p3p1p/4bp2/1q2p3/rp2Q2N/4P3/5PPP/2RR2K1 w - -&quot;,
+    &quot;5rk1/1p3p1p/4bp2/1q2p3/rp5N/4PQ2/5PPP/2RR2K1 b - -&quot;,
+    &quot;5r2/1p3pkp/4bp2/1q2p3/rp5N/4PQ2/5PPP/2RR2K1 w - -&quot;,
+    &quot;5r2/1p3pkp/4bp2/1q2pN2/rp6/4PQ2/5PPP/2RR2K1 b - -&quot;,
+    &quot;5r2/1p3pkp/5p2/1q2pb2/rp6/4PQ2/5PPP/2RR2K1 w - -&quot;,
+    &quot;5r2/1p3pkp/5p2/1q2pQ2/rp6/4P3/5PPP/2RR2K1 b - -&quot;,
+    &quot;5r2/1p3pkp/5p2/1q2pQ2/r7/1p2P3/5PPP/2RR2K1 w - -&quot;,
+    &quot;5r2/1p3pkp/3R1p2/1q2pQ2/r7/1p2P3/5PPP/2R3K1 b - -&quot;,
+    &quot;5r2/1p3pkp/3R1p2/1q2pQ2/r7/4P3/1p3PPP/2R3K1 w - -&quot;,
+    &quot;5r2/1p3pkp/3R1Q2/1q2p3/r7/4P3/1p3PPP/2R3K1 b - -&quot;,
+    &quot;5rk1/1p3p1p/3R1Q2/1q2p3/r7/4P3/1p3PPP/2R3K1 w - -&quot;,
+    &quot;5rk1/1p3p1p/3R4/1q2p1Q1/r7/4P3/1p3PPP/2R3K1 b - -&quot;,
+    &quot;5r1k/1p3p1p/3R4/1q2p1Q1/r7/4P3/1p3PPP/2R3K1 w - -&quot;,
+    &quot;5r1k/1p3p1p/3R1Q2/1q2p3/r7/4P3/1p3PPP/2R3K1 b - -&quot;
+  ]
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../post-stats-player/" class="btn btn-neutral" title="POST /stats/player"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../post-stats-player/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
