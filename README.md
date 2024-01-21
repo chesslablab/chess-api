@@ -4,7 +4,7 @@ Symfony API using the PHP Chess library.
 
 ### Documentation
 
-Read the latest docs [here](https://github.com/chesslablab/chess-api/wiki).
+Read the latest docs [here](https://php-chess-api.chesslablab.org/).
 
 ### Installation
 
