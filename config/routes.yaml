@@ -28,6 +28,21 @@ api_heuristics:
     controller: ChessApi\Controller\HeuristicsController::index
     methods:    POST
 
+api_inbox_create:
+    path:       /api/inbox/create
+    controller: ChessApi\Controller\InboxController::create
+    methods:    POST
+
+api_inbox_read:
+    path:       /api/inbox/read
+    controller: ChessApi\Controller\InboxController::read
+    methods:    POST
+
+api_inbox_reply:
+    path:       /api/inbox/reply
+    controller: ChessApi\Controller\InboxController::reply
+    methods:    POST
+
 api_play_rav:
     path:       /api/play/rav
     controller: ChessApi\Controller\PlayRavController::index
