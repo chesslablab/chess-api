@@ -34,11 +34,19 @@ class InboxController extends AbstractController
     {
         $params = json_decode($request->getContent(), true);
 
+        $settings = $params['settings'] ?? [];
+
         if (!isset($params['variant'])) {
             throw new BadRequestHttpException();
+        } elseif ($params['variant'] === Chess960Board::VARIANT) {
+            if (!isset($settings['startPos'])) {
+                throw new BadRequestHttpException();
+            }
+        } elseif ($params['variant'] === CapablancaFischerBoard::VARIANT) {
+            if (!isset($settings['startPos'])) {
+                throw new BadRequestHttpException();
+            }
         }
-
-        $settings = $params['settings'] ?? [];
 
         $hash = md5(uniqid());
 
