@@ -103,10 +103,9 @@ class InboxController extends AbstractController
 
         Pdo::getInstance($this->getParameter('pdo'))->query($sql, $values);
 
-        $response = new Response();
-        $response->setStatusCode(Response::HTTP_OK);
-
-        return $response;
+        return $this->json([
+            'hash' => $hash,
+        ]);
     }
 
     public function read(Request $request): Response
@@ -127,16 +126,17 @@ class InboxController extends AbstractController
             ],
         ];
 
-        $arr = Pdo::getInstance($this->getParameter('pdo'))
+        $inbox = Pdo::getInstance($this->getParameter('pdo'))
             ->query($sql, $values)
-            ->fetchAll(\PDO::FETCH_ASSOC);
+            ->fetch(\PDO::FETCH_ASSOC);
 
-        if ($arr) {
-            return $this->json($arr);
+        if ($inbox) {
+            return $this->json($inbox);
         }
 
-        $response = new Response();
-        $response->setStatusCode(Response::HTTP_NO_CONTENT);
+        return $this->json([
+            'message' =>  'This inbox code does not exist.',
+        ]);
 
         return $response;
     }
@@ -148,7 +148,7 @@ class InboxController extends AbstractController
         if (!isset($params['hash'])) {
             throw new BadRequestHttpException();
         }
-        if (!isset($params['movetext'])) {
+        if (!isset($params['pgn'])) {
             throw new BadRequestHttpException();
         }
 
@@ -216,7 +216,7 @@ class InboxController extends AbstractController
                         $board->play($board->getTurn(), $val);
                     }
                 }
-                if (!$board->play($board->getTurn(), $params['movetext'])) {
+                if (!$board->play($board->getTurn(), $params['pgn'])) {
                     throw new MovetextException();
                 }
 
