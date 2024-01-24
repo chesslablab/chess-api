@@ -1,69 +1,69 @@
 api_annotations_games:
     path:       /api/annotations/games
     controller: ChessApi\Controller\AnnotationsGamesController::index
-    methods:    GET
+    methods:    OPTIONS|GET
 
 api_autocomplete_event:
     path:       /api/autocomplete/event
     controller: ChessApi\Controller\AutocompleteEventController::index
-    methods:    GET
+    methods:    OPTIONS|GET
 
 api_autocomplete_player:
     path:       /api/autocomplete/player
     controller: ChessApi\Controller\AutocompletePlayerController::index
-    methods:    GET
+    methods:    OPTIONS|GET
 
 api_download_image:
     path:       /api/download/image
     controller: ChessApi\Controller\DownloadImageController::index
-    methods:    POST
+    methods:    OPTIONS|POST
 
 api_download_mp4:
     path:       /api/download/mp4
     controller: ChessApi\Controller\DownloadMp4Controller::index
-    methods:    POST
+    methods:    OPTIONS|POST
 
 api_heuristics:
     path:       /api/heuristics
     controller: ChessApi\Controller\HeuristicsController::index
-    methods:    POST
+    methods:    OPTIONS|POST
 
 api_inbox_create:
     path:       /api/inbox/create
     controller: ChessApi\Controller\InboxController::create
-    methods:    POST
+    methods:    OPTIONS|POST
 
 api_inbox_read:
     path:       /api/inbox/read
     controller: ChessApi\Controller\InboxController::read
-    methods:    POST
+    methods:    OPTIONS|POST
 
 api_inbox_reply:
     path:       /api/inbox/reply
     controller: ChessApi\Controller\InboxController::reply
-    methods:    POST
+    methods:    OPTIONS|POST
 
 api_play_rav:
     path:       /api/play/rav
     controller: ChessApi\Controller\PlayRavController::index
-    methods:    POST
+    methods:    OPTIONS|POST
 
 api_search:
     path:       /api/search
     controller: ChessApi\Controller\SearchController::index
-    methods:    POST
+    methods:    OPTIONS|POST
 
 api_stats_event:
     path:       /api/stats/event
     controller: ChessApi\Controller\StatsEventController::index
-    methods:    POST
+    methods:    OPTIONS|POST
 
 api_stats_opening:
     path:       /api/stats/opening
     controller: ChessApi\Controller\StatsOpeningController::index
-    methods:    GET
+    methods:    OPTIONS|GET
 
 api_stats_player:
     path:       /api/stats/player
     controller: ChessApi\Controller\StatsPlayerController::index
-    methods:    POST
+    methods:    OPTIONS|POST

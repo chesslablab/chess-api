@@ -22,7 +22,11 @@ class ApiKeyListener
 
     public function onKernelRequest(RequestEvent $event)
     {
-        $apiKey = $event->getRequest()->headers->get('X-API-KEY');
+        if ('OPTIONS' === $event->getRequest()->getMethod()) {
+            exit;
+        }
+
+        $apiKey = $event->getRequest()->headers->get('X-Api-Key');
         if (!password_verify($_ENV['API_KEY_PASSWORD'], stripslashes($apiKey))) {
             throw new AccessDeniedHttpException();
         }
