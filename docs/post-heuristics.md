@@ -14,7 +14,7 @@ Returns the heuristics of a chess game. A chess game can be plotted in terms of 
 ### Example
 
 ```text
-curl https://chesslablab.net/api/heuristics \
+curl https://api.chesslablab.net/v1/heuristics \
   -H "Content-Type: application/json" \
   --data-raw '{
     "variant": "classical",

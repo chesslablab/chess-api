@@ -1,69 +1,69 @@
-api_annotations_games:
-    path:       /api/annotations/games
+v1_annotations_games:
+    path:       /v1/annotations/games
     controller: ChessApi\Controller\AnnotationsGamesController::index
     methods:    OPTIONS|GET
 
-api_autocomplete_event:
-    path:       /api/autocomplete/event
+v1_autocomplete_event:
+    path:       /v1/autocomplete/event
     controller: ChessApi\Controller\AutocompleteEventController::index
     methods:    OPTIONS|GET
 
-api_autocomplete_player:
-    path:       /api/autocomplete/player
+v1_autocomplete_player:
+    path:       /v1/autocomplete/player
     controller: ChessApi\Controller\AutocompletePlayerController::index
     methods:    OPTIONS|GET
 
-api_download_image:
-    path:       /api/download/image
+v1_download_image:
+    path:       /v1/download/image
     controller: ChessApi\Controller\DownloadImageController::index
     methods:    OPTIONS|POST
 
-api_download_mp4:
-    path:       /api/download/mp4
+v1_download_mp4:
+    path:       /v1/download/mp4
     controller: ChessApi\Controller\DownloadMp4Controller::index
     methods:    OPTIONS|POST
 
-api_heuristics:
-    path:       /api/heuristics
+v1_heuristics:
+    path:       /v1/heuristics
     controller: ChessApi\Controller\HeuristicsController::index
     methods:    OPTIONS|POST
 
-api_inbox_create:
-    path:       /api/inbox/create
+v1_inbox_create:
+    path:       /v1/inbox/create
     controller: ChessApi\Controller\InboxController::create
     methods:    OPTIONS|POST
 
-api_inbox_read:
-    path:       /api/inbox/read
+v1_inbox_read:
+    path:       /v1/inbox/read
     controller: ChessApi\Controller\InboxController::read
     methods:    OPTIONS|POST
 
-api_inbox_reply:
-    path:       /api/inbox/reply
+v1_inbox_reply:
+    path:       /v1/inbox/reply
     controller: ChessApi\Controller\InboxController::reply
     methods:    OPTIONS|POST
 
-api_play_rav:
-    path:       /api/play/rav
+v1_play_rav:
+    path:       /v1/play/rav
     controller: ChessApi\Controller\PlayRavController::index
     methods:    OPTIONS|POST
 
-api_search:
-    path:       /api/search
+v1_search:
+    path:       /v1/search
     controller: ChessApi\Controller\SearchController::index
     methods:    OPTIONS|POST
 
-api_stats_event:
-    path:       /api/stats/event
+v1_stats_event:
+    path:       /v1/stats/event
     controller: ChessApi\Controller\StatsEventController::index
     methods:    OPTIONS|POST
 
-api_stats_opening:
-    path:       /api/stats/opening
+v1_stats_opening:
+    path:       /v1/stats/opening
     controller: ChessApi\Controller\StatsOpeningController::index
     methods:    OPTIONS|GET
 
-api_stats_player:
-    path:       /api/stats/player
+v1_stats_player:
+    path:       /v1/stats/player
     controller: ChessApi\Controller\StatsPlayerController::index
     methods:    OPTIONS|POST

@@ -5,7 +5,7 @@ Returns autocomplete data for chess players.
 ## Example
 
 ```text
-curl https://chesslablab.net/api/autocomplete/player
+curl https://api.chesslablab.net/v1/autocomplete/player
 ```
 
 ```text
