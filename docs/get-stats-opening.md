@@ -5,7 +5,7 @@ Returns statistics about the chess openings available in the database: Draw rate
 ## Example
 
 ```text
-curl https://chesslablab.net/api/stats/opening
+curl https://api.chesslablab.net/v1/stats/opening
 ```
 
 ```text

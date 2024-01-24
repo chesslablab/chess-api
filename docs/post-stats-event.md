@@ -12,7 +12,7 @@ Returns statistics about opening results in chess events.
 ## Example
 
 ```text
-curl https://chesslablab.net/api/stats/event \
+curl https://api.chesslablab.net/v1/stats/event \
   -H "Content-Type: application/json" \
   --data-raw '{
     "Event": "FIDE Candidates 2022",

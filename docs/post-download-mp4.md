@@ -17,7 +17,7 @@ Downloads a video.
 Downloads a classical game from the start position.
 
 ```text
-curl https://chesslablab.net/api/download/mp4 \
+curl https://api.chesslablab.net/v1/download/mp4 \
   -H "Content-Type: application/json" \
   --data-raw '{
     "variant": "classical",
