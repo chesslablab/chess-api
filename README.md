@@ -36,7 +36,7 @@ Alternatively, you may want to run it on a Docker container but first things fir
 
 #### Development
 
-Allow connections from https://ui.chesslablab.net:9443 only.
+Allow connections from https://ui.chesslablab.org:9443 only.
 
 ```
 docker compose -f docker-compose.dev.yml up -d
@@ -52,7 +52,7 @@ docker compose -f docker-compose.staging.yml up -d
 
 #### Production
 
-Allow connections from https://ui.chesslablab.net only.
+Allow connections from https://ui.chesslablab.org only.
 
 ```
 docker compose -f docker-compose.prod.yml up -d
