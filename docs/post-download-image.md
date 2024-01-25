@@ -13,7 +13,7 @@ Downloads an image.
 ## Example
 
 ```text
-curl https://api.chesslablab.net/v1/download/image \
+curl https://api.chesslablab.org/v1/download/image \
   -H "Content-Type: application/json" \
   --data-raw '{
     "variant": "classical",

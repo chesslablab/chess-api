@@ -13,7 +13,7 @@ Returns statistics about opening results by chess player.
 ## Example
 
 ```text
-curl https://api.chesslablab.net/v1/stats/player \
+curl https://api.chesslablab.org/v1/stats/player \
   -H "Content-Type: application/json" \
   --data-raw '{
     "Result": "0-1"
