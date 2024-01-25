@@ -32,7 +32,7 @@ php -S localhost:8000
 
 ### Run the Chess API on a Docker Container
 
-Alternatively, you may want to run it on a Docker container but first things first, make sure to have created the `certificate.crt` and `private.key` files into the `docker/nginx/ssl` folder.
+Alternatively, you may want to run it on a Docker container but first things first, make sure to have created the `fullchain.pem` and `privkey.pem` files into the `docker/nginx/ssl` folder.
 
 #### Development
 

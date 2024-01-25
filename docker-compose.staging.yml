@@ -18,6 +18,6 @@ services:
       volumes:
           - ./:/usr/share/nginx/chess-api
           - ./docker/nginx/conf.d/staging.conf:/etc/nginx/conf.d/staging.conf
-          - ./docker/nginx/ssl/certificate.crt:/etc/nginx/ssl/certificate.crt
-          - ./docker/nginx/ssl/private.key:/etc/nginx/ssl/private.key
+          - ./docker/nginx/ssl/fullchain.pem:/etc/nginx/ssl/fullchain.pem
+          - ./docker/nginx/ssl/privkey.pem:/etc/nginx/ssl/privkey.pem
       working_dir: /usr/share/nginx/chess-api
