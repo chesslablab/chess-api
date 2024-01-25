@@ -1,6 +1,6 @@
 site_name: PHP Chess API
 nav:
-  - Chess API for Web Apps: index.md
+  - PHP Chess API: index.md
   - GET /annotations/games: get-annotations-games.md
   - GET /autocomplete/event: get-autocomplete-event.md
   - GET /autocomplete/player: get-autocomplete-player.md
