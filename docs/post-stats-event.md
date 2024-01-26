@@ -1,4 +1,4 @@
-# POST /stats/event
+# POST /v1/stats/event
 
 Returns statistics about opening results in chess events.
 

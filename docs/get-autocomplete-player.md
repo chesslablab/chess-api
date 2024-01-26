@@ -1,4 +1,4 @@
-# GET /autocomplete/player
+# GET /v1/autocomplete/player
 
 Returns autocomplete data for chess players.
 

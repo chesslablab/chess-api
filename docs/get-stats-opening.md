@@ -1,4 +1,4 @@
-# GET /stats/opening
+# GET /v1/stats/opening
 
 Returns statistics about the chess openings available in the database: Draw rate, win rate for White and win rate for Black.
 

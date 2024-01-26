@@ -1,4 +1,4 @@
-# POST /play/rav
+# POST /v1/play/rav
 
 Plays the moves in a RAV movetext returning the sequence of FEN positions that make up such movetext.
 

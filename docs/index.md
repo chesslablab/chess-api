@@ -1,3 +1,19 @@
 # PHP Chess API
 
-Similar to the [Chess Server](https://github.com/chesslablab/chess-server), the [Chess API](https://github.com/chesslablab/chess-api) provides functionality to play chess online. Also it can be hosted on a custom domain. The main difference between both is that the Chess API endpoints may take few seconds to execute like a file download or a database query, while the Chess Server commands are intended to run faster.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/license/mit/)
+[![Contributors](https://img.shields.io/github/contributors/chesslablab/chess-api)](https://github.com/chesslablab/chess-api/graphs/contributors)
+
+PHP Chess API is a REST-like API that provides chess functionality over an HTTP connection.
+
+Similar to the [PHP Chess Server](https://chess-server.docs.chesslablab.org/), it can be hosted on a custom domain. However, while the chess server handles multiple concurrent connections based on real-time commands, the API endpoints may take a little longer to execute — for example, a file download or a database query.
+
+## Components Based Design
+
+The PHP Chess API has been created using the [Symfony](https://symfony.com/) framework, which is a set of reusable PHP components.
+
+## Lightweight
+
+Dependencies required:
+
+- PHP Chess for chess functionality.
+- PHP dotenv for loading environment variables.

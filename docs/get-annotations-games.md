@@ -1,4 +1,4 @@
-# GET /annotations/games
+# GET /v1/annotations/games
 
 Returns the annotated chess games available in the database.
 

@@ -1,4 +1,4 @@
-# POST /stats/player
+# POST /v1/stats/player
 
 Returns statistics about opening results by chess player.
 

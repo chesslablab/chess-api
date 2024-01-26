@@ -1,4 +1,4 @@
-# POST /download/image
+# POST /v1/download/image
 
 Downloads an image.
 

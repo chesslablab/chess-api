@@ -1,4 +1,4 @@
-# GET /autocomplete/event
+# GET /v1/autocomplete/event
 
 Returns autocomplete data for chess events.
 

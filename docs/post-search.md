@@ -1,4 +1,4 @@
-# POST /search
+# POST /v1/search
 
 Finds up to 25 games matching the criteria.
 

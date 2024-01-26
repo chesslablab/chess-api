@@ -1,4 +1,4 @@
-# POST /download/mp4
+# POST /v1/download/mp4
 
 Downloads a video.
 
