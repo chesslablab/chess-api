@@ -24,14 +24,14 @@ cp .env.example .env
 
 Set up permissions for the `var` directory:
 
-```
+```text
 sudo chown www-data:$USER -R var
 sudo chmod 775 -R var
 ```
 
 Set up permissions for the `storage` directory:
 
-```
+```text
 sudo chown www-data:$USER -R storage
 sudo chmod 775 -R storage
 ```
