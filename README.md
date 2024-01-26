@@ -15,7 +15,7 @@ The PHP Chess API is open-sourced software licensed under the MIT license.
 
 ### Contributions
 
-See the [contributing guidelines](https://github.com/chesslablab/chess-api/blob/main/CONTRIBUTING.md). Happy learning and coding!
+We encourage you to contribute to PHP Chess API! Please follow the [Contributing Guidelines](https://github.com/chesslablab/chess-api/blob/main/CONTRIBUTING.md).
 
 <a href="https://github.com/chesslablab/chess-api/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=chesslablab/chess-api" />
