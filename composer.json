@@ -1,13 +1,13 @@
 {
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
         "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "chesslablab/php-chess": "dev-master",
+        "chesslablab/php-chess": "dev-main",
         "friendsofsymfony/rest-bundle": "^3.6",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
