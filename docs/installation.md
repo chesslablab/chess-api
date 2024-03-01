@@ -2,13 +2,7 @@
 
 ## Setup
 
-Clone the `chesslablab/chess-api` repo into your projects folder as it is described in the following example:
-
-```text
-git clone git@github.com:chesslablab/chess-api.git
-```
-
-Then `cd` the `chess-api` directory and install the Composer dependencies:
+Clone the `chesslablab/chess-api` repo into your projects folder. Then `cd` the `chess-api` directory and install the Composer dependencies:
 
 ```text
 composer install
