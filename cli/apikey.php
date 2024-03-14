@@ -9,6 +9,10 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__.'/../');
 $dotenv->load();
 
-$hash = password_hash($_ENV['API_KEY_PASSWORD'], PASSWORD_BCRYPT);
+$options = [
+    'cost' => 6,
+];
+
+$hash = password_hash($_ENV['API_KEY_PASSWORD'], PASSWORD_BCRYPT, $options);
 
 echo $hash . PHP_EOL;
