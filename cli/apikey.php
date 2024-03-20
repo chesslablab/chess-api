@@ -10,7 +10,7 @@ $dotenv = Dotenv::createImmutable(__DIR__.'/../');
 $dotenv->load();
 
 $options = [
-    'cost' => 6,
+    'cost' => 4,
 ];
 
 $hash = password_hash($_ENV['API_KEY_PASSWORD'], PASSWORD_BCRYPT, $options);
