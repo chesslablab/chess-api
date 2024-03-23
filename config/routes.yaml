@@ -6,7 +6,7 @@ v1_annotations_games:
 v1_autocomplete_event:
     path:       /v1/autocomplete/event
     controller: ChessApi\Controller\AutocompleteEventController::index
-    methods:    OPTIONS|GET
+    methods:    OPTIONS|POST
 
 v1_autocomplete_player:
     path:       /v1/autocomplete/player
