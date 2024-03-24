@@ -11,7 +11,7 @@ v1_autocomplete_event:
 v1_autocomplete_player:
     path:       /v1/autocomplete/player
     controller: ChessApi\Controller\AutocompletePlayerController::index
-    methods:    OPTIONS|GET
+    methods:    OPTIONS|POST
 
 v1_download_image:
     path:       /v1/download/image
