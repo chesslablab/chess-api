@@ -21,15 +21,15 @@ class AutocompleteEventController extends AbstractController
 
         $values[] = [
             'param' => ":$key",
-            'value' => '%'. $params['Event'] .'%',
+            'value' => '%'. current($params) .'%',
             'type' => \PDO::PARAM_STR,
         ];
 
-        $sql = "SELECT * FROM games WHERE $key LIKE :$key ORDER BY RAND() LIMIT 10";
+        $sql = "SELECT DISTINCT $key FROM games WHERE $key LIKE :$key ORDER BY RAND() LIMIT 10";
 
         $arr = Pdo::getInstance($this->getParameter('pdo'))
             ->query($sql, $values)
-            ->fetchAll(\PDO::FETCH_ASSOC);
+            ->fetchAll(\PDO::FETCH_COLUMN);
 
         if ($arr) {
             return $this->json($arr);
