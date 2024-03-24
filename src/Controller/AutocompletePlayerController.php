@@ -25,7 +25,7 @@ class AutocompletePlayerController extends AbstractController
             'type' => \PDO::PARAM_STR,
         ];
 
-        $sql = "SELECT DISTINCT $key FROM games WHERE $key LIKE :$key ORDER BY RAND() LIMIT 10";
+        $sql = "SELECT DISTINCT $key FROM games WHERE $key LIKE :$key LIMIT 10";
 
         $arr = Pdo::getInstance($this->getParameter('pdo'))
             ->query($sql, $values)
