@@ -2,7 +2,7 @@
 
 namespace ChessApi\Controller;
 
-use Chess\FenToBoard;
+use Chess\FenToBoardFactory;
 use Chess\Play\RavPlay;
 use Chess\Variant\Capablanca\Board as CapablancaBoard;
 use Chess\Variant\CapablancaFischer\Board as CapablancaFischerBoard;
@@ -53,26 +53,26 @@ class PlayRavController extends AbstractController
                 $startPos = str_split($params['startPos']);
                 $board = new Chess960Board($startPos);
                 if (isset($params['fen'])) {
-                    $board = FenToBoard::create($params['fen'], $board);
+                    $board = FenToBoardFactory::create($params['fen'], $board);
                 }
                 $ravPlay = new RavPlay($params['movetext'], $board);
             } elseif ($params['variant'] === CapablancaBoard::VARIANT) {
                 $board = new CapablancaBoard();
                 if (isset($params['fen'])) {
-                    $board = FenToBoard::create($params['fen'], $board);
+                    $board = FenToBoardFactory::create($params['fen'], $board);
                 }
                 $ravPlay = new RavPlay($params['movetext'], $board);
             } elseif ($params['variant'] === CapablancaFischerBoard::VARIANT) {
                 $startPos = str_split($params['startPos']);
                 $board = new CapablancaFischerBoard($startPos);
                 if (isset($params['fen'])) {
-                    $board = FenToBoard::create($params['fen'], $board);
+                    $board = FenToBoardFactory::create($params['fen'], $board);
                 }
                 $ravPlay = new RavPlay($params['movetext'], $board);
             } else {
                 $board = new ClassicalBoard();
                 if (isset($params['fen'])) {
-                    $board = FenToBoard::create($params['fen'], $board);
+                    $board = FenToBoardFactory::create($params['fen'], $board);
                 }
                 $ravPlay = new RavPlay($params['movetext'], $board);
             }
