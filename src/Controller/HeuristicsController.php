@@ -63,8 +63,7 @@ class HeuristicsController extends AbstractController
 
         for ($i = 0; $i < count($balance[0]); $i++) {
             $column = array_column($balance, $i);
-            $sum = array_sum($column);
-            if ($sum > 0) {
+            if (min($column) !== max($column)) {
                 $filteredNames[] = $names[$i];
                 $filteredBalance[] = $column;
             }
