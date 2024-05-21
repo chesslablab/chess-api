@@ -7,7 +7,7 @@ REST-like API using the PHP Chess library.
 
 ### Documentation
 
-Read the latest docs [here](https://chess-api.docs.chesslablab.org/).
+Read the latest docs [here](https://chesslablab.github.io/chess-api/).
 
 ### License
 

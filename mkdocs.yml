@@ -1,5 +1,5 @@
 site_name: PHP Chess API
-site_url: https://chess-api.docs.chesslablab.org/
+site_url: https://chesslablab.github.io/chess-api/
 nav:
   - Home: index.md
   - Installation: installation.md
