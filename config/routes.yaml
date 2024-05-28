@@ -23,6 +23,11 @@ v1_download_mp4:
     controller: ChessApi\Controller\DownloadMp4Controller::index
     methods:    OPTIONS|POST
 
+v1_heuristic:
+    path:       /v1/heuristic
+    controller: ChessApi\Controller\HeuristicController::index
+    methods:    OPTIONS|POST
+
 v1_heuristics:
     path:       /v1/heuristics
     controller: ChessApi\Controller\HeuristicsController::index
