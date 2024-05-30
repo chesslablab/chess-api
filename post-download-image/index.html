@@ -67,8 +67,6 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../post-download-mp4/">POST /v1/download/mp4</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../post-heuristics/">POST /v1/heuristics</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../post-search/">POST /v1/search</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../post-stats-event/">POST /v1/stats/event</a>
@@ -115,11 +113,6 @@
 </thead>
 <tbody>
 <tr>
-<td>variant</td>
-<td>Accepts: 960, capablanca, capablanca-fischer, classical.</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>fen</td>
 <td>A FEN string.</td>
 <td>Yes</td>
@@ -135,7 +128,6 @@
 <pre><code class="language-text">curl https://api.chesslablab.org/v1/download/image \
   -H &quot;Content-Type: application/json&quot; \
   --data-raw '{
-    &quot;variant&quot;: &quot;classical&quot;,
     &quot;fen&quot;: &quot;r1bq1rk1/pppnn1bp/3p2p1/3Ppp2/2P1P3/2N2P2/PP2B1PP/R1BQNRK1 w - f6&quot;,
     &quot;flip&quot;: &quot;w&quot;
   }' \
