@@ -72,3 +72,8 @@ v1_stats_player:
     path:       /v1/stats/player
     controller: ChessApi\Controller\StatsPlayerController::index
     methods:    OPTIONS|POST
+
+v1_tutor_fen:
+    path:       /v1/tutor/fen
+    controller: ChessApi\Controller\TutorFenController::index
+    methods:    OPTIONS|POST
