@@ -4,8 +4,6 @@ namespace ChessApi\Controller;
 
 use Chess\FenToBoardFactory;
 use Chess\Play\RavPlay;
-use Chess\Variant\Capablanca\Board as CapablancaBoard;
-use Chess\Variant\CapablancaFischer\Board as CapablancaFischerBoard;
 use Chess\Variant\Chess960\Board as Chess960Board;
 use Chess\Variant\Classical\Board as ClassicalBoard;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,8 +27,6 @@ class PlayRavController extends AbstractController
 
         if (
             $params['variant'] !== Chess960Board::VARIANT &&
-            $params['variant'] !== CapablancaBoard::VARIANT &&
-            $params['variant'] !== CapablancaFischerBoard::VARIANT &&
             $params['variant'] !== ClassicalBoard::VARIANT
         ) {
             throw new BadRequestHttpException();
@@ -42,29 +38,10 @@ class PlayRavController extends AbstractController
             }
         }
 
-        if ($params['variant'] === CapablancaFischerBoard::VARIANT) {
-            if (!isset($params['startPos'])) {
-                throw new BadRequestHttpException();
-            }
-        }
-
         try {
             if ($params['variant'] === Chess960Board::VARIANT) {
                 $startPos = str_split($params['startPos']);
                 $board = new Chess960Board($startPos);
-                if (isset($params['fen'])) {
-                    $board = FenToBoardFactory::create($params['fen'], $board);
-                }
-                $ravPlay = new RavPlay($params['movetext'], $board);
-            } elseif ($params['variant'] === CapablancaBoard::VARIANT) {
-                $board = new CapablancaBoard();
-                if (isset($params['fen'])) {
-                    $board = FenToBoardFactory::create($params['fen'], $board);
-                }
-                $ravPlay = new RavPlay($params['movetext'], $board);
-            } elseif ($params['variant'] === CapablancaFischerBoard::VARIANT) {
-                $startPos = str_split($params['startPos']);
-                $board = new CapablancaFischerBoard($startPos);
                 if (isset($params['fen'])) {
                     $board = FenToBoardFactory::create($params['fen'], $board);
                 }
@@ -90,10 +67,6 @@ class PlayRavController extends AbstractController
             'breakdown' => $ravPlay->getRavMovetext()->getBreakdown(),
             'fen' => $ravPlay->getFen(),
             ...($params['variant'] === Chess960Board::VARIANT
-                ? ['startPos' =>  $params['startPos']]
-                : []
-            ),
-            ...($params['variant'] === CapablancaFischerBoard::VARIANT
                 ? ['startPos' =>  $params['startPos']]
                 : []
             ),
