@@ -28,21 +28,6 @@ v1_heuristic:
     controller: ChessApi\Controller\HeuristicController::index
     methods:    OPTIONS|POST
 
-v1_inbox_create:
-    path:       /v1/inbox/create
-    controller: ChessApi\Controller\InboxController::create
-    methods:    OPTIONS|POST
-
-v1_inbox_read:
-    path:       /v1/inbox/read
-    controller: ChessApi\Controller\InboxController::read
-    methods:    OPTIONS|POST
-
-v1_inbox_reply:
-    path:       /v1/inbox/reply
-    controller: ChessApi\Controller\InboxController::reply
-    methods:    OPTIONS|POST
-
 v1_play_rav:
     path:       /v1/play/rav
     controller: ChessApi\Controller\PlayRavController::index
