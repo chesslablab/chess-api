@@ -3,10 +3,6 @@
 namespace ChessApi\Controller;
 
 use Chess\Media\BoardToMp4;
-use Chess\Variant\Capablanca\Board as CapablancaBoard;
-use Chess\Variant\Capablanca\FEN\StrToBoard as CapablancaFenStrToBoard;
-use Chess\Variant\CapablancaFischer\Board as CapablancaFischerBoard;
-use Chess\Variant\CapablancaFischer\FEN\StrToBoard as CapablancaFischerStrToBoard;
 use Chess\Variant\Chess960\Board as Chess960Board;
 use Chess\Variant\Chess960\FEN\StrToBoard as Chess960FenStrToBoard;
 use Chess\Variant\Classical\Board as ClassicalBoard;
@@ -49,13 +45,6 @@ class DownloadMp4Controller extends AbstractController
                     $startPos = str_split($params['startPos']);
                     $board = (new Chess960FenStrToBoard($params['fen'], $startPos))
                         ->create();
-                } elseif ($params['variant'] === CapablancaBoard::VARIANT) {
-                    $board = (new CapablancaFenStrToBoard($params['fen']))
-                        ->create();
-                } elseif ($params['variant'] === CapablancaFischerBoard::VARIANT) {
-                    $startPos = str_split($params['startPos']);
-                    $board = (new CapablancaFischerStrToBoard($params['fen'], $startPos))
-                        ->create();
                 } elseif ($params['variant'] === ClassicalBoard::VARIANT) {
                     $board = (new ClassicalFenStrToBoard($params['fen']))
                         ->create();
@@ -66,11 +55,6 @@ class DownloadMp4Controller extends AbstractController
                 if ($params['variant'] === Chess960Board::VARIANT) {
                     $startPos = str_split($params['startPos']);
                     $board = new Chess960Board($startPos);
-                } elseif ($params['variant'] === CapablancaBoard::VARIANT) {
-                    $board = new CapablancaBoard();
-                } elseif ($params['variant'] === CapablancaFischerBoard::VARIANT) {
-                    $startPos = str_split($params['startPos']);
-                    $board = new CapablancaFischerStrToBoard($startPos);
                 } elseif ($params['variant'] === ClassicalBoard::VARIANT) {
                     $board = new ClassicalBoard();
                 } else {
