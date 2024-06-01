@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://chesslablab.github.io/chess-api/get-stats-opening/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://chesslablab.github.io/chess-api/post-tutor-fen/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>GET /v1/stats/opening - PHP Chess API</title>
+    <title>POST /v1/tutor/fen - PHP Chess API</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "GET /v1/stats/opening";
-        var mkdocs_page_input_path = "get-stats-opening.md";
-        var mkdocs_page_url = "/chess-api/get-stats-opening/";
+        var mkdocs_page_name = "POST /v1/tutor/fen";
+        var mkdocs_page_input_path = "post-tutor-fen.md";
+        var mkdocs_page_url = "/chess-api/post-tutor-fen/";
       </script>
     
     <!--[if lt IE 9]>
@@ -55,11 +55,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../get-autocomplete-player/">GET /v1/autocomplete/player</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">GET /v1/stats/opening</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../get-stats-opening/">GET /v1/stats/opening</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../post-download-image/">POST /v1/download/image</a>
                   </li>
@@ -73,7 +69,13 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../post-play-rav/">POST /v1/play/rav</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../post-tutor-fen/">POST /v1/tutor/fen</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">POST /v1/tutor/fen</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+    </li>
+    </ul>
                   </li>
               </ul>
       </div>
@@ -91,7 +93,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Endpoints</li>
-      <li class="breadcrumb-item active">GET /v1/stats/opening</li>
+      <li class="breadcrumb-item active">POST /v1/tutor/fen</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -100,53 +102,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="get-v1statsopening">GET /v1/stats/opening</h1>
-<p>Returns statistics about the chess openings available in the database: Draw rate, win rate for White and win rate for Black.</p>
+                <h1 id="post-v1tutorfen">POST /v1/tutor/fen</h1>
+<p>Explains a FEN position in terms of chess concepts.</p>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fen</td>
+<td>A FEN string.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example">Example</h2>
-<pre><code class="language-text">curl https://api.chesslablab.org/v1/stats/opening
+<pre><code class="language-text">curl --request POST \
+  --url https://api.chesslablab.org/v1/tutor/fen \
+  --data '{&quot;fen&quot;:&quot;r1bq1rk1/pppnn1bp/3p2p1/3Ppp2/2P1P3/2N2P2/PP2B1PP/R1BQNRK1 w - f6&quot;}'
 </code></pre>
-<pre><code class="language-text">{
-  &quot;drawRate&quot;: [
-    {
-      &quot;ECO&quot;: &quot;C42&quot;,
-      &quot;total&quot;: 2964
-    },
-    ...
-    {
-      &quot;ECO&quot;: &quot;B23&quot;,
-      &quot;total&quot;: 1044
-    }
-  ],
-  &quot;winRateForWhite&quot;: [
-    {
-      &quot;ECO&quot;: &quot;A45&quot;,
-      &quot;total&quot;: 2880
-    },
-    ...
-    {
-      &quot;ECO&quot;: &quot;B51&quot;,
-      &quot;total&quot;: 1053
-    }
-  ],
-  &quot;winRateForBlack&quot;: [
-    {
-      &quot;ECO&quot;: &quot;A45&quot;,
-      &quot;total&quot;: 2658
-    },
-    ...
-    {
-      &quot;ECO&quot;: &quot;D10&quot;,
-      &quot;total&quot;: 732
-    }
-  ]
-}
+<pre><code class="language-text">&quot;White is totally controlling the center. The white pieces are significantly better connected. White has a moderate space advantage. The black player is pressuring a little bit more squares than its opponent. White has a slight advanced pawn advantage. d5 is an advanced pawn. e6 and d4 are outpost squares. Overall, 4 heuristic evaluation features are favoring White while 1 is favoring Black.&quot;
 </code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../get-autocomplete-player/" class="btn btn-neutral float-left" title="GET /v1/autocomplete/player"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../post-download-image/" class="btn btn-neutral float-right" title="POST /v1/download/image">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../post-play-rav/" class="btn btn-neutral float-left" title="POST /v1/play/rav"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -169,10 +155,8 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../get-autocomplete-player/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../post-play-rav/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
-    
-      <span><a href="../post-download-image/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
