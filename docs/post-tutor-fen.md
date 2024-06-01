@@ -1,6 +1,6 @@
 # POST /v1/tutor/fen
 
-Describe positions of a chess game
+Explains a FEN position in terms of chess concepts.
 
 ## Parameters
 
@@ -8,7 +8,9 @@ Describe positions of a chess game
 | ---- | ----------- | -------- |
 | fen | A FEN string. | Yes |
 
-```bash
+## Example
+
+```text
 curl --request POST \
   --url https://api.chesslablab.org/v1/tutor/fen \
   --data '{"fen":"r1bq1rk1/pppnn1bp/3p2p1/3Ppp2/2P1P3/2N2P2/PP2B1PP/R1BQNRK1 w - f6"}'
