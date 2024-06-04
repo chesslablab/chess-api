@@ -30,6 +30,8 @@ class EvalNamesController extends AbstractController
             $exclude = [];
         }
 
+        $exclude = array_map('trim', $exclude);
+
         $diff = array_diff((new StandardFunction())->names(), $exclude);
 
         return $this->json($diff);
