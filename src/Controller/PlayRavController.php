@@ -53,19 +53,18 @@ class PlayRavController extends AbstractController
                 }
                 $ravPlay = new RavPlay($params['movetext'], $board);
             }
-            $ravPlay->validate();
-            $board = $ravPlay->getBoard();
+            $board = $ravPlay->validate()->board;
         } catch (\Exception $e) {
             throw new BadRequestHttpException();
         }
 
         $arr = [
             'variant' => $params['variant'],
-            'turn' => $board->getTurn(),
-            'filtered' => $ravPlay->getRavMovetext()->filtered(),
-            'movetext' => $ravPlay->getRavMovetext()->main(),
-            'breakdown' => $ravPlay->getRavMovetext()->getBreakdown(),
-            'fen' => $ravPlay->getFen(),
+            'turn' => $board->turn,
+            'filtered' => $ravPlay->ravMovetext->filtered(),
+            'movetext' => $ravPlay->ravMovetext->main(),
+            'breakdown' => $ravPlay->ravMovetext->breakdown,
+            'fen' => $ravPlay->fen,
             ...($params['variant'] === Chess960Board::VARIANT
                 ? ['startPos' =>  $params['startPos']]
                 : []

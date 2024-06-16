@@ -2,7 +2,7 @@
 
 namespace ChessApi\Controller;
 
-use Chess\Heuristic\SanHeuristic;
+use Chess\SanHeuristic;
 use Chess\Variant\Chess960\Board as Chess960Board;
 use Chess\Variant\Chess960\FEN\StrToBoard as Chess960FenStrToBoard;
 use Chess\Variant\Classical\Board as ClassicalBoard;

@@ -22,7 +22,7 @@ class TutorFenController extends AbstractController
 
         $board = FenToBoardFactory::create($params['fen'], new Board());
 
-        $paragraph = (new FenEvaluation($board))->getParagraph();
+        $paragraph = (new FenEvaluation($board))->paragraph;
 
         return $this->json(implode(' ', $paragraph));
     }

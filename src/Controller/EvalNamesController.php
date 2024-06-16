@@ -2,7 +2,7 @@
 
 namespace ChessApi\Controller;
 
-use Chess\Function\StandardFunction;
+use Chess\StandardFunction;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,16 +13,6 @@ class EvalNamesController extends AbstractController
     public function index(Request $request): Response
     {
         $params = json_decode($request->getContent(), true);
-
-        $functions = [
-            StandardFunction::NAME,
-        ];
-
-        if (!isset($params['function'])) {
-            throw new BadRequestHttpException();
-        } elseif (!in_array($params['function'], $functions)) {
-            throw new BadRequestHttpException();
-        }
 
         if (isset($params['exclude'])) {
             $exclude = explode(',', $params['exclude']);
