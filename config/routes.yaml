@@ -62,3 +62,8 @@ v1_tutor_fen:
     path:       /v1/tutor/fen
     controller: ChessApi\Controller\TutorFenController::index
     methods:    OPTIONS|POST
+
+v1_tutor_good_move:
+    path:       /v1/tutor/good-move
+    controller: ChessApi\Controller\TutorGoodMoveController::index
+    methods:    OPTIONS|POST
