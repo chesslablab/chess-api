@@ -1,5 +1,11 @@
 # Installation
 
+## Requirements
+
+- PHP >= 8.1
+- Stockfish >= 15.1
+- [Chess Data](https://github.com/chesslablab/chess-data)
+
 ## Setup
 
 Clone the `chesslablab/chess-api` repo into your projects folder. Then `cd` the `chess-api` directory and install the Composer dependencies:
