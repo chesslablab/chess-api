@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://chesslablab.github.io/chess-api/get-autocomplete-event/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://chesslablab.github.io/chess-api/post-autocomplete-event/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>GET /v1/autocomplete/event - PHP Chess API</title>
+    <title>POST /v1/autocomplete/event - PHP Chess API</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "GET /v1/autocomplete/event";
-        var mkdocs_page_input_path = "get-autocomplete-event.md";
-        var mkdocs_page_url = "/chess-api/get-autocomplete-event/";
+        var mkdocs_page_name = "POST /v1/autocomplete/event";
+        var mkdocs_page_input_path = "post-autocomplete-event.md";
+        var mkdocs_page_url = "/chess-api/post-autocomplete-event/";
       </script>
     
     <!--[if lt IE 9]>
@@ -51,15 +51,17 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../get-annotations-games/">GET /v1/annotations/games</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">GET /v1/autocomplete/event</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
-    </li>
-    </ul>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../get-autocomplete-player/">GET /v1/autocomplete/player</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../get-stats-opening/">GET /v1/stats/opening</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">POST /v1/autocomplete/event</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../post-download-image/">POST /v1/download/image</a>
                   </li>
@@ -91,7 +93,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Endpoints</li>
-      <li class="breadcrumb-item active">GET /v1/autocomplete/event</li>
+      <li class="breadcrumb-item active">POST /v1/autocomplete/event</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -100,25 +102,51 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="get-v1autocompleteevent">GET /v1/autocomplete/event</h1>
+                <h1 id="post-v1autocompleteevent">POST /v1/autocomplete/event</h1>
 <p>Returns autocomplete data for chess events.</p>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Event</td>
+<td>The name of the event.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example">Example</h2>
-<pre><code class="language-text">curl https://api.chesslablab.org/v1/autocomplete/event
+<pre><code class="language-text">curl https://api.chesslablab.org/v1/autocomplete/event \
+  -H &quot;Content-Type: application/json&quot; \
+  --data-raw '{
+    &quot;Event&quot;: &quot;FIDE&quot;
+  }'
 </code></pre>
 <pre><code class="language-text">[
-  &quot;1/2 Coupe de France&quot;,
-  &quot;Event&quot;: &quot;1/4 Coupe de France&quot;,
-  ...
-  &quot;Zvenigorodskaya Open A&quot;,
-  &quot;Zwolle op&quot;
+  &quot;Candidats FIDE sf1&quot;,
+  &quot;Candidats FIDE sf1 playoff rapid&quot;,
+  &quot;Candidats FIDE m2&quot;,
+  &quot;FIDE-Wch k.o.&quot;,
+  &quot;FIDE-Wch k.o. f&quot;,
+  &quot;FIDE-Wch k.o. f 25\u0027&quot;,
+  &quot;FIDE World Cup Gp D&quot;,
+  &quot;FIDE World Cup KO&quot;,
+  &quot;FIDE WCh KO&quot;,
+  &quot;FIDE GP&quot;
 ]
 </code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../get-annotations-games/" class="btn btn-neutral float-left" title="GET /v1/annotations/games"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../get-autocomplete-player/" class="btn btn-neutral float-right" title="GET /v1/autocomplete/player">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../get-stats-opening/" class="btn btn-neutral float-left" title="GET /v1/stats/opening"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../post-download-image/" class="btn btn-neutral float-right" title="POST /v1/download/image">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -141,10 +169,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../get-annotations-games/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../get-stats-opening/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../get-autocomplete-player/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../post-download-image/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
