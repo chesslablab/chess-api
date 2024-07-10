@@ -15,28 +15,27 @@ Returns statistics about opening results in chess events.
 curl https://api.chesslablab.org/v1/stats/event \
   -H "Content-Type: application/json" \
   --data-raw '{
-    "Event": "FIDE Candidates 2022",
-    "Result": "0-1"
+    "Event": "FIDE Candidates 2018",
+    "Result": "1-0"
   }'
 ```
 
 ```text
 [
 	{
-		"ECO": "C42",
+		"ECO": "D35",
 		"total": 2
 	},
 	{
-		"ECO": "C65",
-		"total": 2
-	},
-    ...
-	{
-		"ECO": "A20",
+		"ECO": "A48",
 		"total": 1
 	},
 	{
-		"ECO": "E06",
+		"ECO": "D40",
+		"total": 1
+	},
+	{
+		"ECO": "C50",
 		"total": 1
 	}
 ]

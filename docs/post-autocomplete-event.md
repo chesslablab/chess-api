@@ -14,21 +14,20 @@ Returns autocomplete data for chess events.
 curl https://api.chesslablab.org/v1/autocomplete/event \
   -H "Content-Type: application/json" \
   --data-raw '{
-    "Event": "FIDE"
+    "Event": "candidates"
   }'
 ```
 
 ```text
 [
-  "Candidats FIDE sf1",
-  "Candidats FIDE sf1 playoff rapid",
-  "Candidats FIDE m2",
-  "FIDE-Wch k.o.",
-  "FIDE-Wch k.o. f",
-  "FIDE-Wch k.o. f 25\u0027",
-  "FIDE World Cup Gp D",
-  "FIDE World Cup KO",
-  "FIDE WCh KO",
-  "FIDE GP"
+	"FIDE Candidates 2014",
+	"FIDE Candidates 2016",
+	"WCh Candidates s\/f",
+	"FIDE Candidates",
+	"FIDE Candidates (Women)",
+	"FIDE Women's Candidates",
+	"Women Candidates Pool B",
+	"WCh Candidates",
+	"FIDE Candidates 2018"
 ]
 ```
