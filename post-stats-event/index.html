@@ -130,26 +130,25 @@
 <pre><code class="language-text">curl https://api.chesslablab.org/v1/stats/event \
   -H &quot;Content-Type: application/json&quot; \
   --data-raw '{
-    &quot;Event&quot;: &quot;FIDE Candidates 2022&quot;,
-    &quot;Result&quot;: &quot;0-1&quot;
+    &quot;Event&quot;: &quot;FIDE Candidates 2018&quot;,
+    &quot;Result&quot;: &quot;1-0&quot;
   }'
 </code></pre>
 <pre><code class="language-text">[
     {
-        &quot;ECO&quot;: &quot;C42&quot;,
+        &quot;ECO&quot;: &quot;D35&quot;,
         &quot;total&quot;: 2
     },
     {
-        &quot;ECO&quot;: &quot;C65&quot;,
-        &quot;total&quot;: 2
-    },
-    ...
-    {
-        &quot;ECO&quot;: &quot;A20&quot;,
+        &quot;ECO&quot;: &quot;A48&quot;,
         &quot;total&quot;: 1
     },
     {
-        &quot;ECO&quot;: &quot;E06&quot;,
+        &quot;ECO&quot;: &quot;D40&quot;,
+        &quot;total&quot;: 1
+    },
+    {
+        &quot;ECO&quot;: &quot;C50&quot;,
         &quot;total&quot;: 1
     }
 ]
