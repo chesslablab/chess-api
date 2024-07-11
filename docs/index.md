@@ -9,7 +9,7 @@ Similar to the [PHP Chess Server](https://chesslablab.github.io/chess-server/), 
 
 ## Components Based Design
 
-The PHP Chess API has been created using the [Symfony](https://symfony.com/) framework, which is a set of reusable PHP components.
+PHP Chess API has been created using the [Symfony](https://symfony.com/) framework, which is a set of reusable PHP components.
 
 ## Lightweight
 
