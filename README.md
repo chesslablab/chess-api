@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/license/mit/)
 [![Contributors](https://img.shields.io/github/contributors/chesslablab/chess-api)](https://github.com/chesslablab/chess-api/graphs/contributors)
 
-REST-like API using the PHP Chess library.
+REST-like chess API.
 
 ### Documentation
 
