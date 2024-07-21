@@ -6,10 +6,8 @@ Returns autocomplete data for chess players.
 
 | Name | Description | Required |
 | ---- | ----------- | -------- |
-| White | The name of the player. | Conditional* |
-| Black | The name of the player. | Conditional* |
-
-***One of the parameters (`White` or `Black`) is required**
+| White | The name of the player with the white pieces. | No |
+| Black | The name of the player with the black pieces. | No |
 
 ## Example
 
@@ -23,11 +21,11 @@ curl https://api.chesslablab.org/v1/autocomplete/player \
 
 ```text
 [
-	"Anand, Viswanathan",
-	"Anand,V",
-	"Anand,V / FRITZ7",
-	"Praggnanandhaa,R",
-	"Anand,Vignesh",
-	"Pranav,Anand"
+  "Anand, Viswanathan",
+  "Anand,V",
+  "Anand,V \/ FRITZ7",
+  "Praggnanandhaa,R",
+  "Anand,Vignesh",
+  "Pranav,Anand"
 ]
 ```
