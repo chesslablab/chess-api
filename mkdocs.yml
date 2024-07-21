@@ -5,7 +5,6 @@ nav:
   - Installation: installation.md
   - Endpoints:
     - GET /v1/annotations/games: get-annotations-games.md
-    - GET /v1/autocomplete/player: get-autocomplete-player.md
     - GET /v1/stats/opening: get-stats-opening.md
     - POST /v1/autocomplete/event: post-autocomplete-event.md
     - POST /v1/autocomplete/player: post-autocomplete-player.md
