@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://chesslablab.github.io/chess-api/post-stats-event/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://chesslablab.github.io/chess-api/post-autocomplete-player/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>POST /v1/stats/event - PHP Chess API</title>
+    <title>POST /v1/autocomplete/player - PHP Chess API</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "POST /v1/stats/event";
-        var mkdocs_page_input_path = "post-stats-event.md";
-        var mkdocs_page_url = "/chess-api/post-stats-event/";
+        var mkdocs_page_name = "POST /v1/autocomplete/player";
+        var mkdocs_page_input_path = "post-autocomplete-player.md";
+        var mkdocs_page_url = "/chess-api/post-autocomplete-player/";
       </script>
     
     <!--[if lt IE 9]>
@@ -55,7 +55,13 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../post-autocomplete-event/">POST /v1/autocomplete/event</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../post-autocomplete-player/">POST /v1/autocomplete/player</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">POST /v1/autocomplete/player</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../post-download-image/">POST /v1/download/image</a>
                   </li>
@@ -63,13 +69,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../post-search/">POST /v1/search</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">POST /v1/stats/event</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../post-stats-event/">POST /v1/stats/event</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../post-stats-player/">POST /v1/stats/player</a>
                   </li>
@@ -93,7 +93,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Endpoints</li>
-      <li class="breadcrumb-item active">POST /v1/stats/event</li>
+      <li class="breadcrumb-item active">POST /v1/autocomplete/player</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -102,8 +102,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="post-v1statsevent">POST /v1/stats/event</h1>
-<p>Returns statistics about opening results in chess events.</p>
+                <h1 id="post-v1autocompleteplayer">POST /v1/autocomplete/player</h1>
+<p>Returns autocomplete data for chess players.</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -115,50 +115,39 @@
 </thead>
 <tbody>
 <tr>
-<td>Event</td>
-<td>The name of the event.</td>
+<td>White</td>
+<td>The name of the player with the white pieces.</td>
 <td>No</td>
 </tr>
 <tr>
-<td>Result</td>
-<td>Accepts: 1-0, 0-1, 1/2-1/2.</td>
+<td>Black</td>
+<td>The name of the player with the black pieces.</td>
 <td>No</td>
 </tr>
 </tbody>
 </table>
 <h2 id="example">Example</h2>
-<pre><code class="language-text">curl https://api.chesslablab.org/v1/stats/event \
+<pre><code class="language-text">curl https://api.chesslablab.org/v1/autocomplete/player \
   -H &quot;Content-Type: application/json&quot; \
   --data-raw '{
-    &quot;Event&quot;: &quot;FIDE Candidates 2018&quot;,
-    &quot;Result&quot;: &quot;1-0&quot;
+    &quot;White&quot;: &quot;anand&quot;
   }'
 </code></pre>
 <pre><code class="language-text">[
-    {
-        &quot;ECO&quot;: &quot;D35&quot;,
-        &quot;total&quot;: 2
-    },
-    {
-        &quot;ECO&quot;: &quot;A48&quot;,
-        &quot;total&quot;: 1
-    },
-    {
-        &quot;ECO&quot;: &quot;D40&quot;,
-        &quot;total&quot;: 1
-    },
-    {
-        &quot;ECO&quot;: &quot;C50&quot;,
-        &quot;total&quot;: 1
-    }
+  &quot;Anand, Viswanathan&quot;,
+  &quot;Anand,V&quot;,
+  &quot;Anand,V \/ FRITZ7&quot;,
+  &quot;Praggnanandhaa,R&quot;,
+  &quot;Anand,Vignesh&quot;,
+  &quot;Pranav,Anand&quot;
 ]
 </code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../post-search/" class="btn btn-neutral float-left" title="POST /v1/search"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../post-stats-player/" class="btn btn-neutral float-right" title="POST /v1/stats/player">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../post-autocomplete-event/" class="btn btn-neutral float-left" title="POST /v1/autocomplete/event"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../post-download-image/" class="btn btn-neutral float-right" title="POST /v1/download/image">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -181,10 +170,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../post-search/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../post-autocomplete-event/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../post-stats-player/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../post-download-image/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
