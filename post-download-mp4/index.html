@@ -61,9 +61,19 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">POST /v1/download/mp4</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
+    <li class="toctree-l2"><a class="reference internal" href="#variant">variant</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+    <li class="toctree-l2"><a class="reference internal" href="#movetext">movetext</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#flip">flip</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fen-optional">fen (optional)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#startpos-optional">startPos (optional)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#example">Example</a>
+    </li>
+        </ul>
     </li>
     </ul>
                   </li>
@@ -104,44 +114,28 @@
               
                 <h1 id="post-v1downloadmp4">POST /v1/download/mp4</h1>
 <p>Downloads a video.</p>
-<h2 id="parameters">Parameters</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>variant</td>
-<td>Accepts: 960, classical.</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>fen</td>
-<td>A FEN string.</td>
-<td>No</td>
-</tr>
-<tr>
-<td>movetext</td>
-<td>A portable game notation (PGN) movetext.</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>startPos</td>
-<td>Start position.</td>
-<td>Only in a Chess960 game.</td>
-</tr>
-<tr>
-<td>flip</td>
-<td>Accepts: w, b.</td>
-<td>Yes</td>
-</tr>
-</tbody>
-</table>
-<h2 id="example">Example</h2>
+<h2 id="variant"><code>variant</code></h2>
+<p>The chess variant as per these options.</p>
+<ul>
+<li><code>classical</code> chess, also known as standard or slow chess.</li>
+<li><code>960</code> is the same as classical chess except that the starting position of the pieces is randomized.</li>
+<li><code>dunsany</code> is an asymmetric variant in which Black has the standard chess army and White has 32 pawns.</li>
+<li><code>losing</code> chess, the objective of each player is to lose all of their pieces or be stalemated.</li>
+<li><code>racing-kings</code> consists of being the first player to move their king to the eighth row.</li>
+</ul>
+<h2 id="movetext"><code>movetext</code></h2>
+<p>A portable game notation (PGN) movetext.</p>
+<h2 id="flip"><code>flip</code></h2>
+<p>The orientation of the board as per these options.</p>
+<ul>
+<li><code>w</code> for White's perspective.</li>
+<li><code>b</code> for Black's perspective.</li>
+</ul>
+<h2 id="fen-optional"><code>fen</code> (optional)</h2>
+<p>A FEN string.</p>
+<h2 id="startpos-optional"><code>startPos</code> (optional)</h2>
+<p>The start position in a Chess960 game; for example <code>BRNNKBRQ</code>.</p>
+<h3 id="example">Example</h3>
 <p>Downloads a classical game from the start position.</p>
 <pre><code class="language-text">curl https://api.chesslablab.org/v1/download/mp4 \
   -H &quot;Content-Type: application/json&quot; \

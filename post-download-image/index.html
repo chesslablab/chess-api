@@ -59,9 +59,13 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">POST /v1/download/image</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
+    <li class="toctree-l2"><a class="reference internal" href="#fen">fen</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+    <li class="toctree-l2"><a class="reference internal" href="#flip">flip</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#example">Example</a>
+    </li>
+        </ul>
     </li>
     </ul>
                   </li>
@@ -104,29 +108,15 @@
               
                 <h1 id="post-v1downloadimage">POST /v1/download/image</h1>
 <p>Downloads an image.</p>
-<h2 id="parameters">Parameters</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>fen</td>
-<td>A FEN string.</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>flip</td>
-<td>Accepts: w, b.</td>
-<td>Yes</td>
-</tr>
-</tbody>
-</table>
-<h2 id="example">Example</h2>
+<h2 id="fen"><code>fen</code></h2>
+<p>A FEN string.</p>
+<h2 id="flip"><code>flip</code></h2>
+<p>The orientation of the board as per these options.</p>
+<ul>
+<li><code>w</code> for White's perspective.</li>
+<li><code>b</code> for Black's perspective.</li>
+</ul>
+<h3 id="example">Example</h3>
 <pre><code class="language-text">curl https://api.chesslablab.org/v1/download/image \
   -H &quot;Content-Type: application/json&quot; \
   --data-raw '{

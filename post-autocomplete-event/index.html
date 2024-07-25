@@ -55,9 +55,11 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">POST /v1/autocomplete/event</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
+    <li class="toctree-l2"><a class="reference internal" href="#event">Event</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#example">Example</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+        </ul>
     </li>
     </ul>
                   </li>
@@ -104,24 +106,9 @@
               
                 <h1 id="post-v1autocompleteevent">POST /v1/autocomplete/event</h1>
 <p>Returns autocomplete data for chess events.</p>
-<h2 id="parameters">Parameters</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Event</td>
-<td>The name of the event.</td>
-<td>Yes</td>
-</tr>
-</tbody>
-</table>
-<h2 id="example">Example</h2>
+<h2 id="event"><code>Event</code></h2>
+<p>The name of the event.</p>
+<h3 id="example">Example</h3>
 <pre><code class="language-text">curl https://api.chesslablab.org/v1/autocomplete/event \
   -H &quot;Content-Type: application/json&quot; \
   --data-raw '{

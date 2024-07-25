@@ -57,9 +57,13 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">POST /v1/autocomplete/player</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
+    <li class="toctree-l2"><a class="reference internal" href="#white-optional">White (optional)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+    <li class="toctree-l2"><a class="reference internal" href="#black-optional">Black (optional)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#example">Example</a>
+    </li>
+        </ul>
     </li>
     </ul>
                   </li>
@@ -104,29 +108,11 @@
               
                 <h1 id="post-v1autocompleteplayer">POST /v1/autocomplete/player</h1>
 <p>Returns autocomplete data for chess players.</p>
-<h2 id="parameters">Parameters</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>White</td>
-<td>The name of the player with the white pieces.</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Black</td>
-<td>The name of the player with the black pieces.</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<h2 id="example">Example</h2>
+<h2 id="white-optional"><code>White</code> (optional)</h2>
+<p>The name of the player with the white pieces.</p>
+<h2 id="black-optional"><code>Black</code> (optional)</h2>
+<p>The name of the player with the black pieces.</p>
+<h3 id="example">Example</h3>
 <pre><code class="language-text">curl https://api.chesslablab.org/v1/autocomplete/player \
   -H &quot;Content-Type: application/json&quot; \
   --data-raw '{

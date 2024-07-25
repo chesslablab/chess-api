@@ -63,9 +63,21 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">POST /v1/search</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
+    <li class="toctree-l2"><a class="reference internal" href="#event-optional">Event (optional)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+    <li class="toctree-l2"><a class="reference internal" href="#date-optional">Date (optional)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#white-optional">White (optional)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#black-optional">Black (optional)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#result-optional">Result (optional)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#eco-optional">ECO (optional)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#example">Example</a>
+    </li>
+        </ul>
     </li>
     </ul>
                   </li>
@@ -104,49 +116,24 @@
               
                 <h1 id="post-v1search">POST /v1/search</h1>
 <p>Finds up to 25 games matching the criteria.</p>
-<h2 id="parameters">Parameters</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Event</td>
-<td>The name of the event.</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Date</td>
-<td>The year in which the event took place.</td>
-<td>No</td>
-</tr>
-<tr>
-<td>White</td>
-<td>The player with the white pieces.</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Black</td>
-<td>The player with the black pieces.</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Result</td>
-<td>Accepts: 1-0, 0-1, 1/2-1/2.</td>
-<td>No</td>
-</tr>
-<tr>
-<td>ECO</td>
-<td>Encyclopaedia of Chess Openings (ECO) code.</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<h2 id="example">Example</h2>
+<h2 id="event-optional"><code>Event</code> (optional)</h2>
+<p>The name of the event.</p>
+<h2 id="date-optional"><code>Date</code> (optional)</h2>
+<p>The year in which the event took place.</p>
+<h2 id="white-optional"><code>White</code> (optional)</h2>
+<p>The player with the white pieces.</p>
+<h2 id="black-optional"><code>Black</code> (optional)</h2>
+<p>The player with the black pieces.</p>
+<h2 id="result-optional"><code>Result</code> (optional)</h2>
+<p>The result of the game as per these options.</p>
+<ul>
+<li><code>1-0</code> means White wins.</li>
+<li><code>1/2-1/2</code> means the game is a draw.</li>
+<li><code>0-1</code> means Black wins.</li>
+</ul>
+<h2 id="eco-optional"><code>ECO</code> (optional)</h2>
+<p>Encyclopaedia of Chess Openings (ECO) code.</p>
+<h3 id="example">Example</h3>
 <pre><code class="language-text">curl https://api.chesslablab.org/v1/search \
   -H &quot;Content-Type: application/json&quot; \
   --data-raw '{

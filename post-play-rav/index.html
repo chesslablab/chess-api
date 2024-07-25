@@ -69,9 +69,17 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">POST /v1/play/rav</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
+    <li class="toctree-l2"><a class="reference internal" href="#variant">variant</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+    <li class="toctree-l2"><a class="reference internal" href="#movetext">movetext</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fen-optional">fen (optional)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#startpos-optional">startPos (optional)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#example">Example</a>
+    </li>
+        </ul>
     </li>
     </ul>
                   </li>
@@ -104,44 +112,27 @@
               
                 <h1 id="post-v1playrav">POST /v1/play/rav</h1>
 <p>Plays the moves in a RAV movetext returning the sequence of FEN positions that make up such movetext.</p>
-<h2 id="parameters">Parameters</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>movetext</td>
-<td>A portable game notation (PGN) movetext.</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>variant</td>
-<td>Accepts: 960, classical.</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>fen</td>
-<td>Initial FEN string.</td>
-<td>No</td>
-</tr>
-<tr>
-<td>startPos</td>
-<td>Start position.</td>
-<td>Only in a Chess960 game.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="example">Example</h2>
+<h2 id="variant"><code>variant</code></h2>
+<p>The chess variant as per these options.</p>
+<ul>
+<li><code>classical</code> chess, also known as standard or slow chess.</li>
+<li><code>960</code> is the same as classical chess except that the starting position of the pieces is randomized.</li>
+<li><code>dunsany</code> is an asymmetric variant in which Black has the standard chess army and White has 32 pawns.</li>
+<li><code>losing</code> chess, the objective of each player is to lose all of their pieces or be stalemated.</li>
+<li><code>racing-kings</code> consists of being the first player to move their king to the eighth row.</li>
+</ul>
+<h2 id="movetext"><code>movetext</code></h2>
+<p>A portable game notation (PGN) movetext.</p>
+<h2 id="fen-optional"><code>fen</code> (optional)</h2>
+<p>A FEN string.</p>
+<h2 id="startpos-optional"><code>startPos</code> (optional)</h2>
+<p>The start position in a Chess960 game; for example <code>BRNNKBRQ</code>.</p>
+<h3 id="example">Example</h3>
 <pre><code class="language-text">curl https://api.chesslablab.org/v1/play/rav \
   -H &quot;Content-Type: application/json&quot; \
   --data-raw '{
-    &quot;movetext&quot;: &quot;1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 Be7 5.Bf4 O-O 6.e3 c5 7.dxc5 Bxc5 8.a3 Nc6 9.Rc1 a6 10.b4 Bd6 11.Bg5 a5 12.b5 Ne7 13.Bxf6 gxf6 14.a4 Bb4 15.Be2 dxc4 16.O-O Nd5 17.Na2 Nb6 18.Qc2 e5 19.Nxb4 axb4 20.Bxc4 Nxc4 21.Qxc4 Rxa4 22.Rfd1 Qb6 23.Nh4 Be6 24.Qe4 Qxb5 25.Qf3 Kg7 26.Nf5+ Bxf5 27.Qxf5 b3 28.Rd6 b2 29.Qxf6+ Kg8 30.Qg5+ Kh8 31.Qf6+&quot;,
-    &quot;variant&quot;: &quot;classical&quot;
+    &quot;variant&quot;: &quot;classical&quot;,
+    &quot;movetext&quot;: &quot;1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 Be7 5.Bf4 O-O 6.e3 c5 7.dxc5 Bxc5 8.a3 Nc6 9.Rc1 a6 10.b4 Bd6 11.Bg5 a5 12.b5 Ne7 13.Bxf6 gxf6 14.a4 Bb4 15.Be2 dxc4 16.O-O Nd5 17.Na2 Nb6 18.Qc2 e5 19.Nxb4 axb4 20.Bxc4 Nxc4 21.Qxc4 Rxa4 22.Rfd1 Qb6 23.Nh4 Be6 24.Qe4 Qxb5 25.Qf3 Kg7 26.Nf5+ Bxf5 27.Qxf5 b3 28.Rd6 b2 29.Qxf6+ Kg8 30.Qg5+ Kh8 31.Qf6+&quot;
   }'
 </code></pre>
 <pre><code class="language-text">{
