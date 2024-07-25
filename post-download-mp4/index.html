@@ -70,10 +70,6 @@
     <li class="toctree-l2"><a class="reference internal" href="#fen-optional">fen (optional)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#startpos-optional">startPos (optional)</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#example">Example</a>
-    </li>
-        </ul>
     </li>
     </ul>
                   </li>
@@ -135,8 +131,7 @@
 <p>A FEN string.</p>
 <h2 id="startpos-optional"><code>startPos</code> (optional)</h2>
 <p>The start position in a Chess960 game; for example <code>BRNNKBRQ</code>.</p>
-<h3 id="example">Example</h3>
-<p>Downloads a classical game from the start position.</p>
+<hr />
 <pre><code class="language-text">curl https://api.chesslablab.org/v1/download/mp4 \
   -H &quot;Content-Type: application/json&quot; \
   --data-raw '{
