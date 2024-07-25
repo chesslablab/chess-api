@@ -2,15 +2,23 @@
 
 Returns statistics about opening results by chess player.
 
-## Parameters
+## `White` (optional)
 
-| Name | Description | Required |
-| ---- | ----------- | -------- |
-| White | The player with the white pieces. | No |
-| Black | The player with the black pieces. | No |
-| Result | Accepts: 1-0, 0-1, 1/2-1/2. | No |
+The player with the white pieces.
 
-## Example
+## `Black` (optional)
+
+The player with the black pieces.
+
+## `Result` (optional)
+
+The result of the game as per these options.
+
+- `1-0` means White wins.
+- `1/2-1/2` means the game is a draw.
+- `0-1` means Black wins.
+
+### Example
 
 ```text
 curl https://api.chesslablab.org/v1/stats/player \

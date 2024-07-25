@@ -2,14 +2,15 @@
 
 Returns autocomplete data for chess players.
 
-## Parameters
+## `White` (optional)
 
-| Name | Description | Required |
-| ---- | ----------- | -------- |
-| White | The name of the player with the white pieces. | No |
-| Black | The name of the player with the black pieces. | No |
+The name of the player with the white pieces.
 
-## Example
+## `Black` (optional)
+
+The name of the player with the black pieces.
+
+### Example
 
 ```text
 curl https://api.chesslablab.org/v1/autocomplete/player \

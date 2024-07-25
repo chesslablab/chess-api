@@ -2,13 +2,11 @@
 
 Explains a FEN position in terms of chess concepts.
 
-## Parameters
+## `fen`
 
-| Name | Description | Required |
-| ---- | ----------- | -------- |
-| fen | A FEN string. | Yes |
+A FEN string.
 
-## Example
+### Example
 
 ```text
 curl --request POST \

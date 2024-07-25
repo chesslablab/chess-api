@@ -2,13 +2,11 @@
 
 Returns autocomplete data for chess events.
 
-## Parameters
+## `Event`
 
-| Name | Description | Required |
-| ---- | ----------- | -------- |
-| Event | The name of the event. | Yes |
+The name of the event.
 
-## Example
+### Example
 
 ```text
 curl https://api.chesslablab.org/v1/autocomplete/event \

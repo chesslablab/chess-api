@@ -2,14 +2,19 @@
 
 Returns statistics about opening results in chess events.
 
-## Parameters
+## `Event` (optional)
 
-| Name | Description | Required |
-| ---- | ----------- | -------- |
-| Event | The name of the event. | No |
-| Result | Accepts: 1-0, 0-1, 1/2-1/2. | No |
+The name of the event.
 
-## Example
+## `Result` (optional)
+
+The result of the game as per these options.
+
+- `1-0` means White wins.
+- `1/2-1/2` means the game is a draw.
+- `0-1` means Black wins.
+
+### Example
 
 ```text
 curl https://api.chesslablab.org/v1/stats/event \

@@ -2,23 +2,36 @@
 
 Plays the moves in a RAV movetext returning the sequence of FEN positions that make up such movetext.
 
-## Parameters
+## `variant`
 
-| Name | Description | Required |
-| ---- | ----------- | -------- |
-| movetext | A portable game notation (PGN) movetext. | Yes |
-| variant | Accepts: 960, classical. | Yes |
-| fen | Initial FEN string. | No |
-| startPos | Start position. | Only in a Chess960 game. |
+The chess variant as per these options.
 
-## Example
+- `classical` chess, also known as standard or slow chess.
+- `960` is the same as classical chess except that the starting position of the pieces is randomized.
+- `dunsany` is an asymmetric variant in which Black has the standard chess army and White has 32 pawns.
+- `losing` chess, the objective of each player is to lose all of their pieces or be stalemated.
+- `racing-kings` consists of being the first player to move their king to the eighth row.
+
+## `movetext`
+
+A portable game notation (PGN) movetext.
+
+## `fen` (optional)
+
+A FEN string.
+
+## `startPos` (optional)
+
+The start position in a Chess960 game; for example `BRNNKBRQ`.
+
+### Example
 
 ```text
 curl https://api.chesslablab.org/v1/play/rav \
   -H "Content-Type: application/json" \
   --data-raw '{
-    "movetext": "1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 Be7 5.Bf4 O-O 6.e3 c5 7.dxc5 Bxc5 8.a3 Nc6 9.Rc1 a6 10.b4 Bd6 11.Bg5 a5 12.b5 Ne7 13.Bxf6 gxf6 14.a4 Bb4 15.Be2 dxc4 16.O-O Nd5 17.Na2 Nb6 18.Qc2 e5 19.Nxb4 axb4 20.Bxc4 Nxc4 21.Qxc4 Rxa4 22.Rfd1 Qb6 23.Nh4 Be6 24.Qe4 Qxb5 25.Qf3 Kg7 26.Nf5+ Bxf5 27.Qxf5 b3 28.Rd6 b2 29.Qxf6+ Kg8 30.Qg5+ Kh8 31.Qf6+",
-    "variant": "classical"
+    "variant": "classical",
+    "movetext": "1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 Be7 5.Bf4 O-O 6.e3 c5 7.dxc5 Bxc5 8.a3 Nc6 9.Rc1 a6 10.b4 Bd6 11.Bg5 a5 12.b5 Ne7 13.Bxf6 gxf6 14.a4 Bb4 15.Be2 dxc4 16.O-O Nd5 17.Na2 Nb6 18.Qc2 e5 19.Nxb4 axb4 20.Bxc4 Nxc4 21.Qxc4 Rxa4 22.Rfd1 Qb6 23.Nh4 Be6 24.Qe4 Qxb5 25.Qf3 Kg7 26.Nf5+ Bxf5 27.Qxf5 b3 28.Rd6 b2 29.Qxf6+ Kg8 30.Qg5+ Kh8 31.Qf6+"
   }'
 ```
 

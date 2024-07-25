@@ -2,19 +2,35 @@
 
 Finds up to 25 games matching the criteria.
 
-## Parameters
+## `Event` (optional)
 
-| Name | Description | Required |
-| ---- | ----------- | -------- |
-| Event | The name of the event. | No |
-| Date | The year in which the event took place. | No |
-| White | The player with the white pieces. | No |
-| Black | The player with the black pieces. | No |
-| Result | Accepts: 1-0, 0-1, 1/2-1/2. | No |
-| ECO | Encyclopaedia of Chess Openings (ECO) code. | No |
+The name of the event.
 
+## `Date` (optional)
 
-## Example
+The year in which the event took place.
+
+## `White` (optional)
+
+The player with the white pieces.
+
+## `Black` (optional)
+
+The player with the black pieces.
+
+## `Result` (optional)
+
+The result of the game as per these options.
+
+- `1-0` means White wins.
+- `1/2-1/2` means the game is a draw.
+- `0-1` means Black wins.
+
+## `ECO` (optional)
+
+Encyclopaedia of Chess Openings (ECO) code.
+
+### Example
 
 ```text
 curl https://api.chesslablab.org/v1/search \

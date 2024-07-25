@@ -2,14 +2,18 @@
 
 Downloads an image.
 
-## Parameters
+## `fen`
 
-| Name | Description | Required |
-| ---- | ----------- | -------- |
-| fen | A FEN string. | Yes |
-| flip | Accepts: w, b. | Yes |
+A FEN string.
 
-## Example
+## `flip`
+
+The orientation of the board as per these options.
+
+- `w` for White's perspective.
+- `b` for Black's perspective.
+
+### Example
 
 ```text
 curl https://api.chesslablab.org/v1/download/image \
