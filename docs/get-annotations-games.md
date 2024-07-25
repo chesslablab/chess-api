@@ -2,7 +2,7 @@
 
 Returns the annotated chess games available in the database.
 
-## Example
+---
 
 ```text
 curl https://api.chesslablab.org/v1/annotations/games

@@ -10,7 +10,7 @@ The name of the player with the white pieces.
 
 The name of the player with the black pieces.
 
-### Example
+---
 
 ```text
 curl https://api.chesslablab.org/v1/autocomplete/player \

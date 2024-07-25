@@ -14,7 +14,7 @@ The result of the game as per these options.
 - `1/2-1/2` means the game is a draw.
 - `0-1` means Black wins.
 
-### Example
+---
 
 ```text
 curl https://api.chesslablab.org/v1/stats/event \

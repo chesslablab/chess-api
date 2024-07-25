@@ -30,7 +30,7 @@ The result of the game as per these options.
 
 Encyclopaedia of Chess Openings (ECO) code.
 
-### Example
+---
 
 ```text
 curl https://api.chesslablab.org/v1/search \

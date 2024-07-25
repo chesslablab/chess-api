@@ -31,9 +31,7 @@ A FEN string.
 
 The start position in a Chess960 game; for example `BRNNKBRQ`.
 
-### Example
-
-Downloads a classical game from the start position.
+---
 
 ```text
 curl https://api.chesslablab.org/v1/download/mp4 \

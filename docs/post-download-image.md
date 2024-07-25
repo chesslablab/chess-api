@@ -13,7 +13,7 @@ The orientation of the board as per these options.
 - `w` for White's perspective.
 - `b` for Black's perspective.
 
-### Example
+---
 
 ```text
 curl https://api.chesslablab.org/v1/download/image \

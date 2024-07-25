@@ -6,7 +6,7 @@ Returns autocomplete data for chess events.
 
 The name of the event.
 
-### Example
+---
 
 ```text
 curl https://api.chesslablab.org/v1/autocomplete/event \

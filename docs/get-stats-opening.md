@@ -2,7 +2,7 @@
 
 Returns statistics about the chess openings available in the database: Draw rate, win rate for White and win rate for Black.
 
-## Example
+---
 
 ```text
 curl https://api.chesslablab.org/v1/stats/opening

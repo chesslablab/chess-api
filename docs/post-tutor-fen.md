@@ -6,7 +6,7 @@ Explains a FEN position in terms of chess concepts.
 
 A FEN string.
 
-### Example
+---
 
 ```text
 curl --request POST \
