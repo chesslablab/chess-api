@@ -13,7 +13,7 @@ The name of the player with the black pieces.
 ---
 
 ```text
-curl https://api.chesslablab.org/v1/autocomplete/player \
+curl https://api.chesslablab.org:9443/v1/autocomplete/player \
   -H "Content-Type: application/json" \
   --data-raw '{
     "White": "anand"

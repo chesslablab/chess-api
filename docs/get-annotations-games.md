@@ -5,7 +5,7 @@ Returns the annotated chess games available in the database.
 ---
 
 ```text
-curl https://api.chesslablab.org/v1/annotations/games
+curl https://api.chesslablab.org:9443/v1/annotations/games
 ```
 
 ```text

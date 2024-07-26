@@ -21,7 +21,7 @@ The result of the game as per these options.
 ---
 
 ```text
-curl https://api.chesslablab.org/v1/stats/player \
+curl https://api.chesslablab.org:9443/v1/stats/player \
   -H "Content-Type: application/json" \
   --data-raw '{
     "Result": "0-1"

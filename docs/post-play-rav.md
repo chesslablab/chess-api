@@ -27,7 +27,7 @@ The start position in a Chess960 game; for example `BRNNKBRQ`.
 ---
 
 ```text
-curl https://api.chesslablab.org/v1/play/rav \
+curl https://api.chesslablab.org:9443/v1/play/rav \
   -H "Content-Type: application/json" \
   --data-raw '{
     "variant": "classical",

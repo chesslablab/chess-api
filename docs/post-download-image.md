@@ -16,7 +16,7 @@ The orientation of the board as per these options.
 ---
 
 ```text
-curl https://api.chesslablab.org/v1/download/image \
+curl https://api.chesslablab.org:9443/v1/download/image \
   -H "Content-Type: application/json" \
   --data-raw '{
     "fen": "r1bq1rk1/pppnn1bp/3p2p1/3Ppp2/2P1P3/2N2P2/PP2B1PP/R1BQNRK1 w - f6",

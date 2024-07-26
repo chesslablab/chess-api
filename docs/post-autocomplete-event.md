@@ -9,7 +9,7 @@ The name of the event.
 ---
 
 ```text
-curl https://api.chesslablab.org/v1/autocomplete/event \
+curl https://api.chesslablab.org:9443/v1/autocomplete/event \
   -H "Content-Type: application/json" \
   --data-raw '{
     "Event": "candidates"

@@ -33,7 +33,7 @@ Encyclopaedia of Chess Openings (ECO) code.
 ---
 
 ```text
-curl https://api.chesslablab.org/v1/search \
+curl https://api.chesslablab.org:9443/v1/search \
   -H "Content-Type: application/json" \
   --data-raw '{
     "Black": "Kasparov,G",
