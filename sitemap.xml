@@ -2,67 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://chesslablab.github.io/chess-api/</loc>
-         <lastmod>2024-07-25</lastmod>
+         <lastmod>2024-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/chess-api/get-annotations-games/</loc>
-         <lastmod>2024-07-25</lastmod>
+         <lastmod>2024-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/chess-api/get-stats-opening/</loc>
-         <lastmod>2024-07-25</lastmod>
+         <lastmod>2024-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/chess-api/installation/</loc>
-         <lastmod>2024-07-25</lastmod>
+         <lastmod>2024-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/chess-api/post-autocomplete-event/</loc>
-         <lastmod>2024-07-25</lastmod>
+         <lastmod>2024-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/chess-api/post-autocomplete-player/</loc>
-         <lastmod>2024-07-25</lastmod>
+         <lastmod>2024-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/chess-api/post-download-image/</loc>
-         <lastmod>2024-07-25</lastmod>
+         <lastmod>2024-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/chess-api/post-download-mp4/</loc>
-         <lastmod>2024-07-25</lastmod>
+         <lastmod>2024-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/chess-api/post-play-rav/</loc>
-         <lastmod>2024-07-25</lastmod>
+         <lastmod>2024-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/chess-api/post-search/</loc>
-         <lastmod>2024-07-25</lastmod>
+         <lastmod>2024-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/chess-api/post-stats-event/</loc>
-         <lastmod>2024-07-25</lastmod>
+         <lastmod>2024-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/chess-api/post-stats-player/</loc>
-         <lastmod>2024-07-25</lastmod>
+         <lastmod>2024-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/chess-api/post-tutor-fen/</loc>
-         <lastmod>2024-07-25</lastmod>
+         <lastmod>2024-07-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
