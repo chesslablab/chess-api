@@ -60,14 +60,6 @@ Allow connections from https://chesslablab.org only.
 docker compose -f docker-compose.dev.yml up -d
 ```
 
-### Staging
-
-Allow connections from any origin.
-
-```text
-docker compose -f docker-compose.staging.yml up -d
-```
-
 ### Production
 
 Allow connections from https://chesslablab.org only.
