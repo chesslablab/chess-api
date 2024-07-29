@@ -58,8 +58,6 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#development">Development</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#staging">Staging</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#production">Production</a>
     </li>
         </ul>
@@ -147,15 +145,11 @@ sudo chmod 775 -R storage
 <h2 id="run-the-api-on-a-docker-container">Run the API on a Docker Container</h2>
 <p>Alternatively, you may want to run it on a Docker container but first things first, make sure to have created the <code>fullchain.pem</code> and <code>privkey.pem</code> files into the <code>docker/nginx/ssl</code> folder.</p>
 <h3 id="development">Development</h3>
-<p>Allow connections from https://chesslablab.org only.</p>
+<p>Allow connections from any origin.</p>
 <pre><code class="language-text">docker compose -f docker-compose.dev.yml up -d
 </code></pre>
-<h3 id="staging">Staging</h3>
-<p>Allow connections from any origin.</p>
-<pre><code class="language-text">docker compose -f docker-compose.staging.yml up -d
-</code></pre>
 <h3 id="production">Production</h3>
-<p>Allow connections from https://chesslablab.org only.</p>
+<p>Allow connections from any origin.</p>
 <pre><code class="language-text">docker compose -f docker-compose.prod.yml up -d
 </code></pre>
               
