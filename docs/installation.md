@@ -54,7 +54,7 @@ Alternatively, you may want to run it on a Docker container but first things fir
 
 ### Development
 
-Allow connections from https://chesslablab.org only.
+Allow connections from any origin.
 
 ```text
 docker compose -f docker-compose.dev.yml up -d
@@ -62,7 +62,7 @@ docker compose -f docker-compose.dev.yml up -d
 
 ### Production
 
-Allow connections from https://chesslablab.org only.
+Allow connections from any origin.
 
 ```text
 docker compose -f docker-compose.prod.yml up -d
