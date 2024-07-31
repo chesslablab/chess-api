@@ -6,7 +6,7 @@ Clone the `chesslablab/chess-api` repo into your projects folder. Then `cd` the 
 cp .env.example .env
 ```
 
-Make sure to have installed the `fullchain.pem` and `privkey.pem` files into the `docker/nginx/ssl` folder, and run the Docker containers in detached mode in the background:
+Update the `.env` file to your specific needs. Make sure to have installed the `fullchain.pem` and `privkey.pem` files into the `docker/nginx/ssl` folder, and run the Docker containers in detached mode in the background:
 
 ```txt
 docker compose -f docker-compose.default.yml up -d
