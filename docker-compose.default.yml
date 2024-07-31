@@ -1,12 +1,12 @@
-version: "3.8"
-
 services:
   php:
       build: .
+      user: 1000:1000
       container_name: chess_api_php
       restart: always
       volumes:
           - ./:/usr/share/nginx/chess-api
+          - /usr/share/nginx/chess-api/vendor
           - ./docker/php/8.2/cli/php.ini:/usr/local/etc/php/php.ini
       working_dir: /usr/share/nginx/chess-api
   nginx:
