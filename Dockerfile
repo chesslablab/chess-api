@@ -19,12 +19,11 @@ COPY composer.json composer.json
 
 COPY composer.lock composer.lock
 
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
 RUN composer install \
     --no-interaction \
-    --no-plugins \
-    --no-scripts \
-    --no-dev \
-    --prefer-dist
+    --no-scripts
 
 # By default, Composer runs as root inside the container.
 # This can lead to permission issues on your host filesystem.
