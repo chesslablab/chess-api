@@ -7,7 +7,7 @@ services:
       volumes:
           - ./:/usr/share/nginx/chess-api
           - /usr/share/nginx/chess-api/vendor
-          - ./docker/php/8.2/cli/php.ini:/usr/local/etc/php/php.ini
+          - ./docker/php/8.3/cli/php.ini:/usr/local/etc/php/php.ini
       working_dir: /usr/share/nginx/chess-api
   nginx:
       image: nginx:1.20
