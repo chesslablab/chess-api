@@ -46,22 +46,6 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">Installation</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#file-permissions">File Permissions</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#run-the-api">Run the API</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#run-the-api-on-a-docker-container">Run the API on a Docker Container</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#development">Development</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#production">Production</a>
-    </li>
-        </ul>
-    </li>
     </ul>
                 </li>
               </ul>
@@ -114,43 +98,15 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="installation">Installation</h1>
-<h2 id="requirements">Requirements</h2>
-<ul>
-<li>PHP &gt;= 8.1</li>
-<li>Stockfish &gt;= 15.1</li>
-<li><a href="https://github.com/chesslablab/chess-data">Chess Data</a></li>
-</ul>
-<h2 id="setup">Setup</h2>
-<p>Clone the <code>chesslablab/chess-api</code> repo into your projects folder. Then <code>cd</code> the <code>chess-api</code> directory and install the Composer dependencies:</p>
-<pre><code class="language-text">composer install
-</code></pre>
-<p>Create an <code>.env</code> file:</p>
+<p>Clone the <code>chesslablab/chess-api</code> repo into your projects folder. Then <code>cd</code> the <code>chess-api</code> directory and create an <code>.env</code> file:</p>
 <pre><code class="language-text">cp .env.example .env
 </code></pre>
-<h2 id="file-permissions">File Permissions</h2>
-<p>Set up permissions for the <code>var</code> directory:</p>
-<pre><code class="language-text">sudo chown www-data:$USER -R var
-sudo chmod 775 -R var
+<p>Make sure to have installed the <code>fullchain.pem</code> and <code>privkey.pem</code> files into the <code>docker/nginx/ssl</code> folder.</p>
+<p>Run the Docker containers in detached mode in the background:</p>
+<pre><code class="language-txt">docker compose -f docker-compose.default.yml up -d
 </code></pre>
-<p>Set up permissions for the <code>storage</code> directory:</p>
-<pre><code class="language-text">sudo chown www-data:$USER -R storage
-sudo chmod 775 -R storage
-</code></pre>
-<h2 id="run-the-api">Run the API</h2>
-<p>There is an easy quick way to get the Chess API up and running without an SSL certificate for when testing endpoints that don't require a database connection, e.g., <code>POST /v1/api/download/image</code>. In such cases use <a href="https://www.php.net/manual/en/features.commandline.webserver.php">PHP's built-in web server</a> as described next.</p>
-<pre><code class="language-text">cd public
-</code></pre>
-<pre><code class="language-text">php -S localhost:8000
-</code></pre>
-<h2 id="run-the-api-on-a-docker-container">Run the API on a Docker Container</h2>
-<p>Alternatively, you may want to run it on a Docker container but first things first, make sure to have created the <code>fullchain.pem</code> and <code>privkey.pem</code> files into the <code>docker/nginx/ssl</code> folder.</p>
-<h3 id="development">Development</h3>
-<p>Allow connections from any origin.</p>
-<pre><code class="language-text">docker compose -f docker-compose.dev.yml up -d
-</code></pre>
-<h3 id="production">Production</h3>
-<p>Allow connections from any origin.</p>
-<pre><code class="language-text">docker compose -f docker-compose.prod.yml up -d
+<p>Finally, if you are running the chess API on your localhost along with the <a href="https://github.com/chesslablab/website">website</a>, you may want to add an entry to your <code>/etc/hosts</code> file as per the <code>API</code> variable defined in the <a href="https://github.com/chesslablab/website/blob/main/assets/env.example.js">assets/env.example.js</a> file.</p>
+<pre><code class="language-txt">127.0.0.1       api.chesslablab.org
 </code></pre>
               
             </div>
