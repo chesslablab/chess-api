@@ -101,11 +101,10 @@
 <p>Clone the <code>chesslablab/chess-api</code> repo into your projects folder. Then <code>cd</code> the <code>chess-api</code> directory and create an <code>.env</code> file:</p>
 <pre><code class="language-text">cp .env.example .env
 </code></pre>
-<p>Make sure to have installed the <code>fullchain.pem</code> and <code>privkey.pem</code> files into the <code>docker/nginx/ssl</code> folder.</p>
-<p>Run the Docker containers in detached mode in the background:</p>
+<p>Make sure to have installed the <code>fullchain.pem</code> and <code>privkey.pem</code> files into the <code>docker/nginx/ssl</code> folder, and run the Docker containers in detached mode in the background:</p>
 <pre><code class="language-txt">docker compose -f docker-compose.default.yml up -d
 </code></pre>
-<p>Finally, if you are running the chess API on your localhost along with the <a href="https://github.com/chesslablab/website">website</a>, you may want to add an entry to your <code>/etc/hosts</code> file as per the <code>API</code> variable defined in the <a href="https://github.com/chesslablab/website/blob/main/assets/env.example.js">assets/env.example.js</a> file.</p>
+<p>Finally, if you are running the chess API in a local development environment along with the <a href="https://github.com/chesslablab/website">website</a>, you may want to add a domain name entry to your <code>/etc/hosts</code> file as per the <code>API</code> variable defined in the <a href="https://github.com/chesslablab/website/blob/main/assets/env.example.js">assets/env.example.js</a> file.</p>
 <pre><code class="language-txt">127.0.0.1       api.chesslablab.org
 </code></pre>
               
