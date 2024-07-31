@@ -1,69 +1,21 @@
 # Installation
 
-## Requirements
-
-- PHP >= 8.1
-- Stockfish >= 15.1
-- [Chess Data](https://github.com/chesslablab/chess-data)
-
-## Setup
-
-Clone the `chesslablab/chess-api` repo into your projects folder. Then `cd` the `chess-api` directory and install the Composer dependencies:
-
-```text
-composer install
-```
-
-Create an `.env` file:
+Clone the `chesslablab/chess-api` repo into your projects folder. Then `cd` the `chess-api` directory and create an `.env` file:
 
 ```text
 cp .env.example .env
 ```
 
-## File Permissions
+Make sure to have installed the `fullchain.pem` and `privkey.pem` files into the `docker/nginx/ssl` folder.
 
-Set up permissions for the `var` directory:
+Run the Docker containers in detached mode in the background:
 
-```text
-sudo chown www-data:$USER -R var
-sudo chmod 775 -R var
+```txt
+docker compose -f docker-compose.default.yml up -d
 ```
 
-Set up permissions for the `storage` directory:
+Finally, if you are running the chess API on your localhost along with the [website](https://github.com/chesslablab/website), you may want to add an entry to your `/etc/hosts` file as per the `API` variable defined in the [assets/env.example.js](https://github.com/chesslablab/website/blob/main/assets/env.example.js) file.
 
-```text
-sudo chown www-data:$USER -R storage
-sudo chmod 775 -R storage
-```
-
-## Run the API
-
-There is an easy quick way to get the Chess API up and running without an SSL certificate for when testing endpoints that don't require a database connection, e.g., `POST /v1/api/download/image`. In such cases use [PHP's built-in web server](https://www.php.net/manual/en/features.commandline.webserver.php) as described next.
-
-```text
-cd public
-```
-
-```text
-php -S localhost:8000
-```
-
-## Run the API on a Docker Container
-
-Alternatively, you may want to run it on a Docker container but first things first, make sure to have created the `fullchain.pem` and `privkey.pem` files into the `docker/nginx/ssl` folder.
-
-### Development
-
-Allow connections from any origin.
-
-```text
-docker compose -f docker-compose.dev.yml up -d
-```
-
-### Production
-
-Allow connections from any origin.
-
-```text
-docker compose -f docker-compose.prod.yml up -d
+```txt
+127.0.0.1       api.chesslablab.org
 ```
