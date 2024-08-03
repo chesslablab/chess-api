@@ -23,10 +23,6 @@
 /docker/nginx/ssl/*.crt
 /docker/nginx/ssl/*.key
 
-### storage
-/storage/tmp/*
-!/storage/tmp/.gitkeep
-
 ### var
 !/var/.gitkeep
 
