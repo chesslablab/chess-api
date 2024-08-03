@@ -8,8 +8,6 @@ nav:
     - GET /v1/stats/opening: get-stats-opening.md
     - POST /v1/autocomplete/event: post-autocomplete-event.md
     - POST /v1/autocomplete/player: post-autocomplete-player.md
-    - POST /v1/download/image: post-download-image.md
-    - POST /v1/download/mp4: post-download-mp4.md
     - POST /v1/search: post-search.md
     - POST /v1/stats/event: post-stats-event.md
     - POST /v1/stats/player: post-stats-player.md
