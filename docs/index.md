@@ -5,7 +5,7 @@
 
 PHP Chess API is a REST-like API that provides chess functionality over an HTTP connection. It goes hand in hand with a MySQL chess database which is to be set up as per the [Chess Data](https://chesslablab.github.io/chess-data/) docs.
 
-Similar to the [PHP Chess Server](https://chesslablab.github.io/chess-server/), it can be hosted on a custom domain. However, while the chess server handles multiple concurrent connections based on real-time commands, the API endpoints may take a little longer to execute — for example, a file download or a database query.
+Similar to the [PHP Chess Server](https://chesslablab.github.io/chess-server/), it can be hosted on a custom domain. However, while the chess server handles multiple concurrent connections based on real-time commands, the API endpoints may take a little longer to execute — for example, a database query.
 
 ## Components Based Design
 
