@@ -38,9 +38,3 @@ services:
             - '@router'
         tags:
             - { name: kernel.event_listener, event: kernel.terminate }
-
-    ChessApi\EventListener\DownloadMp4Listener:
-        arguments:
-            - '@router'
-        tags:
-            - { name: kernel.event_listener, event: kernel.terminate }
