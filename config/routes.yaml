@@ -13,11 +13,6 @@ v1_autocomplete_player:
     controller: ChessApi\Controller\AutocompletePlayerController::index
     methods:    OPTIONS|POST
 
-v1_download_image:
-    path:       /v1/download/image
-    controller: ChessApi\Controller\DownloadImageController::index
-    methods:    OPTIONS|POST
-
 v1_eval_names:
     path:       /v1/eval/names
     controller: ChessApi\Controller\EvalNamesController::index
