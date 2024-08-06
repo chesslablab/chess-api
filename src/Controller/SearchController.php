@@ -37,9 +37,7 @@ class SearchController extends AbstractController
                 ))->validate();
             }
         } catch (\Exception $e) {
-            $response = new Response();
-            $response->setStatusCode(Response::HTTP_NO_CONTENT);
-            return $response;
+            return new Response('', Response::HTTP_NO_CONTENT);
         }
 
         $sql = 'SELECT * FROM games WHERE ';
@@ -69,10 +67,7 @@ class SearchController extends AbstractController
         }
 
         if (!$values) {
-            $response = new Response();
-            $response->setStatusCode(Response::HTTP_RESET_CONTENT);
-
-            return $response;
+            return new Response('', Response::HTTP_RESET_CONTENT);
         }
 
         str_ends_with($sql, 'WHERE ')
@@ -89,9 +84,6 @@ class SearchController extends AbstractController
             return $this->json($arr);
         }
 
-        $response = new Response();
-        $response->setStatusCode(Response::HTTP_NO_CONTENT);
-
-        return $response;
+        return new Response('', Response::HTTP_NO_CONTENT);
     }
 }
