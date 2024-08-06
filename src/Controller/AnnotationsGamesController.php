@@ -20,10 +20,6 @@ class AnnotationsGamesController extends AbstractController
             'games' => json_decode($games),
         ]);
 
-        $response = new Response();
-        $response->setContent($content);
-        $response->headers->set('Content-Type', 'application/json');
-
-        return $response;
+        return new Response($content, 200, ['content-type' => 'application/json']);
     }
 }
