@@ -58,9 +58,6 @@ class StatsPlayerController extends AbstractController
             return $this->json($arr);
         }
 
-        $response = new Response();
-        $response->setStatusCode(Response::HTTP_NO_CONTENT);
-
-        return $response;
+        return new Response('', Response::HTTP_NO_CONTENT);
     }
 }
